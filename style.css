@@ -21,6 +21,13 @@
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
+  /* justified body copy site-wide; single-line paragraphs (badges,
+     labels, one-liners) are unaffected - justify only stretches wrapped
+     text, so this only actually changes anything on the multi-line ones.
+     .bubble-detail and .creative-item-desc-inner are real prose blocks
+     too, just marked up as span/div rather than <p> */
+  p, .bubble-detail, .creative-item-desc-inner { text-align: justify; }
+
   html {
     scroll-behavior: smooth;
     /* proximity, not mandatory: mandatory has no snap point mid-page, so
@@ -847,6 +854,24 @@
   /* two reading levels: the summary sentence always shows; the rest of
      the story stays collapsed until "read more" is clicked (not hover -
      this one's an explicit, deliberate unfold, not a quick peek) */
+  /* stand-in for an eventual screenshot or demo clip - same dashed-border
+     language as .placeholder elsewhere, sized like a real media embed so
+     swapping in an actual <img>/<video> later won't reflow the card */
+  #portfolio .project-media {
+    margin-top: 1rem;
+    aspect-ratio: 16 / 9;
+    border: 1.5px dashed rgba(43, 51, 80, 0.25);
+    border-radius: 14px;
+    background: rgba(43, 51, 80, 0.03);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(43, 51, 80, 0.45);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-align: center;
+  }
+
   #portfolio .project-summary { margin-bottom: 0; }
   #portfolio .project-more {
     max-width: 70ch;

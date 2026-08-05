@@ -269,18 +269,28 @@ function currentScrollIndex() {
    the page's global scroll-snap-type is "proximity" (soft: only pulls in
    if you stop right near a boundary), so most sections can be left
    resting mid-page. These two get a firmer, mandatory-like pull: once
-   scrolling settles and they're the nearest page, force-align to their
-   exact top instead of leaving it to chance. */
+   scrolling settles close to one of their top edges, force-align to it
+   instead of leaving it to chance.
+
+   this used to key off Math.round(currentScrollIndex()), which rounds
+   based on *fractional position within the current section's own
+   height* - fine for normal single-screen sections, but #portfolio can
+   be much taller than one viewport (many expandable projects), so
+   crossing its own halfway point already rounded to cv's index and
+   yanked the reader down mid-article. checking actual pixel distance to
+   each target's top instead means it only fires near the real boundary. */
 const strongSnapEls = [document.getElementById('how-i-work'), document.getElementById('cv')];
 let scrollSettleTimer = null;
 window.addEventListener('scroll', () => {
   clearTimeout(scrollSettleTimer);
   scrollSettleTimer = setTimeout(() => {
-    const el = pageEls[Math.round(currentScrollIndex())];
-    if (!strongSnapEls.includes(el)) return;
-    const targetY = el.offsetTop;
-    if (Math.abs(window.scrollY - targetY) > 2) {
-      window.scrollTo({ top: targetY, behavior: 'smooth' });
+    for (const el of strongSnapEls) {
+      const targetY = el.offsetTop;
+      const dist = window.scrollY - targetY;
+      if (Math.abs(dist) < window.innerHeight * 0.35) {
+        if (Math.abs(dist) > 2) window.scrollTo({ top: targetY, behavior: 'smooth' });
+        return;
+      }
     }
   }, 120);
 }, { passive: true });
