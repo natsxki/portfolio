@@ -525,6 +525,54 @@ document.querySelectorAll('#how-i-work .bubble').forEach((card) => {
 });
 
 /* ============================================================
+   HOW-I-WORK BUBBLES - cascade from a vertical stack (narrowest
+   screens) into a diagonal, backslash-like spread (everything else),
+   interpolated smoothly as the window resizes. Flex-wrap can only
+   jump between "one row" and "one column" at a breakpoint; sliding
+   continuously from a stack into a diagonal needs each bubble's
+   position computed directly, so left/top are set here instead.
+============================================================ */
+const bubblesEl = document.querySelector('#how-i-work .bubbles');
+const bubbleEls = bubblesEl ? Array.from(bubblesEl.querySelectorAll('.bubble')) : [];
+
+function layoutBubbles() {
+  if (!bubblesEl || !bubbleEls.length) return;
+  const bubbleSize = bubbleEls[0].getBoundingClientRect().width || 170;
+  // measured against the section's content width (bubbles' own parent),
+  // not window.innerWidth directly, so the section's padding is already
+  // accounted for
+  const containerWidth = bubblesEl.parentElement.clientWidth;
+
+  // below NARROW: a plain vertical stack, one per row. at/above WIDE: the
+  // full diagonal cascade. in between, every bubble's x/y is linearly
+  // interpolated between its stacked and spread position, so resizing
+  // slides between the two arrangements instead of snapping at a
+  // breakpoint.
+  const NARROW = 420;
+  const WIDE = 760;
+  const t = Math.min(1, Math.max(0, (containerWidth - NARROW) / (WIDE - NARROW)));
+
+  const gapStacked = 20;
+  const stepXSpread = bubbleSize + 24;
+  const stepYSpread = bubbleSize * 0.42;
+
+  let maxBottom = 0;
+  bubbleEls.forEach((el, i) => {
+    const yStacked = i * (bubbleSize + gapStacked);
+    const xSpread = i * stepXSpread;
+    const ySpread = i * stepYSpread;
+    const x = xSpread * t;
+    const y = yStacked + (ySpread - yStacked) * t;
+    el.style.left = `${x}px`;
+    el.style.top = `${y}px`;
+    maxBottom = Math.max(maxBottom, y + bubbleSize);
+  });
+  bubblesEl.style.height = `${maxBottom}px`;
+}
+layoutBubbles();
+window.addEventListener('resize', layoutBubbles);
+
+/* ============================================================
    PORTFOLIO PROJECTS - "read more" unfolds the full story below the
    one-sentence summary, so the page reads at two levels
 ============================================================ */
@@ -556,18 +604,36 @@ let cvArrowLength = 0;
 // a 0-100 "percentage" viewBox stretched non-uniformly to fill the section -
 // that stretch, combined with vector-effect:non-scaling-stroke, made
 // Chromium glitch the dash-draw animation into broken-looking segments
+const cvSection = document.getElementById('cv');
+const cvCard = cvSection ? cvSection.querySelector('.card') : null;
+
 function layoutCvArrow() {
   if (!cvArrowSvg || !cvArrowPath) return;
   const w = window.innerWidth;
   const h = window.innerHeight;
   cvArrowSvg.setAttribute('viewBox', `0 0 ${w} ${h}`);
-  // starts just past the card's right edge (card is 60vw wide, starting
-  // 6vw in, so it ends ~66vw across) and sweeps up into a convex curve
-  // (control points stay low, so the curve keeps rising all the way to
-  // the end instead of cresting early and dipping back down) ending near
-  // the linkedin/email icons (~94.5% across, ~8% down) rather than the
-  // github one
-  const d = `M ${0.68 * w} ${0.30 * h} C ${0.78 * w} ${0.32 * h}, ${0.90 * w} ${0.18 * h}, ${0.945 * w} ${0.08 * h}`;
+  // starts just past the card's actual right edge, measured live instead
+  // of assumed from a fixed 60vw card width - the card's width is itself
+  // responsive now, so a hardcoded vw fraction would drift off the card's
+  // edge as soon as the card's own sizing changed. Measuring both rects
+  // and taking the difference gives the card's position *relative to the
+  // section* (matching .cv-contact's own coordinate space, since it's
+  // absolutely positioned against the section, not the viewport) rather
+  // than the current scroll-dependent viewport position.
+  let startX = 0.68 * w;
+  let startY = 0.30 * h;
+  if (cvSection && cvCard) {
+    const sectionRect = cvSection.getBoundingClientRect();
+    const cardRect = cvCard.getBoundingClientRect();
+    startX = (cardRect.right - sectionRect.left) + 0.025 * w;
+    startY = (cardRect.top - sectionRect.top) + cardRect.height * 0.4;
+  }
+  // sweeps up into a convex curve (control points stay low, so the curve
+  // keeps rising all the way to the end instead of cresting early and
+  // dipping back down) ending near the linkedin/email icons (~94.5%
+  // across, ~8% down) rather than the github one - those stay viewport
+  // fractions since the icons are position:fixed, not part of the card
+  const d = `M ${startX} ${startY} C ${startX + 0.10 * w} ${startY + 0.02 * h}, ${0.90 * w} ${0.18 * h}, ${0.945 * w} ${0.08 * h}`;
   cvArrowPath.setAttribute('d', d);
   cvArrowLength = cvArrowPath.getTotalLength();
   // the caption text follows this second, unrendered path - a copy of the
@@ -575,7 +641,7 @@ function layoutCvArrow() {
   // floating just above the line rather than sitting on top of it
   if (cvArrowTextPath) {
     const lift = 14;
-    const dText = `M ${0.68 * w} ${0.30 * h - lift} C ${0.78 * w} ${0.32 * h - lift}, ${0.90 * w} ${0.18 * h - lift}, ${0.945 * w} ${0.08 * h - lift}`;
+    const dText = `M ${startX} ${startY - lift} C ${startX + 0.10 * w} ${startY + 0.02 * h - lift}, ${0.90 * w} ${0.18 * h - lift}, ${0.945 * w} ${0.08 * h - lift}`;
     cvArrowTextPath.setAttribute('d', dText);
   }
   const isVisible = cvContact && cvContact.classList.contains('visible');
@@ -804,6 +870,9 @@ function applyTranslations(lang) {
   });
   currentLang = lang;
   localStorage.setItem('portfolioLang', lang);
+  // cv card height can shift a little between languages; keep the arrow
+  // anchored to its actual edge rather than wherever it was pre-switch
+  layoutCvArrow();
 }
 
 const langSwitcher = document.querySelector('.lang-switcher');

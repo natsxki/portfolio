@@ -148,7 +148,10 @@
     z-index: 10;
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
+    /* nowrap, not wrap: wrapping would break the pill into two rows once
+       the links don't fit. .nav-links scrolls internally instead (see
+       below), so the pill itself always stays a single row. */
+    flex-wrap: nowrap;
     align-items: center;
     max-width: calc(100vw - 3.2rem);
     background: var(--card);
@@ -234,24 +237,40 @@
     align-items: center;
     gap: 1.3rem;
     max-width: 0;
+    /* flex items default to min-width:auto (content-sized floor), which
+       would otherwise stop this from shrinking below its unrolled width
+       and push the pill itself past the screen edge instead of scrolling
+       internally - min-width:0 removes that floor. */
+    min-width: 0;
     margin-left: 0;
     padding-left: 0;
     opacity: 0;
     overflow: hidden;
     white-space: nowrap;
     border-left: 1.5px solid transparent;
+    /* hide the scrollbar itself (still fully scrollable by touch/trackpad/
+       wheel) so a thin scrollbar doesn't sit awkwardly inside the pill */
+    scrollbar-width: none;
     transition: max-width 0.55s cubic-bezier(0.22, 1, 0.36, 1),
                 margin-left 0.55s cubic-bezier(0.22, 1, 0.36, 1),
                 padding-left 0.55s cubic-bezier(0.22, 1, 0.36, 1),
                 opacity 0.4s ease,
                 border-color 0.4s ease;
   }
+  .nav-links::-webkit-scrollbar { display: none; }
   .page-nav:hover .nav-links,
   .page-nav:focus-within .nav-links {
-    max-width: 700px;
+    /* capped to the viewport, not a flat 700px: on a narrow/mobile window
+       700px would force this past the screen edge. Whatever doesn't fit
+       becomes reachable by scrolling instead of being cropped off with
+       no way to reach it. */
+    max-width: min(700px, calc(100vw - 7rem));
     margin-left: 0.9rem;
     padding-left: 1.1rem;
     opacity: 1;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
     border-color: rgba(43, 51, 80, 0.15);
     transition: max-width 0.55s cubic-bezier(0.22, 1, 0.36, 1),
                 margin-left 0.55s cubic-bezier(0.22, 1, 0.36, 1),
@@ -926,14 +945,20 @@
     0%, 100% { transform: translateY(0); }
     50%      { transform: translateY(-8px); }
   }
+  /* position is computed in script.js (layoutBubbles): plain flex/grid
+     can't fluidly bridge "one column" (narrowest screens) and "diagonal
+     backslash cascade" (everything else) as the window resizes, so each
+     bubble gets an explicit left/top instead, recalculated on resize.
+     width/height stay JS-driven too, sized to whatever the cascade
+     actually needs. */
   #how-i-work .bubbles {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.4rem;
-    max-width: 88vw;
+    position: relative;
+    max-width: 100%;
   }
   #how-i-work .bubble {
-    position: relative;
+    position: absolute;
+    left: 0;
+    top: 0;
     width: 170px;
     height: 170px;
     border: none;
@@ -950,7 +975,9 @@
     color: var(--ink);
     animation: bubbleFloat 6s ease-in-out infinite;
     font-family: var(--body);
-    transition: width 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    transition: left 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+                top 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+                width 0.4s cubic-bezier(0.22, 1, 0.36, 1),
                 height 0.4s cubic-bezier(0.22, 1, 0.36, 1),
                 border-radius 0.4s cubic-bezier(0.22, 1, 0.36, 1),
                 box-shadow 0.3s;
