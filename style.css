@@ -463,7 +463,14 @@
     scroll-snap-stop: always; /* can't fling past a section */
   }
 
-  section .card { max-width: 60vw; width: 100%; }
+  /* min(90vw, 880px) instead of a flat 60vw: on a wide desktop window
+     this settles at the same ~880px reading width 60vw used to give
+     around typical laptop widths, but on a narrower window the 90vw
+     term takes over and the card actually uses the space instead of
+     staying pinned to a shrinking fraction of it - the same "adapt to
+     whatever room exists" behavior #creative already gets for free
+     from its fit-content card + wrapping tile grid. */
+  section .card { max-width: min(90vw, 880px); width: 100%; }
 
   /* alternate which side of the viewport each page's card sits on,
      leaving open ground on the other side for the duck to run into */
@@ -481,7 +488,7 @@
     justify-content: center;
     gap: 1.8rem;
   }
-  #how-i-work .card { max-width: 60vw; width: auto; }
+  #how-i-work .card { max-width: min(90vw, 880px); width: auto; }
 
   /* about and timeline stay full 100vh pages (so each is fully snapped/
      focused on its own, and timeline never peeks in while about is on
@@ -490,7 +497,13 @@
      next, so the two cards land right next to each other across the
      snap boundary: close as you scroll between them, without ever being
      visible together. */
-  #about { align-items: flex-end; padding-top: 10vh; padding-bottom: 4vh; }
+  /* padding-bottom has an absolute floor, not just 4vh: the fixed
+     next-section-btn sits in that same bottom-left corner (position:fixed,
+     ~114px tall reach from the viewport edge, independent of vh), and the
+     wider card introduced above now reaches far enough left on a narrow
+     window that a pure vh value let its bottom row collide with the
+     button. The floor guarantees clearance regardless of viewport height. */
+  #about { align-items: flex-end; padding-top: 10vh; padding-bottom: max(4vh, 7rem); }
   #timeline { align-items: flex-start; padding-top: 4vh; padding-bottom: 8vh; }
 
   /* the tile grid below is a fixed 3-per-row width, so the card just
