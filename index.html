@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>lylia - portfolio</title>
+<link rel="icon" id="favicon" type="image/png" href="media/opened-duck.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Dongle&family=Gaegu&family=Gamja+Flower&family=Gowun+Batang&family=Grandiflora+One&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Lexend:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=New+Tegomin&family=Quicksand:wght@300..700&family=Sen:wght@400..800&family=Shippori+Mincho+B1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<canvas id="scene"></canvas>
+
+<nav class="social-links" aria-label="social links">
+  <a class="icon-btn" href="https://github.com/natsxki" target="_blank" rel="noopener noreferrer" aria-label="GitHub: natsxki">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.757-1.333-1.757-1.089-.744.084-.729.084-.729 1.205.084 1.838 1.238 1.838 1.238 1.07 1.834 2.809 1.304 3.495.997.108-.775.418-1.305.762-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.467-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+  </a>
+  <a class="icon-btn" href="https://www.linkedin.com/in/lylia-mesa" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn: lylia-mesa">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.368-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+  </a>
+  <div class="social-item">
+    <button type="button" class="icon-btn" aria-label="Email me" aria-haspopup="true">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+    </button>
+    <div class="email-panel">
+      <div class="email-header">
+        <img class="email-avatar" src="media/profile.png" alt="">
+        <p class="email-name">Lylia Mesa</p>
+      </div>
+      <a class="email-address" href="mailto:lylia.mesa@telecom-paris.fr">lylia.mesa@telecom-paris.fr</a>
+    </div>
+  </div>
+</nav>
+
+<nav class="page-nav" aria-label="page navigation">
+  <a href="#hero" data-idx="0" class="home-link" aria-label="back to home">
+    <img class="duck-open" src="media/opened-duck.png" alt="">
+    <img class="duck-closed" src="media/closed-duck.png" alt="">
+  </a>
+  <div class="lang-switcher">
+    <button type="button" class="lang-btn" aria-haspopup="true" aria-expanded="false" aria-label="choose language">
+      <img src="media/eng.png" alt="">
+    </button>
+    <div class="lang-menu">
+      <button type="button" class="lang-option active" data-flag="media/eng.png"><img src="media/eng.png" alt="">English</button>
+      <button type="button" class="lang-option" data-flag="media/france.png"><img src="media/france.png" alt="">Français</button>
+      <button type="button" class="lang-option" data-flag="media/japan.png"><img src="media/japan.png" alt="">日本語</button>
+      <button type="button" class="lang-option" data-flag="media/germany.png"><img src="media/germany.png" alt="">Deutsch</button>
+    </div>
+  </div>
+  <div class="nav-links">
+    <a href="#about" data-idx="1">about me</a>
+    <a href="#how-i-work" data-idx="3">how i work</a>
+    <a href="#portfolio" data-idx="4">portfolio</a>
+    <a href="#cv" data-idx="5">cv</a>
+    <a href="#creative" data-idx="6">other fun stuff</a>
+  </div>
+</nav>
+
+<button id="next-section-btn" class="next-section-btn" aria-label="scroll to next section">
+  <span class="next-section-btn-label">next</span>
+  <span class="next-section-btn-title"></span>
+  <span class="next-section-btn-arrow">↓</span>
+</button>
+
+<main>
+  <div class="hero" id="hero">
+    <p class="hello">cultures · systems · forms</p>
+    <h1>hi, i'm Lylia!</h1>
+    <p class="scroll-hint">scroll down to learn more about me :)↓</p>
+  </div>
+
+  <section id="about">
+    <div class="card reveal">
+      <h2>i'm Lylia! nice to meet you c:</h2>
+      <p>
+        Growing up between French and Japanese cultures, while navigating German and English in school, taught me early on that the best communication requires no translation. I'm applying that same instinct to product: I've spent time in engineering, design and strategy, and what I actually like is the seam between them. Turning a messy, ambiguous problem into a decision the whole team can act on is what passionates me.
+      </p>
+      <p class="status-badge"><strong>Currently:</strong> SWE Intern @ ArianeGroup · <strong>Seeking:</strong> 6-month PM internship, from March 2027</p>
+    </div>
+  </section>
+
+  <!-- no page-nav entry: this reads as an extension of "about me", just its
+       own snap-scroll stop so it doesn't get crowded into that card -->
+  <section id="timeline">
+    <div class="card reveal">
+      <h2>timeline</h2>
+      <div class="about-timeline-grid">
+        <div class="about-timeline-col">
+          <h4>academics</h4>
+          <div class="about-timeline-entry reveal">
+            <span class="about-timeline-year">2024 – Spring 2028</span>
+            <span class="about-timeline-what">MSc in Engineering, Télécom Paris (IP Paris)</span>
+          </div>
+        </div>
+        <div class="about-timeline-col">
+          <h4>professional</h4>
+          <div class="about-timeline-entry reveal">
+            <span class="about-timeline-year">Sep 2026 – Feb 2027</span>
+            <span class="about-timeline-what">Software Engineering Intern, ArianeGroup</span>
+          </div>
+          <div class="about-timeline-entry reveal">
+            <span class="about-timeline-year">May 2026 – Present</span>
+            <span class="about-timeline-what">AI Evaluator (part-time), DataAnnotation</span>
+          </div>
+          <div class="about-timeline-entry reveal">
+            <span class="about-timeline-year">Jun – Jul 2025</span>
+            <span class="about-timeline-what">Strategy &amp; Technology Consulting Intern, EY</span>
+          </div>
+          <div class="about-timeline-entry reveal">
+            <span class="about-timeline-year">Jul – Aug 2024</span>
+            <span class="about-timeline-what">Assistant to the President, Japanese Olympic Committee</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="how-i-work">
+    <div class="card reveal">
+      <h2>how i work</h2>
+    </div>
+    <div class="bubbles">
+        <button type="button" class="bubble reveal">
+          <span class="bubble-title">to ship or not to ship</span>
+          <span class="bubble-detail">
+            <small>comète (Télécom Paris' audiovisual club) - secretary general</small>
+            our school's audiovisual club has a website with over 50k pictures of campus events in total (per year), accessible to all students. Being a user too myself, i realized that the sheer number of photos made it difficult to find the ones I appeared in. so, i prototyped a face-search feature so students could find themselves in the archive, using facial recognition. However after doing some research, i understood the GDPR/biometric-data implications, and decided not to ship my new tool.
+          </span>
+        </button>
+        <button type="button" class="bubble reveal">
+          <span class="bubble-title">real decisions, live, across languages</span>
+          <span class="bubble-detail">
+            <small>paris 2024 olympics</small>
+            as the assistant to the president of the japanese olympic committee, i aligned the japanese delegation with local organisers through shifting schedules and conflicting stakeholder priorities. In that role, I made real-time calls across 3 languages (JP, FR, EN) and learned how to manage high-paced logistics.
+          </span>
+        </button>
+        <button type="button" class="bubble reveal">
+          <span class="bubble-title">finding the problem before the solution</span>
+          <span class="bubble-detail">
+            <small>ey - strategy &amp; technology consulting</small>
+            my favorite way to discover problems is in the field. During my summer internship at EY, I led 12 interviews across 4 business units on how teams actually adopt AI, which I synthesised into recommendations for EY managers. Same instinct on my own projects: after hearing an architect tell me controller-based design was too slow to iterate in, i created a VR design tool mainly based on speech.
+          </span>
+        </button>
+        <button type="button" class="bubble reveal">
+          <span class="bubble-title">constraints as the job, not the obstacle</span>
+          <span class="bubble-detail">
+            <small>Télécom Paris' student board &amp; télespoir</small>
+            owned budget and logistics for a €20,000, 90-person trip, and separately raised €10,000 in sponsorships for a humanitarian mission - resource prioritisation under fixed constraints, twice.
+          </span>
+        </button>
+      </div>
+  </section>
+
+  <section id="portfolio">
+    <div class="card reveal">
+      <h2>portfolio</h2>
+      <div class="projects">
+        <div class="project reveal">
+          <h3>Recette - film photo editor</h3>
+          <small>react native · expo · skia shaders - solo-designed, closed beta</small>
+          <p class="project-summary">What if the edit was the thing you shared, not just the photo?</p>
+          <div class="project-more">
+            <p>I'm a photography amateur, and I've always admired edits that make a picture feel like a still from a movie. But color grading is genuinely hard to learn - and even once you know the tools, it's weirdly difficult to land the same feel as an image you're chasing. There's this big gap between admiring someone's photo and being able to reproduce it yourself.</p>
+            <p>So I built Recette: a social platform where you edit your photos and post them - but every edit is a copyable recipe. You can browse scene styles, find a look you love, and reuse someone else's effect on your own shot. The whole loop is designed to shrink that distance between "I wish mine looked like that" and actually getting there.</p>
+            <p>The central bet was treating the recipe as a first-class object rather than a hidden byproduct. Most editing apps keep the "how" locked inside the app or the person; making it the thing people share and remix is what turns a tool into a social loop. That one decision shaped everything downstream - the feed, the profile, the editor all had to make recipes legible and reusable, not just the images.</p>
+            <p>A couple of the trickier calls came from that. I took inspiration from VSCO's locked-layer system so recipes stay structured and reproducible instead of collapsing into one flat filter - you can see and adjust the steps, not just the result. And I leaned on Skia shaders to run the edits on-device, so the pipeline feels immediate rather than round-tripping to a server for every tweak.</p>
+            <p>It's in closed beta now, and I'm testing a creator incentive system to see whether the recipe-sharing loop actually drives engagement - i.e. whether people share recipes because it feels good, or whether it needs a nudge. That's the open question I'm validating next.</p>
+          </div>
+          <button type="button" class="project-toggle">read more ↓</button>
+        </div>
+        <div class="project reveal">
+          <h3>Reputation over time - interactive research map</h3>
+          <small>python · leaflet · selenium · roberta - group project, with school's social sciences team</small>
+          <p class="project-summary">How do you see a reputation change after something happens?</p>
+          <div class="project-more">
+            <p>This came from the school's social sciences team, who had a genuinely open research question: how do social events influence the reputation of a place over time? That's the kind of question that's easy to ask and hard to actually study - reputation is fuzzy, it's spread across thousands of scattered opinions, and it moves. They needed a way to see it, not just describe it.</p>
+            <p>So we built an interactive map that turns scattered public reviews into something you can read geographically and temporally. We scraped Google reviews, ran sentiment analysis on them with a RoBERTa model to turn free text into a signal you can actually track, and plotted it on a Leaflet map that shows how sentiment around a place shifts over time - so an event and its reputational aftermath become visible as a pattern, not a spreadsheet.</p>
+            <p>The core design problem was legibility: temporal + geographic + sentiment is three dimensions at once, and the easy version is an unreadable mess. The decision that mattered was choosing what to not show - resisting the urge to surface every data point and instead designing for the one thing the researchers actually needed to perceive: change, over time, in a place. That restraint is what made it a research instrument rather than a data dump.</p>
+            <p>Being a group project with an external stakeholder, my focus was the UI/UX design. The interesting part wasn't the scraping or the model - it was working backward from a vague human question to a tool that made the answer visible.</p>
+          </div>
+          <button type="button" class="project-toggle">read more ↓</button>
+        </div>
+        <div class="project reveal">
+          <h3>Voice-driven VR architecture studio</h3>
+          <small>unity · meta quest · gemini api - group project</small>
+          <p class="project-summary">Designing a building shouldn't require learning to be a gamer first.</p>
+          <div class="project-more">
+            <p>This started from a conversation with a PhD student from an architecture background, who described how genuinely slow it is to build architectural prototypes and iterate on them. That stuck with me - the bottleneck wasn't ideas, it was the friction of getting them into a workable form. I wanted a tool that made the whole loop feel intuitive and fast.</p>
+            <p>So we built a VR studio where architects can shape and iterate on prototypes in space. The core move was swapping controllers for voice input. Handing a non-gamer architect two Quest controllers and expecting fluent 3D manipulation is a big ask - the controls become the barrier. Voice sidesteps that: you describe what you want, and the friction of the interface mostly disappears. That let the tool meet its actual users where they are, rather than where a gamer would be.</p>
+            <p>That decision drove the harder problems too. Voice input meant leaning on the Gemini API to turn loose natural language into structured actions - which is a very different design constraint from mapping a button to a function. You're designing for ambiguity and intent, not precise input, so a lot of the work was making the system forgiving of how people actually phrase things.</p>
+            <p>Being a group project, my focus was on designing intuitive interfaces. We ran 7 design revisions with 9 users before shipping to headset - that iteration count is the part I'm most happy with, because most of the real learning was in watching people fumble a command we thought was obvious and reworking it.</p>
+          </div>
+          <button type="button" class="project-toggle">read more ↓</button>
+        </div>
+        <div class="project reveal">
+          <h3>Accessibility-focused sports vision</h3>
+          <small>python · opencv · yolov9 · arduino - top 3% nationally, graded 20/20</small>
+          <p class="project-summary">Can a blind spectator follow a football match in real time?</p>
+          <div class="project-more">
+            <p>The 2024 national engineering entrance exam research project had the theme "sports," which is wide open - most people went toward performance or analytics. I went the other way and asked who can't currently enjoy a match: visually-impaired spectators, who get sound from the stadium but lose the thread of where the ball actually is. That felt like the more interesting problem, and a more human one.</p>
+            <p>So I built an assistive tracking system that follows the game and conveys ball position to a spectator who can't see it - AI ball recognition plus terrain detection to know where on the pitch the action is, translated into something you can feel rather than see.</p>
+            <p>The decision that shaped everything was optimizing for real-time over precision. A match doesn't wait - a tracking system that's accurate but lags is useless, because the spectator would be feeling a play that already happened. So I designed around latency as the hard constraint and accepted a tolerable margin of error in exchange: 180ms inference, with ~6m localization error. That ~6m isn't a shortcoming I'm hiding - it's a deliberate trade, precise enough to convey "the ball is on the left wing near the box" while staying fast enough to feel live.</p>
+            <p>That framing drove the physical side too. I evaluated 60 camera placements to find the accuracy/coverage sweet spot - where a camera sees enough of the pitch without degrading tracking - which is the kind of tradeoff you only find by testing systematically rather than guessing.</p>
+            <p>The project placed in the top 3% nationally and was graded 20/20 - but the part I care about is that it started from "who's being left out?" rather than "what's technically cool," which is still how I like to pick problems.</p>
+          </div>
+          <button type="button" class="project-toggle">read more ↓</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="cv">
+    <div class="card reveal">
+      <h2>cv</h2>
+      <p>everything above, condensed into one page - projects, leadership, and the trade-offs behind them.</p>
+      <a class="cv-button" href="cv.pdf" download>download cv ↓</a>
+    </div>
+
+    <div class="cv-contact" aria-hidden="true">
+      <svg class="cv-arrow">
+        <path id="cv-arrow-path" class="cv-arrow-path" />
+        <path id="cv-arrow-text-path" class="cv-arrow-text-path" />
+        <text class="cv-arrow-text">
+          <textPath href="#cv-arrow-text-path" startOffset="3%">Always happy to chat! reach out anytime.</textPath>
+        </text>
+      </svg>
+      <div class="cv-arrowhead"></div>
+    </div>
+  </section>
+
+  <section id="creative">
+    <div class="card reveal">
+      <h2>other fun stuff</h2>
+      <p>Aside from my professional side, I love anything that makes me feel creative! Here are a few personal projects :) Click to view them full screen.</p>
+
+      <!-- each row is a horizontal-scrolling shelf of cover tiles. to add a
+           real project: duplicate a .creative-item, swap the gradient
+           placeholder for <img src="media/your-cover.jpg" alt="">, set the
+           title/description, and point href at the real project/post. -->
+      <div class="creative-group">
+        <div class="creative-label-row">
+          <h3 class="creative-label">things i make</h3>
+          <div class="creative-tools">
+            <span class="creative-tool"><img src="media/logo/AI.png" alt="Adobe Illustrator"><span class="creative-tool-name">Adobe Illustrator</span></span>
+            <span class="creative-tool"><img src="media/logo/ID.png" alt="Adobe InDesign"><span class="creative-tool-name">Adobe InDesign</span></span>
+            <span class="creative-tool"><img src="media/logo/PC.png" alt="Procreate"><span class="creative-tool-name">Procreate</span></span>
+            <span class="creative-tool"><img src="media/logo/CV.png" alt="Canva"><span class="creative-tool-name">Canva</span></span>
+            <span class="creative-tool"><img src="media/logo/AM.png" alt="Autodesk Maya"><span class="creative-tool-name">Autodesk Maya</span></span>
+          </div>
+        </div>
+        <div class="creative-scroll">
+          <a class="creative-item" style="--accent: var(--blush);" href="https://canva.link/3mlnq85rgk06jes" target="_blank" rel="noopener">
+            <div class="creative-item-cover"><img src="media/projects/alpha.png" alt=""></div>
+            <span class="creative-item-title">Plaquette Alpha</span>
+            <div class="creative-item-desc"><div class="creative-item-desc-inner">A magazine showcasing the school's campus and student life, aimed at candidates from French preparatory classes, printed in approximately 3,000 copies.<br><br>Commissioned by the school administration.<br><br>I designed around a third of the book in Adobe Illustrator and handled the print layout and organization in Adobe InDesign.</div><span class="creative-item-site">View on Canva ↗</span></div>
+          </a>
+          <a class="creative-item" style="--accent: var(--leaf);" href="https://canva.link/nzqslsv1ewdg4ty" target="_blank" rel="noopener">
+            <div class="creative-item-cover"><img src="media/projects/guide.png" alt=""></div>
+            <span class="creative-item-title">Barcelona's trip guide</span>
+            <div class="creative-item-desc"><div class="creative-item-desc-inner">As part of the Student Union, I helped organize a Barcelona trip for 90 students and designed this booklet to welcome everyone coming along.</div><span class="creative-item-site">View on Canva ↗</span></div>
+          </a>
+          <a class="creative-item" style="--accent: var(--duck);" href="https://canva.link/l68i0hw5vkfxo7f" target="_blank" rel="noopener">
+            <div class="creative-item-cover"><img src="media/projects/poster.JPG" alt="" style="object-position: 50% 30%;"></div>
+            <span class="creative-item-title">event posters</span>
+            <div class="creative-item-desc"><div class="creative-item-desc-inner">As part of the school's charity and audiovisual associations, I designed posters promoting events.</div><span class="creative-item-site">View on Canva ↗</span></div>
+          </a>
+          <a class="creative-item" style="--accent: var(--blush);" href="https://canva.link/u13vyk2s6yavfdb" target="_blank" rel="noopener">
+            <div class="creative-item-cover"><img src="media/projects/chick.png" alt=""></div>
+            <span class="creative-item-title">This Website</span>
+            <div class="creative-item-desc"><div class="creative-item-desc-inner">Character design, custom icons, 3D modelling, and animation, all built to bring this portfolio to life.</div><span class="creative-item-site">View on Canva ↗</span></div>
+          </a>
+        </div>
+      </div>
+
+      <div class="creative-group">
+        <div class="creative-label-row">
+          <h3 class="creative-label">things i shoot</h3>
+          <div class="creative-tools">
+            <span class="creative-tool"><img src="media/logo/DV.png" alt="DaVinci Resolve"><span class="creative-tool-name">DaVinci Resolve</span></span>
+            <span class="creative-tool"><img src="media/logo/LR.png" alt="Adobe Lightroom"><span class="creative-tool-name">Adobe Lightroom</span></span>
+          </div>
+        </div>
+        <div class="creative-scroll">
+          <a class="creative-item" style="--accent: var(--leaf);" href="https://www.instagram.com/reel/DSskMchDQC-/?igsh=aGRhZjdhcjljYWZz" target="_blank" rel="noopener">
+            <div class="creative-item-cover"><img src="media/projects/barcelona.jpg" alt=""></div>
+            <span class="creative-item-title">Barcelona Trip's Recap</span>
+            <div class="creative-item-desc"><div class="creative-item-desc-inner">A recap video capturing our Student Union trip to Barcelona. Shot mostly by me and a few classmates, with editing all mine.</div><span class="creative-item-site">View on Instagram ↗</span></div>
+          </a>
+          <a class="creative-item" style="--accent: var(--blush);" href="https://drive.google.com/file/d/1avTGXx0nLMCwwkUyWAaLT_0J3-FC99c2/view?usp=share_link" target="_blank" rel="noopener">
+            <div class="creative-item-cover"><img src="media/projects/aix.JPG" alt=""></div>
+            <span class="creative-item-title">Summer in the South of France</span>
+            <div class="creative-item-desc"><div class="creative-item-desc-inner">A travel diary from a summer in the South of France with friends. Shot with a friend; color grading and edit are mine.</div><span class="creative-item-site">View on Drive ↗</span></div>
+          </a>
+          <a class="creative-item" style="--accent: var(--duck);" href="https://canva.link/fclftnbdwmacvus" target="_blank" rel="noopener">
+            <div class="creative-item-cover"><img src="media/projects/flash.jpg" alt=""></div>
+            <span class="creative-item-title">Flash Photography</span>
+            <div class="creative-item-desc"><div class="creative-item-desc-inner">Shot and edited this Y2K-inspired series with friends, using public spaces around the Plateau de Saclay.</div><span class="creative-item-site">View on Canva ↗</span></div>
+          </a>
+          <a class="creative-item" style="--accent: var(--leaf);" href="https://www.instagram.com/reel/DPOolVuDXDL/?igsh=MW5xZDVudmx5cnlhaA==" target="_blank" rel="noopener">
+            <div class="creative-item-cover"><img src="media/projects/wei.jpg" alt=""></div>
+            <span class="creative-item-title">First-year Welcome Weekend</span>
+            <div class="creative-item-desc"><div class="creative-item-desc-inner">Footage by my audiovisual club, cut together by me.</div><span class="creative-item-site">View on Instagram ↗</span></div>
+          </a>
+          <a class="creative-item" style="--accent: var(--duck);" href="https://canva.link/rcdmjo4n6mqgjh1" target="_blank" rel="noopener">
+            <div class="creative-item-cover"><img src="media/projects/film.jpg" alt="" style="object-position: 50% 8%;"></div>
+            <span class="creative-item-title">Film photography</span>
+            <div class="creative-item-desc"><div class="creative-item-desc-inner">placeholder - add a cover image, description and link.</div><span class="creative-item-site">View on Canva ↗</span></div>
+          </a>
+          <a class="creative-item" style="--accent: var(--blush);" href="https://www.instagram.com/reel/DVyGpF1jYRn/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener">
+            <div class="creative-item-cover"><img src="media/projects/ski.jpg" alt=""></div>
+            <span class="creative-item-title">Ski Trip Recap</span>
+            <div class="creative-item-desc"><div class="creative-item-desc-inner">A solo project made for the student union, shot and edited start to finish.</div><span class="creative-item-site">View on Instagram ↗</span></div>
+          </a>
+        </div>
+      </div>
+
+      <div class="creative-group">
+        <div class="creative-label-row">
+          <h3 class="creative-label">things i do</h3>
+        </div>
+        <p>I've taken ballet lessons for 12 years, before getting into figure skating recently. I also love music (whether it's playing the piano, or listening to RAYE and a6el), and baking cute cakes :) </p>
+      </div>
+    </div>
+  </section>
+
+  <footer>made with love, three.js and one very dedicated duck. Thanks for reading! </footer>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
