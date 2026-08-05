@@ -598,6 +598,7 @@ const cvContact = document.querySelector('.cv-contact');
 const cvArrowSvg = document.querySelector('.cv-arrow');
 const cvArrowPath = document.querySelector('.cv-arrow-path');
 const cvArrowTextPath = document.querySelector('.cv-arrow-text-path');
+const cvArrowText = document.querySelector('.cv-arrow-text');
 let cvArrowLength = 0;
 
 // size the svg's viewBox to real pixel dimensions (1 unit = 1px) instead of
@@ -612,28 +613,59 @@ function layoutCvArrow() {
   const w = window.innerWidth;
   const h = window.innerHeight;
   cvArrowSvg.setAttribute('viewBox', `0 0 ${w} ${h}`);
-  // starts just past the card's actual right edge, measured live instead
-  // of assumed from a fixed 60vw card width - the card's width is itself
-  // responsive now, so a hardcoded vw fraction would drift off the card's
-  // edge as soon as the card's own sizing changed. Measuring both rects
-  // and taking the difference gives the card's position *relative to the
-  // section* (matching .cv-contact's own coordinate space, since it's
-  // absolutely positioned against the section, not the viewport) rather
-  // than the current scroll-dependent viewport position.
+
+  // the card's width is responsive (min(90vw, 880px)), so below ~977px
+  // wide it's ~90vw regardless - leaving almost no gap between its right
+  // edge and the screen edge. Starting the arrow there squeezes it into a
+  // cramped near-vertical squiggle. So the start point itself migrates:
+  // beside the card's right edge when there's real room for it, sliding
+  // down to just below the card's bottom-right when there isn't - t is
+  // driven by the actual measured gap, not a viewport-width guess.
   let startX = 0.68 * w;
   let startY = 0.30 * h;
+  let c1x = startX + 0.10 * w;
+  let c1y = startY + 0.02 * h;
   if (cvSection && cvCard) {
     const sectionRect = cvSection.getBoundingClientRect();
     const cardRect = cvCard.getBoundingClientRect();
-    startX = (cardRect.right - sectionRect.left) + 0.025 * w;
-    startY = (cardRect.top - sectionRect.top) + cardRect.height * 0.4;
+    const cardLeft = cardRect.left - sectionRect.left;
+    const cardTop = cardRect.top - sectionRect.top;
+
+    const gapRight = w - cardRect.right; // actual room to the card's right, in real px
+    const GAP_NARROW = 80;  // ~no room -> start fully below the card
+    const GAP_WIDE = 260;   // comfortable room -> start fully beside the card
+    const t = Math.min(1, Math.max(0, (gapRight - GAP_NARROW) / (GAP_WIDE - GAP_NARROW)));
+
+    const besideX = cardLeft + cardRect.width + 0.025 * w;
+    const besideY = cardTop + cardRect.height * 0.4;
+    // not below the card: the end point sits near the very top of the
+    // screen, so starting from below the card forced the curve to rise
+    // back up *through* the card's own footprint to get there. Starting
+    // from just above the card's top-right corner instead keeps the
+    // whole line in the empty space above the card and needs far less
+    // vertical travel to reach the icons from there.
+    const aboveX = cardLeft + cardRect.width * 0.85;
+    const aboveY = cardTop - 10;
+
+    startX = aboveX + (besideX - aboveX) * t;
+    startY = aboveY + (besideY - aboveY) * t;
+    // beside the card, the curve immediately sweeps rightward; above the
+    // card, it's already heading the right way, so the pull just
+    // continues that rise instead of redirecting
+    const c1xBeside = besideX + 0.10 * w;
+    const c1yBeside = besideY + 0.02 * h;
+    const c1xAbove = aboveX + 0.08 * w;
+    const c1yAbove = aboveY - 0.05 * h;
+    c1x = c1xAbove + (c1xBeside - c1xAbove) * t;
+    c1y = c1yAbove + (c1yBeside - c1yAbove) * t;
   }
-  // sweeps up into a convex curve (control points stay low, so the curve
-  // keeps rising all the way to the end instead of cresting early and
-  // dipping back down) ending near the linkedin/email icons (~94.5%
-  // across, ~8% down) rather than the github one - those stay viewport
-  // fractions since the icons are position:fixed, not part of the card
-  const d = `M ${startX} ${startY} C ${startX + 0.10 * w} ${startY + 0.02 * h}, ${0.90 * w} ${0.18 * h}, ${0.945 * w} ${0.08 * h}`;
+  // sweeps up into a convex curve, ending near the linkedin/email icons
+  // (~94.5% across, ~8% down) rather than the github one - those stay
+  // viewport fractions since the icons are position:fixed, not part of
+  // the card
+  const c2x = 0.90 * w, c2y = 0.18 * h;
+  const endX = 0.945 * w, endY = 0.08 * h;
+  const d = `M ${startX} ${startY} C ${c1x} ${c1y}, ${c2x} ${c2y}, ${endX} ${endY}`;
   cvArrowPath.setAttribute('d', d);
   cvArrowLength = cvArrowPath.getTotalLength();
   // the caption text follows this second, unrendered path - a copy of the
@@ -641,8 +673,59 @@ function layoutCvArrow() {
   // floating just above the line rather than sitting on top of it
   if (cvArrowTextPath) {
     const lift = 14;
-    const dText = `M ${startX} ${startY - lift} C ${startX + 0.10 * w} ${startY + 0.02 * h - lift}, ${0.90 * w} ${0.18 * h - lift}, ${0.945 * w} ${0.08 * h - lift}`;
+    // trimmed to the first ~85% of the curve (via De Casteljau subdivision,
+    // so the shortened curve still matches the original's shape exactly
+    // rather than just aiming at a nearby point) - a modest safety margin
+    // so the path itself never runs all the way into the icon
+    const trim = 0.85;
+    const p0 = { x: startX, y: startY - lift };
+    const p1 = { x: c1x, y: c1y - lift };
+    const p2 = { x: c2x, y: c2y - lift };
+    const p3 = { x: endX, y: endY - lift };
+    const lerp = (a, b, s) => ({ x: a.x + (b.x - a.x) * s, y: a.y + (b.y - a.y) * s });
+    const a = lerp(p0, p1, trim);
+    const b = lerp(p1, p2, trim);
+    const c = lerp(p2, p3, trim);
+    const d2 = lerp(a, b, trim);
+    const e = lerp(b, c, trim);
+    const f = lerp(d2, e, trim);
+    const dText = `M ${p0.x} ${p0.y} C ${a.x} ${a.y}, ${d2.x} ${d2.y}, ${f.x} ${f.y}`;
     cvArrowTextPath.setAttribute('d', dText);
+
+    // the real guarantee against hiding behind the icon: measure the
+    // caption's actual on-screen box against the mail icon's and shrink the
+    // font until they clear. Arc length isn't a reliable stand-in for this -
+    // the curve moves mostly *vertically* near its end, so trimming arc
+    // length off the tail barely pulls the text's rightmost pixel back at
+    // all. Checking real getBoundingClientRect overlap sidesteps that
+    // entirely, and re-measuring after each shrink handles the curve's
+    // uneven speed without needing to model it.
+    const mailIcon = document.querySelector('.social-item .icon-btn');
+    if (cvArrowText && mailIcon) {
+      cvArrowText.style.fontSize = '';
+      cvArrowText.style.opacity = '';
+      const naturalSize = parseFloat(getComputedStyle(cvArrowText).fontSize);
+      const minSize = naturalSize * 0.8; // stay legible - don't shrink past this
+      const safetyGap = 4;
+      let size = naturalSize;
+      for (let i = 0; i < 6; i++) {
+        const textRect = cvArrowText.getBoundingClientRect();
+        const mailRect = mailIcon.getBoundingClientRect();
+        const overlap = textRect.right - (mailRect.left - safetyGap);
+        if (overlap <= 0 || size <= minSize) break;
+        const ratio = Math.max(0.85, 1 - (overlap / textRect.width) * 0.7);
+        size = Math.max(minSize, size * ratio);
+        cvArrowText.style.fontSize = `${size}px`;
+      }
+      // some window sizes are too cramped to fit the caption at all, even
+      // at the smallest legible size - hide it rather than let it run
+      // behind the icon; the line itself still points there without it
+      const finalRect = cvArrowText.getBoundingClientRect();
+      const mailRect = mailIcon.getBoundingClientRect();
+      if (finalRect.right > mailRect.left - safetyGap) {
+        cvArrowText.style.opacity = '0';
+      }
+    }
   }
   const isVisible = cvContact && cvContact.classList.contains('visible');
   cvArrowPath.style.strokeDasharray = cvArrowLength;
@@ -758,7 +841,6 @@ const translations = {
           `,
 
     'portfolio.h2': "Portfolio",
-    'portfolio.mediaPlaceholder': "capture d'écran / vidéo de démo",
     'portfolio.readMore': "lire plus ↓",
     'portfolio.showLess': "voir moins ↑",
 

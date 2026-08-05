@@ -164,7 +164,6 @@
           <p class="project-summary" data-i18n="portfolio.p1.summary">What if the edit was the thing you shared, not just the photo?</p>
           <p data-i18n="portfolio.p1.intro1">I edit photos as a hobby, and I kept hitting the same wall: you can admire a look for hours and still not be able to reproduce it. The "how" stays locked inside the app, or inside the person who made it.</p>
           <p data-i18n="portfolio.p1.intro2">So I built Recette, a social photo-editing app with one core bet: treat the edit as a copyable recipe, not a hidden byproduct. You find a look you love in the feed, and reuse it on your own shot. The product exists to shrink the gap between "I wish mine looked like that" and actually getting there.</p>
-          <div class="project-media" aria-hidden="true" data-i18n="portfolio.mediaPlaceholder">screenshot / demo video</div>
           <div class="project-more">
             <p data-i18n="portfolio.p1.more1">That one decision: "recipe as a first-class object", shaped the entire product. The feed, the profile, the editor all had to make edits legible and remixable, not just show finished images. It's what turns the editing tool into a social loop, and it's the thing every downstream choice had to serve.</p>
             <p data-i18n="portfolio.p1.more2">Two of those choices mattered most. I borrowed VSCO's locked-layer approach so recipes stay structured and reproducible instead of collapsing into one flat filter. You can read and adjust each step, not just the outcome. And I ran the edits on-device with Skia shaders so tweaking feels instant, because a social loop can die when it feels like waiting.</p>
@@ -178,7 +177,6 @@
           <p class="project-summary" data-i18n="portfolio.p2.summary">How do you see a reputation change after something happens?</p>
           <p data-i18n="portfolio.p2.intro1">The school's social sciences team came to us with an open research question: how do events shift the reputation of a place over time? Hard to study: reputation is fuzzy, scattered across thousands of opinions, and it moves. They needed to see it, to see overall tendencies.</p>
           <p data-i18n="portfolio.p2.intro2">So we built an interactive map that turns scattered public reviews into a readable signal. We scraped Google reviews, ran RoBERTa sentiment analysis to turn free text into something trackable, and plotted it on a Leaflet map so an event and its aftermath show up as a pattern over time. I owned the UI/UX part.</p>
-          <div class="project-media" aria-hidden="true" data-i18n="portfolio.mediaPlaceholder">screenshot / demo video</div>
           <div class="project-more">
             <p data-i18n="portfolio.p2.more1">The real design problem was legibility: time, geography, and sentiment are three dimensions at once. Seeing the evolution in time is also a key element for research. So, the decision that mattered was designing for the one thing the researchers actually needed to perceive: change, over time, in a place.</p>
             <p data-i18n="portfolio.p2.more2">That restraint is what made it a research instrument instead of a data dump. The interesting work wasn't the scraping or the model - it was working backward from a vague human question to a tool that made the answer visible.</p>
@@ -191,7 +189,6 @@
           <p class="project-summary" data-i18n="portfolio.p3.summary">Designing a building shouldn't require learning to be a gamer first.</p>
           <p data-i18n="portfolio.p3.intro1">This started from a conversation with an architecture PhD student about how slow it is to prototype and iterate on a 3D building design. The bottleneck wasn't ideas: it was the friction of getting them into a workable form, quickly.</p>
           <p data-i18n="portfolio.p3.intro2">So we built a VR studio where architects shape prototypes in space, with one core move: swapping controllers for voice. Handing a non-gamer two Quest controllers and expecting fluent 3D manipulation is a big ask; the controls become the barrier. Voice sidesteps it: you describe what you want, and the interface mostly disappears. It meets users where they are, not where a gamer would be. I focused on the interaction design.</p>
-          <div class="project-media" aria-hidden="true" data-i18n="portfolio.mediaPlaceholder">screenshot / demo video</div>
           <div class="project-more">
             <p data-i18n="portfolio.p3.more1">That one decision drove the harder problems. Voice meant leaning on the Gemini API to turn loose natural language into structured actions: a very different constraint from mapping a button to a function. You're designing for ambiguity and intent, not precise input, so much of the work was making the system forgiving of how people actually phrase things.</p>
             <p data-i18n="portfolio.p3.more2">And we only found those phrasings by watching. We ran 7 design revisions with 9 users before shipping to headset - that iteration count is the part I'm proudest of, because the real learning was watching someone fumble a command we thought was obvious, then reworking it. The obvious command was not always that obvious!</p>
@@ -204,7 +201,6 @@
           <p class="project-summary" data-i18n="portfolio.p4.summary">Can a blind spectator follow a football match in real time?</p>
           <p data-i18n="portfolio.p4.intro1">The 2024 national engineering research project had the theme "sports". Instead of focusing on the analytics of sports, or performance tracking- I asked myself a different question: who can't currently enjoy a match? Visually-impaired spectators get the stadium's sound but lose the thread of where the ball actually is.</p>
           <p data-i18n="portfolio.p4.intro2">So I built an assistive tracking system that follows the ball and conveys its position through feel instead of sight. AI ball recognition plus pitch detection, translated into something you sense rather than see.</p>
-          <div class="project-media" aria-hidden="true" data-i18n="portfolio.mediaPlaceholder">screenshot / demo video</div>
           <div class="project-more">
             <p data-i18n="portfolio.p4.more1">The decision that shaped everything was optimizing for real-time over precision. A match doesn't wait: an accurate system that lags is useless, because you'd be feeling a play that already happened. So I made latency the hard constraint and accepted a tolerable error in exchange: 180ms inference, ~6m localization. That ~6m is a deliberate trade, precise enough to convey "ball's on the left wing near the box", especially if the sensory board is small. The same framing drove the hardware: I tested 60 camera placements to find the coverage/accuracy sweet spot, the kind of tradeoff you only find by testing systematically instead of guessing.</p>
             <p data-i18n="portfolio.p4.more2">Thinking about all the different kinds of players and spectators is what led me here. And, starting from "who's being left out?" instead of "what's technically cool" is still how I like picking problems.</p>
@@ -226,9 +222,7 @@
       <svg class="cv-arrow">
         <path id="cv-arrow-path" class="cv-arrow-path" />
         <path id="cv-arrow-text-path" class="cv-arrow-text-path" />
-        <text class="cv-arrow-text">
-          <textPath href="#cv-arrow-text-path" startOffset="3%" data-i18n="cv.arrowText">Always happy to chat! Reach out anytime.</textPath>
-        </text>
+        <text class="cv-arrow-text"><textPath href="#cv-arrow-text-path" startOffset="3%" data-i18n="cv.arrowText">Always happy to chat! Reach out anytime.</textPath></text>
       </svg>
       <div class="cv-arrowhead"></div>
     </div>
