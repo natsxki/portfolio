@@ -532,7 +532,10 @@ document.querySelectorAll('#portfolio .project-toggle').forEach((btn) => {
   btn.addEventListener('click', () => {
     const project = btn.closest('.project');
     const isOpen = project.classList.toggle('is-open');
-    btn.textContent = isOpen ? 'show less ↑' : 'read more ↓';
+    const dict = translations[currentLang] || {};
+    btn.textContent = isOpen
+      ? (dict['portfolio.showLess'] || 'show less ↑')
+      : (dict['portfolio.readMore'] || 'read more ↓');
   });
 });
 
@@ -626,10 +629,183 @@ nextSectionBtn.addEventListener('click', () => {
 window.addEventListener('scroll', updateNextSectionButton, { passive: true });
 updateNextSectionButton();
 
-/* ---------- language switcher ----------
-   UI-only for now: it tracks the selected language (and updates the
-   flag shown) but there's no actual translated content wired up yet -
-   swap in real i18n strings later. */
+/* ---------- language switcher / i18n ----------
+   every translatable element carries data-i18n="key" (plus
+   data-i18n-attr="attrName" when the target is an attribute rather than
+   the element's content). English is never stored in the dictionary -
+   it's just whatever's already sitting in the HTML - so switching back
+   to English means restoring the snapshot taken here at load time.
+   French is fully translated; Japanese/German are flag-only stubs
+   until someone writes those dictionaries. */
+const translations = {
+  fr: {
+    'social.nav': "liens sociaux",
+    'social.email': "M'envoyer un email",
+    'nav.pageNav': "navigation de la page",
+    'nav.home': "retour à l'accueil",
+    'nav.chooseLanguage': "choisir la langue",
+    'nav.about': "à propos",
+    'nav.howIWork': "ma façon de travailler",
+    'nav.portfolio': "portfolio",
+    'nav.cv': "cv",
+    'nav.creative': "autres projets créatifs",
+    'nav.nextSection': "défiler vers la section suivante",
+    'nav.next': "suivant",
+
+    'hero.hello': "cultures · systèmes · formes",
+    'hero.h1': "Hello, moi c'est Lylia !",
+    'hero.scrollHint': "Défiler pour en savoir plus sur moi :)↓",
+
+    'about.h2': "Enchantée c:",
+    'about.intro': "Grandir entre les cultures française et japonaise, tout en jonglant avec l'allemand et l'anglais dès le collège, m'a appris très tôt que la meilleure communication ne demande aucune traduction. J'applique le même instinct au produit : entre mes études en ingénierie et en design et mes expériences en stratégie, ce qui me plaît vraiment, c'est la jonction entre ces disciplines. Ce qui me passionne, c'est de transformer un problème flou en une décision claire, sur laquelle toute une équipe peut avancer.",
+    'about.status': '<strong>Actuellement</strong> stagiaire en développement logiciel chez ArianeGroup. <strong>Je recherche</strong> un stage de Product Manager, débutant entre mars et juin 2027.',
+
+    'timeline.h2': "parcours",
+    'timeline.academics': "Études",
+    'timeline.professional': "Expérience professionnelle",
+    'timeline.msc': "Diplôme d'ingénieur, Télécom Paris (IP Paris). <br><br>Majeures : Data Science & IA + Graphisme 3D & Interactions (IHM)",
+    'timeline.arianegroup': "Stagiaire en développement logiciel, ArianeGroup",
+    'timeline.dataannotation': "Évaluatrice de modèles IA (temps partiel), DataAnnotation",
+    'timeline.ey': "Stagiaire en conseil stratégie &amp; tech, EY",
+    'timeline.joc': "Assistante du Président du Comité Olympique Japonais, Jeux Olympiques de Paris 2024",
+
+    'how.h2': "Ma façon de travailler",
+    'how.b1.title': "Lancer ou ne pas lancer",
+    'how.b1.detail': `
+            <small>Comète (club audiovisuel de Télécom Paris) - Secrétaire générale</small>
+            Notre club audiovisuel, Comète, publie plus de 50 000 photos d'événements par an, sur un site ouvert à tous les étudiants. Du coup, retrouver celles où on apparaît peut vite devenir laborieux. J'ai donc prototypé une fonctionnalité pour que chacun puisse se retrouver dans les archives grâce à la reconnaissance faciale. L'outil fonctionnait, mais en me renseignant sur les enjeux liés aux données biométriques, j'ai décidé de ne pas le lancer. La décision produit la plus difficile que j'ai prise jusqu'ici, ce n'est pas quelque chose que j'ai construit : c'est ce que j'ai choisi de ne pas lancer.
+          `,
+    'how.b2.title': "Des décisions réelles, en direct, en plusieurs langues",
+    'how.b2.detail': `
+            <small>Jeux Olympiques de Paris 2024</small>
+            En tant qu'assistante du président du Comité Olympique Japonais pendant les Jeux de Paris 2024, je coordonnais la délégation japonaise avec les organisateurs locaux, au milieu de plannings mouvants et de priorités contradictoires. Tout se jouait en direct, dans 3 langues (JP/FR/EN). Au fond, la barrière de la langue n'a jamais été le plus dur : le vrai défi, c'était de trancher vite, sous le regard de tous.
+          `,
+    'how.b3.title': "Trouver le problème là où il se trouve vraiment",
+    'how.b3.detail': `
+            <small>EY - Conseil en stratégie et technologie</small>
+            Pendant mon stage chez EY, j'ai mené 12 entretiens dans 4 pôles de l'entreprise sur la façon dont les équipes adoptent vraiment l'IA, que j'ai ensuite synthétisés en recommandations pour les managers. Le plus utile ne venait jamais du brief : il venait d'observer comment les gens travaillent réellement. Même réflexe sur mes propres projets : un doctorant en architecture m'a dit que concevoir à la manette était trop lent pour itérer, alors j'ai construit, avec deux amis, un outil VR piloté surtout par la voix. J'ai appris à quel point ça compte d'aller parler aux gens sur le terrain plutôt que de deviner.
+          `,
+    'how.b4.title': "Les contraintes comme le vrai travail, pas comme l'obstacle",
+    'how.b4.detail': `
+            <small>Bureau des Élèves de Télécom Paris</small>
+            Avec mon équipe, nous étions responsables du budget et de la logistique d'un voyage de 20 000 € pour 90 personnes. Budget fixe, dates fixes, et plus d'envies que le budget ne pouvait en satisfaire : le vrai travail, c'était donc de décider ce qui comptait le plus et de couper le reste proprement. Les contraintes ne sont pas la partie pénible d'un projet ; ce sont souvent elles qui forcent la vraie décision.
+          `,
+
+    'portfolio.h2': "Portfolio",
+    'portfolio.mediaPlaceholder': "capture d'écran / vidéo de démo",
+    'portfolio.readMore': "lire plus ↓",
+    'portfolio.showLess': "voir moins ↑",
+
+    'portfolio.p1.title': "Recette - Réseau social de retouche photo",
+    'portfolio.p1.small': "React Native, Expo, Skia Shaders - Conçue en solo, bêta fermée",
+    'portfolio.p1.summary': "Et si c'était les paramètres de retouche qu'on partageait, et pas seulement la photo ?",
+    'portfolio.p1.intro1': 'Je retouche des photos en amateur, et j\'ai un peu toujours le même problème : on peut admirer un rendu pendant des heures sans jamais réussir à le reproduire. Le « comment » reste enfermé dans l\'appli, ou dans la tête de la personne qui l\'a créé.',
+    'portfolio.p1.intro2': 'J\'ai donc créé Recette, un réseau de retouche photo avec un pari central : traiter la retouche comme une recette copiable, pas comme un sous-produit caché. On repère un rendu qu\'on aime dans le fil, et on le réapplique sur sa propre photo. Le produit existe pour réduire l\'écart entre « j\'aimerais que ma photo ressemble à ça » et y arriver pour de vrai.',
+    'portfolio.p1.more1': "Cette décision, celle de traiter la recette comme un objet à part entière, a façonné tout mon produit. Le fil d\'actualité, le profil, l'éditeur : tout devait rendre les retouches lisibles et remixables, pas seulement afficher des images finies. C'est ce qui transforme un simple outil de retouche en boucle sociale.",
+    'portfolio.p1.more2': "Je me suis inspirée du système de calques verrouillés de VSCO pour que les recettes restent structurées et reproductibles. On peut ajuster l'intensité du filtre choisi. J'ai aussi fait le choix de faire directement tourner les retouches sur l'appareil (ordinateur/téléphone) avec des shaders Skia, pour que chaque ajustement soit instantané : une boucle sociale meurt vite dès qu'elle donne une impression d'attente.",
+    'portfolio.p1.more3': "L'appli est pour l'instant en bêta fermée : je teste surtout la rétention, et je cherche comment l'améliorer via la gamification.",
+
+    'portfolio.p2.title': "Plateforme d'analyse de sentiment des avis - Carte interactive",
+    'portfolio.p2.small': "Python, Leaflet, Selenium, RoBERTa - Projet de groupe, avec l'équipe de sciences sociales de l'école",
+    'portfolio.p2.summary': "Comment voir évoluer une réputation après un événement ?",
+    'portfolio.p2.intro1': "L'équipe de sciences sociales de l'école est venue nous voir avec une question de recherche ouverte : comment un événement fait-il évoluer la réputation d'un lieu dans le temps ? Difficile à étudier : une réputation, c'est flou, éparpillé dans des milliers d'avis, et ça bouge. Il leur fallait pouvoir la voir, pas seulement la décrire.",
+    'portfolio.p2.intro2': "Nous avons donc construit une carte interactive qui transforme des avis publics épars en un signal lisible. On a scrapé des avis Google, fait tourner une analyse de sentiment avec un modèle RoBERTa pour transformer le texte libre en signal exploitable, puis affiché le tout sur une carte Leaflet, pour qu'un événement et ses répercussions se lisent comme un motif dans le temps. J'ai pris en charge l'UI/UX.",
+    'portfolio.p2.more1': "Le vrai problème de conception, c'était la lisibilité : le temps, la géographie et le sentiment, ça fait trois dimensions à la fois. Et voir l'évolution dans le temps, c'était justement ce qui comptait le plus pour la recherche. La décision clé a donc été de concevoir pour la seule chose que les chercheurs avaient vraiment besoin de percevoir : comment un lieu change, dans le temps.",
+    'portfolio.p2.more2': "Cette retenue est ce qui en a fait un instrument de recherche plutôt qu'un déversoir de données. Le plus intéressant n'était ni le scraping ni le modèle : c'était de partir d'une question humaine floue pour en faire un outil qui rend la réponse visible.",
+
+    'portfolio.p3.title': "Studio VR d'architecture piloté par la voix",
+    'portfolio.p3.small': "Unity, Meta Quest, API Gemini - Projet de groupe",
+    'portfolio.p3.summary': "Concevoir un bâtiment ne devrait pas commencer par apprendre à être gamer.",
+    'portfolio.p3.intro1': "Tout est parti d'une conversation avec une doctorante en architecture, qui décrivait à quel point c'est lent de prototyper et d'itérer sur la conception 3D d'un bâtiment. Le frein, ce n'était pas les idées : c'était la friction pour les transformer vite en une forme exploitable.",
+    'portfolio.p3.intro2': "Nous avons donc construit un studio VR où les architectes façonnent leurs prototypes dans l'espace, avec un choix central : remplacer les manettes par la voix. Confier deux manettes Quest à quelqu'un qui ne joue pas et attendre une manipulation 3D fluide, c'est déjà beaucoup demander ; les commandes deviennent l'obstacle. La voix contourne ça : on décrit ce qu'on veut, et l'interface s'efface presque entièrement. L'outil s'adapte ainsi à ses vrais utilisateurs, au lieu de leur demander de devenir gamers. Je me suis concentrée sur la conception de l'interaction.",
+    'portfolio.p3.more1': "C'est cette décision qui a amené les problèmes les plus intéressants. La voix impliquait de s'appuyer sur l'API Gemini pour transformer un langage naturel informel en actions structurées : une contrainte de conception très différente de celle qui consiste à associer un bouton à une fonction. On conçoit pour l'ambiguïté et l'intention, pas pour une saisie précise ; une bonne partie du travail consistait donc à rendre le système tolérant à la façon dont les gens formulent vraiment les choses.",
+    'portfolio.p3.more2': "Et ces formulations, on ne les a trouvées qu'en observant. On a mené 7 itérations de design avec 9 utilisateurs avant de passer au casque : ce nombre d'itérations est la partie dont je suis la plus fière, parce que le vrai apprentissage venait de regarder quelqu'un buter sur une commande qu'on croyait évidente, puis de la retravailler. La commande « évidente » l'était rarement autant qu'on le pensait.",
+
+    'portfolio.p4.title': "Traitement d'images et mécatronique pour la cécité",
+    'portfolio.p4.small': "Python, OpenCV, YOLOv9, Arduino - Top 3% au TIPE (échelle nationale), noté 20/20",
+    'portfolio.p4.summary': "Un spectateur aveugle peut-il suivre un match de football en temps réel ?",
+    'portfolio.p4.intro1': 'En 2024, le TIPE avait pour thème le sport. Plutôt que de partir sur l\'analyse de performance comme la plupart des étudiants autour de moi, je me suis posé une autre question : qui ne peut pas profiter d\'un match aujourd\'hui ? Les spectateurs malvoyants entendent l\'ambiance du stade, mais perdent le fil de là où se trouve vraiment le ballon.',
+    'portfolio.p4.intro2': "J'ai donc construit un système de suivi qui repère le ballon et transmet sa position par le toucher plutôt que par la vue : reconnaissance du ballon par IA et détection du terrain, traduites en quelque chose qui se ressent au lieu de se voir.",
+    'portfolio.p4.more1': 'La décision qui a tout façonné, c\'était de privilégier le temps réel plutôt que la précision. Un match n\'attend pas : un système précis mais en retard ne sert à rien, puisqu\'on ressentirait une action déjà passée. J\'ai donc fait de la latence la contrainte principale, en acceptant en échange une marge d\'erreur tolérable : 180 ms d\'inférence, ~6 m de localisation. Ces 6 m sont un compromis assumé : assez précis pour transmettre, tout en restant assez rapide pour donner une vraie impression de direct. Le même raisonnement a guidé le matériel : j\'ai testé 60 emplacements de caméra pour trouver le meilleur équilibre couverture/précision, le genre d\'arbitrage qu\'on ne trouve qu\'en testant méthodiquement plutôt qu\'en devinant.',
+    'portfolio.p4.more2': 'Penser à tous les profils qui existent autour du sport (joueurs, spectateurs...), c\'est ce qui m\'a menée à ce projet. Et partir de « qui est laissé de côté ? » plutôt que de « qu\'est-ce qui est techniquement impressionnant ? » reste ma manière de choisir mes problèmes.',
+
+    'cv.h2': "CV",
+    'cv.intro': "Tout ce qui précède, condensé en une seule page.",
+    'cv.download': "Télécharger le cv ↓",
+    'cv.arrowText': "N'hésitez pas à me contacter !",
+
+    'creative.h2': "Autres projets créatifs",
+    'creative.intro': "En dehors du côté pro, j'adore tout ce qui laisse parler ma créativité ! Voici quelques projets personnels :) Cliquez pour les voir en plein écran!",
+    'creative.thingsIMake': "Ce que je crée",
+    'creative.thingsIShoot': "Ce que je filme",
+    'creative.thingsIDo': "Ce que je fais",
+    'creative.thingsIDoText': "Après avoir fait de la danse classique pendant 12 ans, je me suis mise récemment au patinage artistique. J'adore aussi la musique (que ce soit jouer du piano, ou écouter RAYE et a6el), et faire de jolis gâteaux :) ",
+
+    'creative.viewOnCanva': "Voir sur Canva ↗",
+    'creative.viewOnInstagram': "Voir sur Instagram ↗",
+    'creative.viewOnDrive': "Voir sur Drive ↗",
+
+    'creative.alpha.title': "Plaquette Alpha",
+    'creative.alpha.desc': "J'ai conçu environ un tiers du magazine présentant le campus et la vie étudiante de l'école, destiné aux candidats de classes préparatoires, tiré à environ 3 000 exemplaires.",
+    'creative.guide.title': "Guide de Barcelone",
+    'creative.guide.desc': "Dans le cadre de mon rôle au Bureau des Élèves, j'ai aidé à organiser un voyage à Barcelone pour 90 étudiants, et conçu ce livret pour guider tout le monde dans les meilleures conditions.",
+    'creative.poster.title': "Affiches d'événements",
+    'creative.poster.desc': "Etant membre de trois associations à Télécom Paris, j'ai conçu diverses affiches pour promouvoir des événements.",
+    'creative.website.title': "Ce site",
+    'creative.website.desc': "Design du poussin, icônes personnalisées, modélisation 3D et animation, pour donner vie à ce portfolio !",
+
+    'creative.barcelonaRecap.title': "Récap du voyage à Barcelone",
+    'creative.barcelonaRecap.desc': "Ma vidéo récap de notre voyage à Barcelone organisé par le Bureau des Élèves.",
+    'creative.aix.title': "Été dans le Sud",
+    'creative.aix.desc': "Un bref carnet de voyage dans le Sud, entre amis. Images tournées avec un ami.",
+    'creative.flash.title': "Photographie au flash",
+    'creative.flash.desc': "Série d'inspiration Y2K tournée et éditée avec des amis, dans des espaces publics autour du plateau de Saclay.",
+    'creative.wei.title': "Weekend d'intégration des 1A à Télécom Paris",
+    'creative.wei.desc': "Images tournées par mon club audiovisuel, que j'ai ensuite montées.",
+    'creative.film.title': "Argentique",
+    'creative.film.desc': "Quelques photos prises lors de voyages en France et en Europe avec mon appareil argentique, retouchées avec Lightroom.",
+    'creative.ski.title': "Récap du Week-End Ski",
+    'creative.ski.desc': "Un projet solo réalisé pour le Bureau des Élèves, tourné et monté de A à Z.",
+
+    'footer.text': "Fait avec amour, three.js et un poussin très dévoué. Merci de m'avoir lue ! ",
+
+    nextSectionTitles: ['à propos', 'parcours', 'ma façon de travailler', 'portfolio', 'cv', 'autres projets créatifs', null, null],
+  },
+};
+
+// snapshot every i18n-managed element's original (English) content once,
+// up front, so switching back to English is a restore rather than a
+// second dictionary to keep in sync with the HTML
+const I18N_NODES = Array.from(document.querySelectorAll('[data-i18n]')).map((el) => ({
+  el,
+  key: el.dataset.i18n,
+  attr: el.dataset.i18nAttr || null,
+  original: el.dataset.i18nAttr ? el.getAttribute(el.dataset.i18nAttr) : el.innerHTML,
+}));
+const NEXT_SECTION_TITLE_EN = NEXT_SECTION_TITLE.slice();
+let currentLang = localStorage.getItem('portfolioLang') || 'en';
+
+function applyTranslations(lang) {
+  document.documentElement.lang = lang;
+  const dict = translations[lang];
+  I18N_NODES.forEach(({ el, key, attr, original }) => {
+    const value = (dict && dict[key] !== undefined) ? dict[key] : original;
+    if (attr) el.setAttribute(attr, value);
+    else el.innerHTML = value;
+  });
+  const titles = (dict && dict.nextSectionTitles) || NEXT_SECTION_TITLE_EN;
+  NEXT_SECTION_TITLE.splice(0, NEXT_SECTION_TITLE.length, ...titles);
+  updateNextSectionButton();
+  document.querySelectorAll('#portfolio .project-toggle').forEach((btn) => {
+    const isOpen = btn.closest('.project').classList.contains('is-open');
+    btn.textContent = isOpen
+      ? ((dict && dict['portfolio.showLess']) || 'show less ↑')
+      : ((dict && dict['portfolio.readMore']) || 'read more ↓');
+  });
+  currentLang = lang;
+  localStorage.setItem('portfolioLang', lang);
+}
+
 const langSwitcher = document.querySelector('.lang-switcher');
 const langBtn = document.querySelector('.lang-btn');
 const langBtnImg = langBtn.querySelector('img');
@@ -645,6 +821,7 @@ document.querySelectorAll('.lang-option').forEach((opt) => {
     langBtnImg.src = opt.dataset.flag;
     langSwitcher.classList.remove('open');
     langBtn.setAttribute('aria-expanded', 'false');
+    applyTranslations(opt.dataset.lang);
   });
 });
 document.addEventListener('click', (e) => {
@@ -653,6 +830,17 @@ document.addEventListener('click', (e) => {
     langBtn.setAttribute('aria-expanded', 'false');
   }
 });
+
+// restore whatever language was picked last time
+if (currentLang !== 'en') {
+  const savedOption = document.querySelector(`.lang-option[data-lang="${currentLang}"]`);
+  if (savedOption && translations[currentLang]) {
+    document.querySelectorAll('.lang-option').forEach((o) => o.classList.remove('active'));
+    savedOption.classList.add('active');
+    langBtnImg.src = savedOption.dataset.flag;
+    applyTranslations(currentLang);
+  }
+}
 
 /* ============================================================
    BLINKING FAVICON - eyes open most of the time, closed for a
