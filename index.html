@@ -126,29 +126,29 @@
         <button type="button" class="bubble reveal">
           <span class="bubble-title">To ship or not to ship</span>
           <span class="bubble-detail">
-            <small>Comète (Télécom Paris' audiovisual club) - Secretary General</small>
-            Our school's audiovisual club has a website with over 50k pictures of campus events in total (per year), accessible to all students. Being a user too myself, i realized that the sheer number of photos made it difficult to find the ones I appeared in. so, i prototyped a face-search feature so students could find themselves in the archive, using facial recognition. However after doing some research, i understood the GDPR/biometric-data implications, and decided not to ship my new tool.
+            <small>Comète (Télécom Paris' Audiovisual Club) - Secretary General</small>
+            I realized our campus audiovisual club (Comète) archives 50k+ event photos a year, open to every student - and finding the ones I was actually in was painful. So I prototyped a face-search feature to let people find themselves in the archive using facial recognition. It worked. Then, I read up on GDPR and biometric-data rules, and killed it. The hardest product call I've made so far wasn't something I built: it was something I chose not to ship.
           </span>
         </button>
         <button type="button" class="bubble reveal">
           <span class="bubble-title">Real decisions, live, across languages</span>
           <span class="bubble-detail">
             <small>Paris 2024 Olympics</small>
-            As the assistant to the president of the japanese olympic committee, i aligned the japanese delegation with local organisers through shifting schedules and conflicting stakeholder priorities. In that role, I made real-time calls across 3 languages (JP, FR, EN) and learned how to manage high-paced logistics.
+            As Assistant to the President of the Japanese Olympic Committee during Paris 2024, I kept the japanese delegation aligned with local organisers through shifting schedules and clashing stakeholder priorities. The calls had to happen live, in 3 languages (JP/FR/EN). Turns out the language barrier was never the hard part: deciding fast, with everyone watching, was.
           </span>
         </button>
         <button type="button" class="bubble reveal">
-          <span class="bubble-title">Finding the problem before the solution</span>
+          <span class="bubble-title">Find the problem where it actually lives</span>
           <span class="bubble-detail">
             <small>EY - Strategy &amp; Technology Consulting</small>
-            My favorite way to discover problems is in the field. During my summer internship at EY, I led 12 interviews across 4 business units on how teams actually adopt AI, which I synthesised into recommendations for EY managers. Same instinct on my own projects: after hearing an architect tell me controller-based design was too slow to iterate in, i created a VR design tool mainly based on speech.
+            During my internship at EY, I ran 12 interviews across 4 business units on how teams actually adopt AI, then synthesised it into recommendations for managers. The useful content came from watching how people really worked. Same instinct on my own projects: an architecture student mentioned controller-based design was too slow to iterate in, so I built a VR tool driven mostly by voice, along two friends. I learnt how important it was to hold real conversations in the field, instead of making guesses.  
           </span>
         </button>
         <button type="button" class="bubble reveal">
           <span class="bubble-title">Constraints as the job, not the obstacle</span>
           <span class="bubble-detail">
-            <small>Télécom Paris' student board &amp; télespoir</small>
-            Owned budget and logistics for a €20,000, 90-person trip- resource prioritisation under fixed constraints.
+            <small>Télécom Paris' Student Board</small>
+            My team and I owned the budget and logistics for a €20,000 trip for 90 people. Fixed money, fixed dates, ... more wants than the budget could hold; so the actual job was deciding what mattered most and cutting the rest cleanly. Constraints aren't the annoying part of building something. They're usually the thing that create the real decision.
           </span>
         </button>
       </div>
@@ -161,54 +161,53 @@
         <div class="project reveal">
           <h3>Recette - Social Photo-Editing App</h3>
           <small>React Native, Expo, Skia Shaders - Solo-designed, closed beta</small>
-          <div class="project-media" aria-hidden="true">screenshot / demo video</div>
           <p class="project-summary">What if the edit was the thing you shared, not just the photo?</p>
+          <p>I edit photos as a hobby, and I kept hitting the same wall: you can admire a look for hours and still not be able to reproduce it. The "how" stays locked inside the app, or inside the person who made it.</p>
+          <p>So I built Recette, a social photo-editing app with one core bet: treat the edit as a copyable recipe, not a hidden byproduct. You find a look you love in the feed, and reuse it on your own shot. The product exists to shrink the gap between "I wish mine looked like that" and actually getting there.</p>
+          <div class="project-media" aria-hidden="true">screenshot / demo video</div>
           <div class="project-more">
-            <p>I'm a photography amateur, and I've always admired edits that make pictures feel like movie stills. But color grading is genuinely hard to learn - and even once you know the tools, it's weirdly difficult to land the same feel as an image you're chasing. There's this big gap between admiring someone's photo and being able to reproduce it yourself.</p>
-            <p>So I built Recette: a social platform where you edit your photos and post them - but every edit is a copyable recipe. You can browse scene styles, find a look you love, and reuse someone else's effect on your own shot. The whole loop is designed to shrink that distance between "I wish mine looked like that" and actually getting there.</p>
-            <p>The central bet was treating the recipe as a first-class object rather than a hidden byproduct. Most editing apps keep the "how" locked inside the app or the person; making it the thing people share and remix is what turns a tool into a social loop. That one decision shaped everything downstream: the feed, the profile, the editor all had to make recipes legible and reusable, not just the images.</p>
-            <p>A couple of the trickier calls came from that. I took inspiration from VSCO's locked-layer system so recipes stay structured and reproducible instead of collapsing into one flat filter. You can see and adjust the steps, not just the result. And I leaned on Skia shaders to run the edits on-device, so the pipeline feels immediate rather than round-tripping to a server for every tweak.</p>
-            <p>It's in closed beta now, and I'm testing a creator incentive system to see whether the recipe-sharing loop actually drives engagement. <i>Let me know if you're interested in testing the app, I'm always recruiting beta testers! :)</i> </p>
+            <p>That one decision: "recipe as a first-class object", shaped the entire product. The feed, the profile, the editor all had to make edits legible and remixable, not just show finished images. It's what turns the editing tool into a social loop, and it's the thing every downstream choice had to serve.</p>
+            <p>Two of those choices mattered most. I borrowed VSCO's locked-layer approach so recipes stay structured and reproducible instead of collapsing into one flat filter. You can read and adjust each step, not just the outcome. And I ran the edits on-device with Skia shaders so tweaking feels instant, because a social loop can die when it feels like waiting.</p>
+            <p>Currently testing the app in a closed beta: especially user retention, currently trying to figure out how to increase it through gamification.</p>
           </div>
           <button type="button" class="project-toggle">read more ↓</button>
         </div>
         <div class="project reveal">
           <h3>Review Sentiment Analysis Platform - Interactive Map</h3>
           <small>Python, Leaflet, Selenium, Roberta - Group project, with school's social sciences team</small>
-          <div class="project-media" aria-hidden="true">screenshot / demo video</div>
           <p class="project-summary">How do you see a reputation change after something happens?</p>
+          <p>The school's social sciences team came to us with an open research question: how do events shift the reputation of a place over time? Hard to study: reputation is fuzzy, scattered across thousands of opinions, and it moves. They needed to see it, to see overall tendencies.</p>
+          <p>So we built an interactive map that turns scattered public reviews into a readable signal. We scraped Google reviews, ran RoBERTa sentiment analysis to turn free text into something trackable, and plotted it on a Leaflet map so an event and its aftermath show up as a pattern over time. I owned the UI/UX part.</p>
+          <div class="project-media" aria-hidden="true">screenshot / demo video</div>
           <div class="project-more">
-            <p>This came from the school's social sciences team, who had a genuinely open research question: how do social events influence the reputation of a place over time? That's the kind of question that's easy to ask and hard to actually study - reputation is fuzzy, it's spread across thousands of scattered opinions, and it moves. They needed a way to see it, not just describe it.</p>
-            <p>So we built an interactive map that turns scattered public reviews into something you can read geographically and temporally. We scraped Google reviews, ran sentiment analysis on them with a RoBERTa model to turn free text into a signal you can actually track, and plotted it on a Leaflet map that shows how sentiment around a place shifts over time - so an event and its reputational aftermath become visible as a pattern, not a spreadsheet.</p>
-            <p>The core design problem was legibility: temporal + geographic + sentiment is three dimensions at once, and the easy version is an unreadable mess. The decision that mattered was choosing what to not show - resisting the urge to surface every data point and instead designing for the one thing the researchers actually needed to perceive: change, over time, in a place. That restraint is what made it a research instrument rather than a data dump.</p>
-            <p>Being a group project with an external stakeholder, my focus was the UI/UX design. The interesting part wasn't the scraping or the model - it was working backward from a vague human question to a tool that made the answer visible.</p>
+            <p>The real design problem was legibility: time, geography, and sentiment are three dimensions at once. Seeing the evolution in time is also a key element for research. So, the decision that mattered was designing for the one thing the researchers actually needed to perceive: change, over time, in a place.</p>
+            <p>That restraint is what made it a research instrument instead of a data dump. The interesting work wasn't the scraping or the model - it was working backward from a vague human question to a tool that made the answer visible.</p>
           </div>
           <button type="button" class="project-toggle">read more ↓</button>
         </div>
         <div class="project reveal">
           <h3>Voice-driven VR architecture studio</h3>
           <small>Unity, Meta Quest, Gemini API - Group project</small>
-          <div class="project-media" aria-hidden="true">screenshot / demo video</div>
           <p class="project-summary">Designing a building shouldn't require learning to be a gamer first.</p>
+          <p>This started from a conversation with an architecture PhD student about how slow it is to prototype and iterate on a 3D building design. The bottleneck wasn't ideas: it was the friction of getting them into a workable form, quickly.</p>
+          <p>So we built a VR studio where architects shape prototypes in space, with one core move: swapping controllers for voice. Handing a non-gamer two Quest controllers and expecting fluent 3D manipulation is a big ask; the controls become the barrier. Voice sidesteps it: you describe what you want, and the interface mostly disappears. It meets users where they are, not where a gamer would be. I focused on the interaction design.</p>
+          <div class="project-media" aria-hidden="true">screenshot / demo video</div>
           <div class="project-more">
-            <p>This started from a conversation with a PhD student from an architecture background, who described how genuinely slow it is to build architectural prototypes and iterate on them. That stuck with me - the bottleneck wasn't ideas, it was the friction of getting them into a workable form. I wanted a tool that made the whole loop feel intuitive and fast.</p>
-            <p>So we built a VR studio where architects can shape and iterate on prototypes in space. The core move was swapping controllers for voice input. Handing a non-gamer architect two Quest controllers and expecting fluent 3D manipulation is a big ask - the controls become the barrier. Voice sidesteps that: you describe what you want, and the friction of the interface mostly disappears. That let the tool meet its actual users where they are, rather than where a gamer would be.</p>
-            <p>That decision drove the harder problems too. Voice input meant leaning on the Gemini API to turn loose natural language into structured actions - which is a very different design constraint from mapping a button to a function. You're designing for ambiguity and intent, not precise input, so a lot of the work was making the system forgiving of how people actually phrase things.</p>
-            <p>Being a group project, my focus was on designing intuitive interfaces. We ran 7 design revisions with 9 users before shipping to headset - that iteration count is the part I'm most happy with, because most of the real learning was in watching people fumble a command we thought was obvious and reworking it.</p>
+            <p>That one decision drove the harder problems. Voice meant leaning on the Gemini API to turn loose natural language into structured actions: a very different constraint from mapping a button to a function. You're designing for ambiguity and intent, not precise input, so much of the work was making the system forgiving of how people actually phrase things.</p>
+            <p>And we only found those phrasings by watching. We ran 7 design revisions with 9 users before shipping to headset - that iteration count is the part I'm proudest of, because the real learning was watching someone fumble a command we thought was obvious, then reworking it. The obvious command was not always that obvious!</p>
           </div>
           <button type="button" class="project-toggle">read more ↓</button>
         </div>
         <div class="project reveal">
           <h3>Accessibility-focused sports vision</h3>
           <small>Python, OpenCV, YOLOv9, Arduino - Top 3% nationally, graded 20/20</small>
-          <div class="project-media" aria-hidden="true">screenshot / demo video</div>
           <p class="project-summary">Can a blind spectator follow a football match in real time?</p>
+          <p>The 2024 national engineering research project had the theme "sports". Instead of focusing on the analytics of sports, or performance tracking- I asked myself a different question: who can't currently enjoy a match? Visually-impaired spectators get the stadium's sound but lose the thread of where the ball actually is.</p>
+          <p>So I built an assistive tracking system that follows the ball and conveys its position through feel instead of sight. AI ball recognition plus pitch detection, translated into something you sense rather than see.</p>
+          <div class="project-media" aria-hidden="true">screenshot / demo video</div>
           <div class="project-more">
-            <p>The 2024 national engineering entrance exam research project had the theme "sports," which is wide open - most people went toward performance or analytics. I went the other way and asked who can't currently enjoy a match: visually-impaired spectators, who get sound from the stadium but lose the thread of where the ball actually is. That felt like the more interesting problem, and a more human one.</p>
-            <p>So I built an assistive tracking system that follows the game and conveys ball position to a spectator who can't see it - AI ball recognition plus terrain detection to know where on the pitch the action is, translated into something you can feel rather than see.</p>
-            <p>The decision that shaped everything was optimizing for real-time over precision. A match doesn't wait - a tracking system that's accurate but lags is useless, because the spectator would be feeling a play that already happened. So I designed around latency as the hard constraint and accepted a tolerable margin of error in exchange: 180ms inference, with ~6m localization error. That ~6m isn't a shortcoming I'm hiding - it's a deliberate trade, precise enough to convey "the ball is on the left wing near the box" while staying fast enough to feel live.</p>
-            <p>That framing drove the physical side too. I evaluated 60 camera placements to find the accuracy/coverage sweet spot - where a camera sees enough of the pitch without degrading tracking - which is the kind of tradeoff you only find by testing systematically rather than guessing.</p>
-            <p>The project placed in the top 3% nationally and was graded 20/20 - but the part I care about is that it started from "who's being left out?" rather than "what's technically cool," which is still how I like to pick problems.</p>
+            <p>The decision that shaped everything was optimizing for real-time over precision. A match doesn't wait: an accurate system that lags is useless, because you'd be feeling a play that already happened. So I made latency the hard constraint and accepted a tolerable error in exchange: 180ms inference, ~6m localization. That ~6m is a deliberate trade, precise enough to convey "ball's on the left wing near the box", especially if the sensory board is small. The same framing drove the hardware: I tested 60 camera placements to find the coverage/accuracy sweet spot, the kind of tradeoff you only find by testing systematically instead of guessing.</p>
+            <p>Thinking about all the different kinds of players and spectators is what led me here. And, starting from "who's being left out?" instead of "what's technically cool" is still how I like picking problems.</p>
           </div>
           <button type="button" class="project-toggle">read more ↓</button>
         </div>
@@ -330,7 +329,7 @@
     </div>
   </section>
 
-  <footer>Made with love, three.js and one very dedicated duck. thanks for reading! </footer>
+  <footer>Made with love, three.js and one very dedicated duck. Thanks for reading! </footer>
 </main>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
