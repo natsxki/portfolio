@@ -869,6 +869,18 @@
     font-size: 0.92rem;
     line-height: 1.4;
   }
+  .about-timeline-what small {
+    color: #7a80a0;
+  }
+  .about-timeline-what a {
+    color: var(--ink);
+    text-decoration-color: var(--beak);
+    text-underline-offset: 2px;
+  }
+  .about-timeline-what a:hover,
+  .about-timeline-what a:focus-visible {
+    color: var(--beak);
+  }
 
   .projects {
     display: grid;
