@@ -909,21 +909,47 @@
   /* two reading levels: the summary sentence always shows; the rest of
      the story stays collapsed until "read more" is clicked (not hover -
      this one's an explicit, deliberate unfold, not a quick peek) */
-  /* stand-in for an eventual screenshot or demo clip - same dashed-border
-     language as .placeholder elsewhere, sized like a real media embed so
-     swapping in an actual <img>/<video> later won't reflow the card */
-  #portfolio .project-media {
+  /* project screenshots, sitting between the intro and the collapsed
+     "read more" detail. Side by side when there's room; flex-wrap (not a
+     breakpoint, matching this file's fluid-resize approach elsewhere)
+     drops them into a vertical stack once two columns no longer fit. */
+  #portfolio .project-gallery {
     margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.2rem;
+  }
+  #portfolio .project-gallery-item {
+    flex: 1 1 260px;
+    max-width: 360px;
+    margin: 0;
+  }
+  /* the "background rectangle": a fixed-ratio mat that keeps every photo's
+     footprint consistent regardless of its own aspect ratio - object-fit:
+     contain + centering means the image never crops, just sits centered
+     inside it */
+  #portfolio .project-gallery-frame {
     aspect-ratio: 16 / 9;
-    border: 1.5px dashed rgba(43, 51, 80, 0.25);
     border-radius: 14px;
     background: rgba(43, 51, 80, 0.03);
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
+  }
+  #portfolio .project-gallery-frame img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    cursor: zoom-in;
+    transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  #portfolio .project-gallery-frame img:hover { transform: scale(1.035); }
+  #portfolio .project-gallery-item figcaption {
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
     color: rgba(43, 51, 80, 0.45);
-    font-size: 0.85rem;
-    font-weight: 600;
     text-align: center;
   }
 
@@ -940,7 +966,12 @@
   #portfolio .project-more p { margin-top: 1rem; }
   #portfolio .project-more p:first-child { margin-top: 0; }
   #portfolio .project.is-open .project-more {
-    max-height: 900px;
+    /* generous ceiling, not a real target height - transitions still look
+       right for short content (the box just stops growing once it hits its
+       own natural height, well before max-height is reached); this just
+       needs to clear the tallest real case, which is p4's several stacked
+       galleries once its text wraps to 3-4 lines each on a narrow card */
+    max-height: 4000px;
     opacity: 1;
     margin-top: 1rem;
   }
@@ -959,6 +990,29 @@
   #portfolio .project-toggle:hover,
   #portfolio .project-toggle:focus-visible { text-decoration: underline; }
   #portfolio .project-toggle:focus-visible { outline: 3px solid var(--beak); outline-offset: 3px; }
+
+  /* jumps straight to the next project card - a shortcut past whatever's
+     currently expanded in "read more", not a nav-menu entry */
+  #portfolio .project-next {
+    display: flex;
+    align-items: center;
+    gap: 0.35em;
+    margin-top: 0.6rem;
+    border: none;
+    background: none;
+    padding: 0;
+    font-family: var(--body);
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: #7a80a0;
+    cursor: pointer;
+  }
+  #portfolio .project-next-arrow { transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1); }
+  #portfolio .project-next:hover,
+  #portfolio .project-next:focus-visible { color: var(--beak); }
+  #portfolio .project-next:hover .project-next-arrow,
+  #portfolio .project-next:focus-visible .project-next-arrow { transform: translateX(3px); }
+  #portfolio .project-next:focus-visible { outline: 3px solid var(--beak); outline-offset: 3px; }
 
   /* how-i-work: independent circular bubbles, one per bullet point -
      just the title by default, expanding into a rounded card with the
@@ -1076,9 +1130,63 @@
     scroll-snap-align: end;
   }
 
+  /* portfolio image lightbox - one shared overlay, reused for every
+     project-gallery image instead of building a per-image modal */
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4vh 4vw;
+    background: rgba(20, 22, 34, 0.86);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease, visibility 0s linear 0.25s;
+  }
+  .lightbox.is-open {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.25s ease, visibility 0s linear 0s;
+  }
+  .lightbox-img {
+    max-width: 92vw;
+    max-height: 88vh;
+    object-fit: contain;
+    border-radius: 12px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+    transform: scale(0.96);
+    transition: transform 0.25s ease;
+  }
+  .lightbox.is-open .lightbox-img { transform: scale(1); }
+  .lightbox-close {
+    position: fixed;
+    top: max(1.5rem, 3vh);
+    right: max(1.5rem, 3vw);
+    width: 3rem;
+    height: 3rem;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.92);
+    color: var(--ink);
+    font-size: 1.9rem;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1), background 0.2s;
+  }
+  .lightbox-close:hover, .lightbox-close:focus-visible { background: #fff; transform: scale(1.08); }
+  .lightbox-close:focus-visible { outline: 3px solid var(--beak); outline-offset: 3px; }
+
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     .hero .hello, .hero h1, .menu a, .scroll-hint { animation: none; opacity: 1; transform: none; }
     .reveal { transition: none; opacity: 1; transform: none; }
     #how-i-work .bubble { animation: none; }
+    #portfolio .project-gallery-frame img { transition: none; }
+    #portfolio .project-gallery-frame img:hover { transform: none; }
+    .lightbox, .lightbox-img, .lightbox-close { transition: none; }
   }

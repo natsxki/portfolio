@@ -629,6 +629,54 @@ document.querySelectorAll('#portfolio .project-toggle').forEach((btn) => {
   });
 });
 
+// per-project "next: ..." shortcut - jumps to the next project card, not a
+// page-section jump like next-section-btn and not listed in the page nav
+document.querySelectorAll('#portfolio .project-next[data-target]').forEach((btn) => {
+  btn.addEventListener('click', () => {
+    const target = document.getElementById(btn.dataset.target);
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+
+/* ============================================================
+   PORTFOLIO IMAGE LIGHTBOX - click any project screenshot to see it
+   bigger. One shared overlay reused for every image, rather than a
+   modal built per-image.
+============================================================ */
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+const lightboxClose = lightbox.querySelector('.lightbox-close');
+let lightboxReturnFocus = null;
+
+function openLightbox(img) {
+  lightboxImg.src = img.currentSrc || img.src;
+  lightboxImg.alt = img.alt || '';
+  lightboxReturnFocus = document.activeElement;
+  lightbox.classList.add('is-open');
+  lightbox.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+  lightboxClose.focus();
+}
+
+function closeLightbox() {
+  lightbox.classList.remove('is-open');
+  lightbox.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+  if (lightboxReturnFocus) lightboxReturnFocus.focus();
+}
+
+document.querySelectorAll('#portfolio .project-gallery-frame img').forEach((img) => {
+  img.addEventListener('click', () => openLightbox(img));
+});
+lightboxClose.addEventListener('click', closeLightbox);
+// clicking the dark backdrop closes it too; clicking the image itself shouldn't
+lightbox.addEventListener('click', (e) => {
+  if (e.target === lightbox) closeLightbox();
+});
+window.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && lightbox.classList.contains('is-open')) closeLightbox();
+});
+
 /* ============================================================
    PAGE NAV - highlight whichever section is currently on screen,
    and swap the "go home" chick for a language switcher while on the
@@ -884,7 +932,9 @@ const translations = {
 
     'portfolio.h2': "Portfolio",
     'portfolio.readMore': "lire plus ↓",
+    'portfolio.lightboxClose': "Fermer l'image",
     'portfolio.showLess': "voir moins ↑",
+    'portfolio.nextProject': "suivant :",
 
     'portfolio.p1.title': "Recette - Réseau social de retouche photo",
     'portfolio.p1.small': "React Native, Expo, Skia Shaders - Conçue en solo, bêta fermée",
@@ -908,6 +958,8 @@ const translations = {
     'portfolio.p3.summary': "Concevoir un bâtiment ne devrait pas commencer par apprendre à être gamer.",
     'portfolio.p3.intro1': "Tout est parti d'une conversation avec une doctorante en architecture, qui décrivait à quel point c'est lent de prototyper et d'itérer sur la conception 3D d'un bâtiment. Le frein, ce n'était pas les idées : c'était la friction pour les transformer vite en une forme exploitable.",
     'portfolio.p3.intro2': "Nous avons donc construit un studio VR où les architectes façonnent leurs prototypes dans l'espace, avec un choix central : remplacer les manettes par la voix. Confier deux manettes Quest à quelqu'un qui ne joue pas et attendre une manipulation 3D fluide, c'est déjà beaucoup demander ; les commandes deviennent l'obstacle. La voix contourne ça : on décrit ce qu'on veut, et l'interface s'efface presque entièrement. L'outil s'adapte ainsi à ses vrais utilisateurs, au lieu de leur demander de devenir gamers. Je me suis concentrée sur la conception de l'interaction.",
+    'portfolio.p3.media1Caption': "Phase de conception : j'ai ajouté un résumé par mots-clés généré par Gemini, pour montrer à l'utilisateur ce que le système avait <i>compris</i> de ses itérations.",
+    'portfolio.p3.media2Caption': "Phase de génération : l'interface une fois que le système a généré les deux options de prototype à partir de la parole envoyée à Gemini.",
     'portfolio.p3.more1': "C'est cette décision qui a amené les problèmes les plus intéressants. La voix impliquait de s'appuyer sur l'API Gemini pour transformer un langage naturel informel en actions structurées : une contrainte de conception très différente de celle qui consiste à associer un bouton à une fonction. On conçoit pour l'ambiguïté et l'intention, pas pour une saisie précise ; une bonne partie du travail consistait donc à rendre le système tolérant à la façon dont les gens formulent vraiment les choses.",
     'portfolio.p3.more2': "Et ces formulations, on ne les a trouvées qu'en observant. On a mené 7 itérations de design avec 9 utilisateurs avant de passer au casque : ce nombre d'itérations est la partie dont je suis la plus fière, parce que le vrai apprentissage venait de regarder quelqu'un buter sur une commande qu'on croyait évidente, puis de la retravailler. La commande « évidente » l'était rarement autant qu'on le pensait.",
 
@@ -916,7 +968,14 @@ const translations = {
     'portfolio.p4.summary': "Un spectateur aveugle peut-il suivre un match de football en temps réel ?",
     'portfolio.p4.intro1': 'En 2024, le TIPE avait pour thème le sport. Plutôt que de partir sur l\'analyse de performance comme la plupart des étudiants autour de moi, je me suis posé une autre question : qui ne peut pas profiter d\'un match aujourd\'hui ? Les spectateurs malvoyants entendent l\'ambiance du stade, mais perdent le fil de là où se trouve vraiment le ballon.',
     'portfolio.p4.intro2': "J'ai donc construit un système de suivi qui repère le ballon et transmet sa position par le toucher plutôt que par la vue : reconnaissance du ballon par IA et détection du terrain, traduites en quelque chose qui se ressent au lieu de se voir.",
-    'portfolio.p4.more1': 'La décision qui a tout façonné, c\'était de privilégier le temps réel plutôt que la précision. Un match n\'attend pas : un système précis mais en retard ne sert à rien, puisqu\'on ressentirait une action déjà passée. J\'ai donc fait de la latence la contrainte principale, en acceptant en échange une marge d\'erreur tolérable : 180 ms d\'inférence, ~6 m de localisation. Ces 6 m sont un compromis assumé : assez précis pour transmettre, tout en restant assez rapide pour donner une vraie impression de direct. Le même raisonnement a guidé le matériel : j\'ai testé 60 emplacements de caméra pour trouver le meilleur équilibre couverture/précision, le genre d\'arbitrage qu\'on ne trouve qu\'en testant méthodiquement plutôt qu\'en devinant.',
+    'portfolio.p4.mediaCoverCaption': "L'idée principale du projet",
+    'portfolio.p4.more1a': 'La décision qui a tout façonné, c\'était de privilégier le temps réel plutôt que la précision. Un match n\'attend pas : un système précis mais en retard ne sert à rien, puisqu\'on ressentirait une action déjà passée. J\'ai donc fait de la latence la contrainte principale, en acceptant en échange une marge d\'erreur tolérable : 180 ms d\'inférence, ~6 m de localisation.',
+    'portfolio.p4.mediaAlgorithmCaption': "Algorithme complet",
+    'portfolio.p4.more1b': 'Ces 6 m sont un compromis assumé : assez précis pour transmettre, tout en restant assez rapide pour donner une vraie impression de direct.',
+    'portfolio.p4.mediaHardwareCaption': "Le matériel réel - la partie sensorielle pour l'utilisateur ne mesure que 12 cm.",
+    'portfolio.p4.more1c': 'Le même raisonnement a guidé le matériel : j\'ai testé 60 emplacements de caméra pour trouver le meilleur équilibre couverture/précision, le genre d\'arbitrage qu\'on ne trouve qu\'en testant méthodiquement plutôt qu\'en devinant.',
+    'portfolio.p4.mediaDetectionCaption': "Détection du ballon.",
+    'portfolio.p4.mediaPositionsCaption': "Erreur de localisation selon les positions de caméra testées (azimut/élévation) - erreur minimale de 0,035 m.",
     'portfolio.p4.more2': 'Penser à tous les profils qui existent autour du sport (joueurs, spectateurs...), c\'est ce qui m\'a menée à ce projet. Et partir de « qui est laissé de côté ? » plutôt que de « qu\'est-ce qui est techniquement impressionnant ? » reste ma manière de choisir mes problèmes.',
 
     'cv.h2': "CV",
@@ -1016,7 +1075,9 @@ const translations = {
 
     'portfolio.h2': "ポートフォリオ",
     'portfolio.readMore': "もっと見る ↓",
+    'portfolio.lightboxClose': "画像を閉じる",
     'portfolio.showLess': "閉じる ↑",
+    'portfolio.nextProject': "次:",
 
     'portfolio.p1.title': "Recette - ソーシャル写真編集アプリ",
     'portfolio.p1.small': "React Native, Expo, Skia Shaders - 個人開発、クローズドベータ",
@@ -1040,6 +1101,8 @@ const translations = {
     'portfolio.p3.summary': "建物の設計は、まずゲーマーになることから始まる必要はないはず。",
     'portfolio.p3.intro1': "きっかけは、建築を学ぶ博士課程の学生との会話でした。3Dの建物デザインをプロトタイピングし、反復していく作業がどれほど遅いか、という話です。ボトルネックはアイデアではなく、それを素早く使える形にするまでの摩擦にありました。",
     'portfolio.p3.intro2': "そこで、建築家たちが空間の中でプロトタイプを形作れるVRスタジオを作りました。中心となる決断は、コントローラーを音声に置き換えることです。ゲームをしない人にQuestのコントローラーを二つ渡して、滑らかな3D操作を期待するのは、すでにハードルが高すぎます。操作自体が障害になってしまうのです。音声ならそれを回避できます。欲しいものを言葉で説明すれば、インターフェースはほとんど意識されなくなります。こうしてツールは、ゲーマーになることを求めるのではなく、本当のユーザーに寄り添う形になりました。私はインタラクションデザインを担当しました。",
+    'portfolio.p3.media1Caption': "設計フェーズ:Geminiが生成したキーワード要約を追加し、システムがユーザーの発話から何を<i>理解した</i>のかを示せるようにしました。",
+    'portfolio.p3.media2Caption': "生成フェーズ:Geminiに送った発話をもとに、システムが2つのプロトタイプ案を生成した後のUIです。",
     'portfolio.p3.more1': "この決断こそが、より興味深い課題を生み出しました。音声を使うということは、Gemini APIを活用して、あいまいな自然言語を構造化されたアクションに変換する必要がある、ということです。これはボタンと機能を対応させるのとはまったく異なる設計上の制約です。曖昧さと意図をくみ取るための設計であり、正確な入力のための設計ではありません。作業の多くは、人が実際に使う言い回しに対して、システムを柔軟に対応させることに費やされました。",
     'portfolio.p3.more2': "そして、その言い回しは観察することでしか見つけられませんでした。ヘッドセットに実装する前に、9人のユーザーとともに7回のデザイン改善を重ねました。この反復の回数こそが、私が一番誇りに思っている部分です。本当の学びは、当たり前だと思っていたコマンドで誰かがつまずく様子を見て、それを作り直すところから生まれたからです。「当たり前」のコマンドが、思っていたほど当たり前であることは、ほとんどありませんでした。",
 
@@ -1048,7 +1111,14 @@ const translations = {
     'portfolio.p4.summary': "目の見えない観客も、サッカーの試合をリアルタイムで追えるだろうか?",
     'portfolio.p4.intro1': "2024年のTIPE(フランスの理工系グランゼコール入試の研究課題)のテーマはスポーツでした。周りの多くの学生がパフォーマンス分析に向かう中、私は別の問いを立てました。今、試合を楽しめていないのは誰だろう?視覚に障がいのある観客は、スタジアムの雰囲気は聞こえても、ボールが実際にどこにあるのかを見失ってしまいます。",
     'portfolio.p4.intro2': "そこで、ボールの位置を視覚ではなく触覚で伝えるトラッキングシステムを構築しました。AIによるボール認識とフィールド検出を組み合わせ、「見る」のではなく「感じる」情報へと変換しています。",
-    'portfolio.p4.more1': "すべてを方向づけた決断は、精度よりもリアルタイム性を優先することでした。試合は待ってくれません。正確でも遅れて届く情報には意味がなく、それではすでに終わったプレーを感じることになってしまいます。そこで、遅延を最も重要な制約として設定し、その代わりに許容できる誤差を受け入れました:推論時間180ミリ秒、位置精度は約6メートルです。この6メートルは意図的な妥協点です。情報を伝えるには十分な精度でありながら、本当にライブだと感じられるだけの速さも保っています。ハードウェアの設計にも同じ考え方を反映し、カバー範囲と精度の最良のバランスを見つけるために60通りのカメラ配置を検証しました。これは、推測ではなく体系的なテストを重ねることでしか見つけられない類のトレードオフです。",
+    'portfolio.p4.mediaCoverCaption': "プロジェクトの中心となるアイデア",
+    'portfolio.p4.more1a': "すべてを方向づけた決断は、精度よりもリアルタイム性を優先することでした。試合は待ってくれません。正確でも遅れて届く情報には意味がなく、それではすでに終わったプレーを感じることになってしまいます。そこで、遅延を最も重要な制約として設定し、その代わりに許容できる誤差を受け入れました:推論時間180ミリ秒、位置精度は約6メートルです。",
+    'portfolio.p4.mediaAlgorithmCaption': "アルゴリズム全体",
+    'portfolio.p4.more1b': "この6メートルは意図的な妥協点です。情報を伝えるには十分な精度でありながら、本当にライブだと感じられるだけの速さも保っています。",
+    'portfolio.p4.mediaHardwareCaption': "実際のハードウェア - ユーザー用の感覚提示部分はわずか12cmです。",
+    'portfolio.p4.more1c': "ハードウェアの設計にも同じ考え方を反映し、カバー範囲と精度の最良のバランスを見つけるために60通りのカメラ配置を検証しました。これは、推測ではなく体系的なテストを重ねることでしか見つけられない類のトレードオフです。",
+    'portfolio.p4.mediaDetectionCaption': "ボール検出。",
+    'portfolio.p4.mediaPositionsCaption': "検証した方位角・仰角のカメラ配置ごとの位置誤差 - 最小誤差は0.035m。",
     'portfolio.p4.more2': "選手や観客など、スポーツを取り巻くあらゆる立場の人たちを想像したことが、このプロジェクトにつながりました。「技術的にすごいことは何か」ではなく「取り残されているのは誰か」から出発すること。それが今も変わらない、私の課題の選び方です。",
 
     'cv.h2': "履歴書",
@@ -1148,7 +1218,9 @@ const translations = {
 
     'portfolio.h2': "Portfolio",
     'portfolio.readMore': "mehr lesen ↓",
+    'portfolio.lightboxClose': "Bild schließen",
     'portfolio.showLess': "weniger anzeigen ↑",
+    'portfolio.nextProject': "nächstes:",
 
     'portfolio.p1.title': "Recette - Soziales Netzwerk für Fotobearbeitung",
     'portfolio.p1.small': "React Native, Expo, Skia Shaders - Alleine entwickelt, geschlossene Beta",
@@ -1172,6 +1244,8 @@ const translations = {
     'portfolio.p3.summary': "Ein Gebäude zu entwerfen sollte nicht damit beginnen, erst Gamer werden zu müssen.",
     'portfolio.p3.intro1': "Alles begann mit einem Gespräch mit einer Architektur-Doktorandin, die beschrieb, wie langsam es ist, an einem 3D-Gebäudeentwurf zu prototypisieren und zu iterieren. Der Engpass waren nicht die Ideen: Es war die Reibung, sie schnell in eine nutzbare Form zu bringen.",
     'portfolio.p3.intro2': "Also haben wir ein VR-Studio gebaut, in dem Architekt*innen ihre Prototypen im Raum formen - mit einer zentralen Entscheidung: Controller durch Sprache zu ersetzen. Jemandem, der nicht spielt, zwei Quest-Controller in die Hand zu drücken und flüssige 3D-Manipulation zu erwarten, ist schon viel verlangt; die Bedienung wird selbst zum Hindernis. Sprache umgeht das: Man beschreibt, was man will, und die Oberfläche verschwindet fast vollständig. So passt sich das Tool seinen echten Nutzer*innen an, statt von ihnen zu verlangen, Gamer zu werden. Ich habe mich auf das Interaktionsdesign konzentriert.",
+    'portfolio.p3.media1Caption': "Design-Phase: Ich habe eine von Gemini erstellte Stichwort-Zusammenfassung hinzugefügt, damit Nutzer*innen sehen, was das System aus ihren Eingaben <i>verstanden</i> hat.",
+    'portfolio.p3.media2Caption': "Generierungs-Phase: Die Oberfläche, nachdem das System aus der an Gemini gesendeten Sprache die beiden Prototyp-Optionen erzeugt hat.",
     'portfolio.p3.more1': "Genau diese Entscheidung brachte die interessantesten Probleme mit sich. Sprache bedeutete, sich auf die Gemini API zu verlassen, um lockere natürliche Sprache in strukturierte Aktionen zu übersetzen - eine ganz andere Design-Herausforderung, als einen Button mit einer Funktion zu verknüpfen. Man gestaltet für Mehrdeutigkeit und Absicht, nicht für präzise Eingaben; ein großer Teil der Arbeit bestand also darin, das System tolerant dafür zu machen, wie Menschen Dinge wirklich formulieren.",
     'portfolio.p3.more2': "Und diese Formulierungen haben wir nur durchs Beobachten gefunden. Wir haben 7 Design-Iterationen mit 9 Nutzer*innen durchgeführt, bevor es an das Headset ging - auf diese Anzahl an Iterationen bin ich am stolzesten, denn das eigentliche Lernen kam davon, zuzusehen, wie jemand an einem Befehl scheitert, den wir für offensichtlich hielten, und ihn dann zu überarbeiten. Der „offensichtliche“ Befehl war es selten so sehr, wie wir dachten.",
 
@@ -1180,7 +1254,14 @@ const translations = {
     'portfolio.p4.summary': "Kann ein blinder Zuschauer ein Fußballspiel in Echtzeit verfolgen?",
     'portfolio.p4.intro1': "2024 stand der TIPE-Wettbewerb unter dem Thema Sport. Statt wie die meisten um mich herum auf Leistungsanalyse zu setzen, habe ich mir eine andere Frage gestellt: Wer kann ein Spiel heute nicht genießen? Sehbehinderte Zuschauer*innen hören die Stimmung im Stadion, verlieren aber den Faden, wo sich der Ball wirklich befindet.",
     'portfolio.p4.intro2': "Also habe ich ein Tracking-System gebaut, das den Ball erkennt und seine Position über das Tastgefühl statt über das Sehen vermittelt: KI-basierte Ballerkennung und Felderkennung, übersetzt in etwas, das man fühlt statt sieht.",
-    'portfolio.p4.more1': "Die Entscheidung, die alles geprägt hat, war, Echtzeit über Präzision zu stellen. Ein Spiel wartet nicht: Ein präzises, aber verspätetes System nützt nichts, denn man würde eine bereits vergangene Aktion spüren. Also habe ich Latenz zur wichtigsten Einschränkung gemacht und im Gegenzug eine vertretbare Fehlermarge akzeptiert: 180 ms Inferenzzeit, ~6 m Lokalisierungsgenauigkeit. Diese 6 Meter sind ein bewusster Kompromiss: präzise genug, um etwas zu vermitteln, aber schnell genug, um wirklich live zu wirken. Dieselbe Überlegung hat auch die Hardware geprägt: Ich habe 60 Kamerapositionen getestet, um die beste Balance zwischen Abdeckung und Genauigkeit zu finden - eine Abwägung, die man nur durch systematisches Testen findet, nicht durch Raten.",
+    'portfolio.p4.mediaCoverCaption': "Die Kernidee des Projekts",
+    'portfolio.p4.more1a': "Die Entscheidung, die alles geprägt hat, war, Echtzeit über Präzision zu stellen. Ein Spiel wartet nicht: Ein präzises, aber verspätetes System nützt nichts, denn man würde eine bereits vergangene Aktion spüren. Also habe ich Latenz zur wichtigsten Einschränkung gemacht und im Gegenzug eine vertretbare Fehlermarge akzeptiert: 180 ms Inferenzzeit, ~6 m Lokalisierungsgenauigkeit.",
+    'portfolio.p4.mediaAlgorithmCaption': "Vollständiger Algorithmus",
+    'portfolio.p4.more1b': "Diese 6 Meter sind ein bewusster Kompromiss: präzise genug, um etwas zu vermitteln, aber schnell genug, um wirklich live zu wirken.",
+    'portfolio.p4.mediaHardwareCaption': "Die tatsächliche Hardware - der sensorische Teil für die Nutzer*innen misst nur 12 cm.",
+    'portfolio.p4.more1c': "Dieselbe Überlegung hat auch die Hardware geprägt: Ich habe 60 Kamerapositionen getestet, um die beste Balance zwischen Abdeckung und Genauigkeit zu finden - eine Abwägung, die man nur durch systematisches Testen findet, nicht durch Raten.",
+    'portfolio.p4.mediaDetectionCaption': "Ballerkennung.",
+    'portfolio.p4.mediaPositionsCaption': "Lokalisierungsfehler über die getesteten Azimut-/Elevations-Kamerapositionen - minimaler Fehler 0,035 m.",
     'portfolio.p4.more2': "An all die verschiedenen Menschen rund um den Sport zu denken - Spieler*innen, Zuschauer*innen - hat mich zu diesem Projekt geführt. Und von „Wer wird ausgeschlossen?“ statt von „Was ist technisch beeindruckend?“ auszugehen, ist bis heute meine Art, Probleme auszuwählen.",
 
     'cv.h2': "Lebenslauf",

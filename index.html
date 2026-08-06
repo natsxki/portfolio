@@ -158,7 +158,7 @@
     <div class="card reveal">
       <h2 data-i18n="portfolio.h2">Portfolio</h2>
       <div class="projects">
-        <div class="project reveal">
+        <div class="project reveal" id="project-p1">
           <h3 data-i18n="portfolio.p1.title">Recette - Social Photo-Editing App</h3>
           <small data-i18n="portfolio.p1.small">React Native, Expo, Skia Shaders - Solo-designed, closed beta</small>
           <p class="project-summary" data-i18n="portfolio.p1.summary">What if the edit was the thing you shared, not just the photo?</p>
@@ -170,8 +170,13 @@
             <p data-i18n="portfolio.p1.more3">Currently testing the app in a closed beta: especially user retention, currently trying to figure out how to increase it through gamification.</p>
           </div>
           <button type="button" class="project-toggle" data-i18n="portfolio.readMore">read more ↓</button>
+          <button type="button" class="project-next" data-target="project-p2">
+            <span class="project-next-label" data-i18n="portfolio.nextProject">next:</span>
+            <span class="project-next-title" data-i18n="portfolio.p2.title">Review Sentiment Analysis Platform - Interactive Map</span>
+            <span class="project-next-arrow" aria-hidden="true">→</span>
+          </button>
         </div>
-        <div class="project reveal">
+        <div class="project reveal" id="project-p2">
           <h3 data-i18n="portfolio.p2.title">Review Sentiment Analysis Platform - Interactive Map</h3>
           <small data-i18n="portfolio.p2.small">Python, Leaflet, Selenium, Roberta - Group project, with school's social sciences team</small>
           <p class="project-summary" data-i18n="portfolio.p2.summary">How do you see a reputation change after something happens?</p>
@@ -182,27 +187,77 @@
             <p data-i18n="portfolio.p2.more2">That restraint is what made it a research instrument instead of a data dump. The interesting work wasn't the scraping or the model - it was working backward from a vague human question to a tool that made the answer visible.</p>
           </div>
           <button type="button" class="project-toggle" data-i18n="portfolio.readMore">read more ↓</button>
+          <button type="button" class="project-next" data-target="project-p3">
+            <span class="project-next-label" data-i18n="portfolio.nextProject">next:</span>
+            <span class="project-next-title" data-i18n="portfolio.p3.title">Voice-driven VR architecture studio</span>
+            <span class="project-next-arrow" aria-hidden="true">→</span>
+          </button>
         </div>
-        <div class="project reveal">
+        <div class="project reveal" id="project-p3">
           <h3 data-i18n="portfolio.p3.title">Voice-driven VR architecture studio</h3>
           <small data-i18n="portfolio.p3.small">Unity, Meta Quest, Gemini API - Group project</small>
           <p class="project-summary" data-i18n="portfolio.p3.summary">Designing a building shouldn't require learning to be a gamer first.</p>
           <p data-i18n="portfolio.p3.intro1">This started from a conversation with an architecture PhD student about how slow it is to prototype and iterate on a 3D building design. The bottleneck wasn't ideas: it was the friction of getting them into a workable form, quickly.</p>
           <p data-i18n="portfolio.p3.intro2">So we built a VR studio where architects shape prototypes in space, with one core move: swapping controllers for voice. Handing a non-gamer two Quest controllers and expecting fluent 3D manipulation is a big ask; the controls become the barrier. Voice sidesteps it: you describe what you want, and the interface mostly disappears. It meets users where they are, not where a gamer would be. I focused on the interaction design.</p>
+          <div class="project-gallery">
+            <figure class="project-gallery-item">
+              <div class="project-gallery-frame"><img src="media/tech-projects/VR-Design.JPG" alt="VR architecture studio - design mode screenshot"></div>
+              <figcaption data-i18n="portfolio.p3.media1Caption">Design Phase : I added a keyword summary made by Gemini to show the user what the system <i>understood</i> from their iterations. </figcaption>
+            </figure>
+            <figure class="project-gallery-item">
+              <div class="project-gallery-frame"><img src="media/tech-projects/VR-Generation.jpg" alt="VR architecture studio - generation/visualization mode screenshot"></div>
+              <figcaption data-i18n="portfolio.p3.media2Caption">Generation Phase : The UI once the system has generated the two prototype options from the speech sent to Gemini.</figcaption>
+            </figure>
+          </div>
           <div class="project-more">
             <p data-i18n="portfolio.p3.more1">That one decision drove the harder problems. Voice meant leaning on the Gemini API to turn loose natural language into structured actions: a very different constraint from mapping a button to a function. You're designing for ambiguity and intent, not precise input, so much of the work was making the system forgiving of how people actually phrase things.</p>
             <p data-i18n="portfolio.p3.more2">And we only found those phrasings by watching. We ran 7 design revisions with 9 users before shipping to headset - that iteration count is the part I'm proudest of, because the real learning was watching someone fumble a command we thought was obvious, then reworking it. The obvious command was not always that obvious!</p>
           </div>
           <button type="button" class="project-toggle" data-i18n="portfolio.readMore">read more ↓</button>
+          <button type="button" class="project-next" data-target="project-p4">
+            <span class="project-next-label" data-i18n="portfolio.nextProject">next:</span>
+            <span class="project-next-title" data-i18n="portfolio.p4.title">Accessibility-focused sports vision</span>
+            <span class="project-next-arrow" aria-hidden="true">→</span>
+          </button>
         </div>
-        <div class="project reveal">
+        <div class="project reveal" id="project-p4">
           <h3 data-i18n="portfolio.p4.title">Accessibility-focused sports vision</h3>
           <small data-i18n="portfolio.p4.small">Python, OpenCV, YOLOv9, Arduino - Top 3% nationally, graded 20/20</small>
           <p class="project-summary" data-i18n="portfolio.p4.summary">Can a blind spectator follow a football match in real time?</p>
           <p data-i18n="portfolio.p4.intro1">The 2024 national engineering research project had the theme "sports". Instead of focusing on the analytics of sports, or performance tracking- I asked myself a different question: who can't currently enjoy a match? Visually-impaired spectators get the stadium's sound but lose the thread of where the ball actually is.</p>
           <p data-i18n="portfolio.p4.intro2">So I built an assistive tracking system that follows the ball and conveys its position through feel instead of sight. AI ball recognition plus pitch detection, translated into something you sense rather than see.</p>
+          <div class="project-gallery">
+            <figure class="project-gallery-item">
+              <div class="project-gallery-frame"><img src="media/tech-projects/football-cover.png" alt="Diagram translating the ball's left-right position on the pitch into a haptic band under the user's fingers"></div>
+              <figcaption data-i18n="portfolio.p4.mediaCoverCaption">Project's main idea</figcaption>
+            </figure>
+          </div>
           <div class="project-more">
-            <p data-i18n="portfolio.p4.more1">The decision that shaped everything was optimizing for real-time over precision. A match doesn't wait: an accurate system that lags is useless, because you'd be feeling a play that already happened. So I made latency the hard constraint and accepted a tolerable error in exchange: 180ms inference, ~6m localization. That ~6m is a deliberate trade, precise enough to convey "ball's on the left wing near the box", especially if the sensory board is small. The same framing drove the hardware: I tested 60 camera placements to find the coverage/accuracy sweet spot, the kind of tradeoff you only find by testing systematically instead of guessing.</p>
+            <p data-i18n="portfolio.p4.more1a">The decision that shaped everything was optimizing for real-time over precision. A match doesn't wait: an accurate system that lags is useless, because you'd be feeling a play that already happened. So I made latency the hard constraint and accepted a tolerable error in exchange: 180ms inference, ~6m localization.</p>
+            <div class="project-gallery">
+              <figure class="project-gallery-item">
+                <div class="project-gallery-frame"><img src="media/tech-projects/football-algorithm.png" alt="Computer vision pipeline: camera image to Python ball/pitch detection to Arduino stepper motor movement"></div>
+                <figcaption data-i18n="portfolio.p4.mediaAlgorithmCaption">Full Algorithm</figcaption>
+              </figure>
+              <figure class="project-gallery-item">
+                <div class="project-gallery-frame"><img src="media/tech-projects/Football-detection.png" alt="Simulated camera view testing ball detection confidence for one candidate placement"></div>
+                <figcaption data-i18n="portfolio.p4.mediaDetectionCaption">Ball detection.</figcaption>
+              </figure>
+            </div>
+            <p data-i18n="portfolio.p4.more1b">That ~6m is a deliberate trade, precise enough to convey "ball's on the left wing near the box", especially if the sensory board is small.</p>
+            <div class="project-gallery">
+              <figure class="project-gallery-item">
+                <div class="project-gallery-frame"><img src="media/tech-projects/football-hardware.jpg" alt="Hardware diagram: Arduino, stepper motor, belt and pulley moving the cursor the user touches"></div>
+                <figcaption data-i18n="portfolio.p4.mediaHardwareCaption">The actual hardware- the sensory part for the user only measures 12 cm.</figcaption>
+              </figure>
+            </div>
+            <p data-i18n="portfolio.p4.more1c">The same framing drove the hardware: I tested 60 camera placements to find the coverage/accuracy sweet spot, the kind of tradeoff you only find by testing systematically instead of guessing.</p>
+            <div class="project-gallery">
+              <figure class="project-gallery-item">
+                <div class="project-gallery-frame"><img src="media/tech-projects/football-positions.jpg" alt="Localization error across tested azimuth/elevation camera placements, minimal error 0.035m."></div>
+                <figcaption data-i18n="portfolio.p4.mediaPositionsCaption">Localization error across tested azimuth/elevation camera placements - minimal error 0.035m.</figcaption>
+              </figure>
+            </div>
             <p data-i18n="portfolio.p4.more2">Thinking about all the different kinds of players and spectators is what led me here. And, starting from "who's being left out?" instead of "what's technically cool" is still how I like picking problems.</p>
           </div>
           <button type="button" class="project-toggle" data-i18n="portfolio.readMore">read more ↓</button>
@@ -325,6 +380,11 @@
 
   <footer data-i18n="footer.text">Made with love, three.js and one very dedicated chick. Thanks for reading! </footer>
 </main>
+
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button type="button" class="lightbox-close" aria-label="Close image" data-i18n="portfolio.lightboxClose" data-i18n-attr="aria-label">&times;</button>
+  <img class="lightbox-img" id="lightbox-img" src="" alt="">
+</div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="script.js"></script>
