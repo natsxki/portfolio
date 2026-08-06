@@ -645,12 +645,11 @@ document.querySelectorAll('#portfolio .project-next[data-target]').forEach((btn)
 ============================================================ */
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightbox-img');
+const lightboxVideo = document.getElementById('lightbox-video');
 const lightboxClose = lightbox.querySelector('.lightbox-close');
 let lightboxReturnFocus = null;
 
-function openLightbox(img) {
-  lightboxImg.src = img.currentSrc || img.src;
-  lightboxImg.alt = img.alt || '';
+function openLightboxCommon() {
   lightboxReturnFocus = document.activeElement;
   lightbox.classList.add('is-open');
   lightbox.setAttribute('aria-hidden', 'false');
@@ -658,18 +657,43 @@ function openLightbox(img) {
   lightboxClose.focus();
 }
 
+function openLightboxImage(img) {
+  lightboxVideo.pause();
+  lightboxVideo.style.display = 'none';
+  lightboxImg.style.display = '';
+  lightboxImg.src = img.currentSrc || img.src;
+  lightboxImg.alt = img.alt || '';
+  openLightboxCommon();
+}
+
+function openLightboxVideo(video) {
+  lightboxImg.style.display = 'none';
+  lightboxVideo.style.display = 'block';
+  lightboxVideo.src = video.currentSrc || video.src;
+  lightboxVideo.currentTime = video.currentTime;
+  openLightboxCommon();
+  if (!video.paused) lightboxVideo.play();
+}
+
 function closeLightbox() {
   lightbox.classList.remove('is-open');
   lightbox.setAttribute('aria-hidden', 'true');
   document.body.style.overflow = '';
+  lightboxVideo.pause();
   if (lightboxReturnFocus) lightboxReturnFocus.focus();
 }
 
 document.querySelectorAll('#portfolio .project-gallery-frame img').forEach((img) => {
-  img.addEventListener('click', () => openLightbox(img));
+  img.addEventListener('click', () => openLightboxImage(img));
+});
+document.querySelectorAll('#portfolio .project-video-expand').forEach((btn) => {
+  btn.addEventListener('click', () => {
+    const video = btn.closest('.project-video-frame').querySelector('video');
+    if (video) openLightboxVideo(video);
+  });
 });
 lightboxClose.addEventListener('click', closeLightbox);
-// clicking the dark backdrop closes it too; clicking the image itself shouldn't
+// clicking the dark backdrop closes it too; clicking the image/video itself shouldn't
 lightbox.addEventListener('click', (e) => {
   if (e.target === lightbox) closeLightbox();
 });
@@ -933,6 +957,7 @@ const translations = {
     'portfolio.h2': "Portfolio",
     'portfolio.readMore': "lire plus ↓",
     'portfolio.lightboxClose': "Fermer l'image",
+    'portfolio.expandVideo': "Agrandir la vidéo",
     'portfolio.showLess': "voir moins ↑",
     'portfolio.nextProject': "suivant :",
 
@@ -950,7 +975,10 @@ const translations = {
     'portfolio.p2.summary': "Comment voir évoluer une réputation après un événement ?",
     'portfolio.p2.intro1': "L'équipe de sciences sociales de l'école est venue nous voir avec une question de recherche ouverte : comment un événement fait-il évoluer la réputation d'un lieu dans le temps ? Difficile à étudier : une réputation, c'est flou, éparpillé dans des milliers d'avis, et ça bouge. Il leur fallait pouvoir la voir, pas seulement la décrire.",
     'portfolio.p2.intro2': "Nous avons donc construit une carte interactive qui transforme des avis publics épars en un signal lisible. On a scrapé des avis Google, fait tourner une analyse de sentiment avec un modèle RoBERTa pour transformer le texte libre en signal exploitable, puis affiché le tout sur une carte Leaflet, pour qu'un événement et ses répercussions se lisent comme un motif dans le temps. J'ai pris en charge l'UI/UX.",
+    'portfolio.p2.videoCaption': "ajoutez une légende ici",
     'portfolio.p2.more1': "Le vrai problème de conception, c'était la lisibilité : le temps, la géographie et le sentiment, ça fait trois dimensions à la fois. Et voir l'évolution dans le temps, c'était justement ce qui comptait le plus pour la recherche. La décision clé a donc été de concevoir pour la seule chose que les chercheurs avaient vraiment besoin de percevoir : comment un lieu change, dans le temps.",
+    'portfolio.p2.mediaConceptCaption': "ajoutez une légende ici",
+    'portfolio.p2.mediaRealCaption': "ajoutez une légende ici",
     'portfolio.p2.more2': "Cette retenue est ce qui en a fait un instrument de recherche plutôt qu'un déversoir de données. Le plus intéressant n'était ni le scraping ni le modèle : c'était de partir d'une question humaine floue pour en faire un outil qui rend la réponse visible.",
 
     'portfolio.p3.title': "Studio VR d'architecture piloté par la voix",
@@ -1076,6 +1104,7 @@ const translations = {
     'portfolio.h2': "ポートフォリオ",
     'portfolio.readMore': "もっと見る ↓",
     'portfolio.lightboxClose': "画像を閉じる",
+    'portfolio.expandVideo': "動画を拡大",
     'portfolio.showLess': "閉じる ↑",
     'portfolio.nextProject': "次:",
 
@@ -1093,7 +1122,10 @@ const translations = {
     'portfolio.p2.summary': "何かが起きた後、評判の変化をどう可視化するか?",
     'portfolio.p2.intro1': "学校の社会科学チームから、ある出来事が場所の評判を時間とともにどう変えていくのか、というオープンな研究課題を持ちかけられました。これは扱いづらいテーマです。評判というものは輪郭が曖昧で、何千件もの口コミに散らばっていて、常に動いています。彼らに必要だったのは、評判を説明することではなく、実際に「見える」形にすることでした。",
     'portfolio.p2.intro2': "そこで、散らばった一般公開の口コミを読み取れる信号に変えるインタラクティブマップを構築しました。Googleレビューをスクレイピングし、RoBERTaモデルによる感情分析でフリーテキストを扱いやすい信号に変換、それをLeafletの地図上に表示することで、出来事とその余波が時間の経過とともにひとつのパターンとして読み取れるようにしました。私はUI/UXを担当しました。",
+    'portfolio.p2.videoCaption': "キャプションを追加",
     'portfolio.p2.more1': "本当のデザイン上の課題は「読みやすさ」でした。時間、地理、感情という3つの次元が同時に存在しているからです。そして、時間の経過とともに変化を見ることこそが、研究にとって最も重要な要素でした。だからこそ鍵となる決断は、研究者たちが本当に感じ取る必要があったこと、つまり「ある場所が時間とともにどう変わるか」だけに焦点を絞ってデザインすることでした。",
+    'portfolio.p2.mediaConceptCaption': "キャプションを追加",
+    'portfolio.p2.mediaRealCaption': "キャプションを追加",
     'portfolio.p2.more2': "あえて要素を絞り込んだことこそが、単なるデータの山ではなく、研究のための道具に変えた理由でした。面白かったのはスクレイピングやモデルそのものではなく、曖昧で人間的な問いから出発して、その答えが見えるツールへと形にしていくプロセスでした。",
 
     'portfolio.p3.title': "音声操作型VR建築スタジオ",
@@ -1219,6 +1251,7 @@ const translations = {
     'portfolio.h2': "Portfolio",
     'portfolio.readMore': "mehr lesen ↓",
     'portfolio.lightboxClose': "Bild schließen",
+    'portfolio.expandVideo': "Video vergrößern",
     'portfolio.showLess': "weniger anzeigen ↑",
     'portfolio.nextProject': "nächstes:",
 
@@ -1236,7 +1269,10 @@ const translations = {
     'portfolio.p2.summary': "Wie sieht man, wie sich ein Ruf nach einem Ereignis verändert?",
     'portfolio.p2.intro1': "Das Sozialwissenschafts-Team der Hochschule kam mit einer offenen Forschungsfrage zu uns: Wie verändert ein Ereignis den Ruf eines Ortes im Laufe der Zeit? Schwer zu untersuchen: Ein Ruf ist unscharf, verstreut über Tausende Bewertungen, und er verändert sich ständig. Sie mussten ihn sehen können, nicht nur beschreiben.",
     'portfolio.p2.intro2': "Also haben wir eine interaktive Karte gebaut, die verstreute öffentliche Bewertungen in ein lesbares Signal verwandelt. Wir haben Google-Bewertungen gescrapt, eine Sentiment-Analyse mit einem RoBERTa-Modell laufen lassen, um Freitext in ein auswertbares Signal zu verwandeln, und alles auf einer Leaflet-Karte dargestellt - so werden ein Ereignis und seine Folgen als Muster im Zeitverlauf lesbar. Ich habe UI/UX übernommen.",
+    'portfolio.p2.videoCaption': "Bildunterschrift hier einfügen",
     'portfolio.p2.more1': "Das eigentliche Designproblem war die Lesbarkeit: Zeit, Geografie und Sentiment sind drei Dimensionen auf einmal. Und die Entwicklung über die Zeit zu sehen, war genau das, was für die Forschung am wichtigsten war. Die entscheidende Design-Entscheidung war deshalb, für genau die eine Sache zu gestalten, die die Forschenden wirklich wahrnehmen mussten: wie sich ein Ort im Laufe der Zeit verändert.",
+    'portfolio.p2.mediaConceptCaption': "Bildunterschrift hier einfügen",
+    'portfolio.p2.mediaRealCaption': "Bildunterschrift hier einfügen",
     'portfolio.p2.more2': "Genau diese Zurückhaltung hat daraus ein Forschungsinstrument gemacht statt einer Datenhalde. Das Interessanteste war weder das Scraping noch das Modell: Es war, von einer vagen menschlichen Frage auszugehen und daraus ein Werkzeug zu machen, das die Antwort sichtbar macht.",
 
     'portfolio.p3.title': "Sprachgesteuertes VR-Architekturstudio",
