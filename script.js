@@ -976,37 +976,37 @@ const translations = {
     'nav.next': "次へ",
 
     'hero.hello': "文化 · 工学 · デザイン",
-    'hero.h1': "こんにちは、リリアです!",
-    'hero.scrollHint': "スクロールして詳しく見る :)↓",
+    'hero.h1': "こんにちは、リリアです。",
+    'hero.scrollHint': "スクロールして詳しく見る↓",
 
-    'about.h2': "はじめまして c:",
-    'about.intro': "フランスと日本、二つの文化の間で育ち、学校ではドイツ語と英語にも触れてきました。そんな中で早くから学んだのは、本当に伝わるコミュニケーションには翻訳がいらないということ。この感覚をプロダクトづくりにも活かしています。エンジニアリング、デザイン、戦略と様々な領域に携わってきましたが、本当に惹かれるのはその境界線にある部分です。曖昧でとらえどころのない問題を、チーム全員が動ける一つの決断に変えていくこと、それが私の一番の情熱です。",
-    'about.status': '<strong>現在:</strong> ArianeGroupにてソフトウェアエンジニアリングインターン · <strong>募集中:</strong> プロダクトマネージャーのインターンシップ(2027年3月〜6月頃開始)',
+    'about.h2': "はじめまして。",
+    'about.intro': "フランスと日本の二つの文化の間で育ち、中学からはドイツ語と英語にも触れてきました。そんな中で早くから学んだのは、本当に伝わるコミュニケーションには翻訳がいらないということ。この感覚をプロダクトづくりにも活かしたいと思います。エンジニアリング、デザイン、戦略と様々な領域に携わってきましたが、本当に惹かれるのはその境界にある部分です。曖昧でとらえどころのない問題を、チーム全員が動ける一つの決断に変えていくことが、私にとって一番大事なものです。",
+    'about.status': '現在はArianeGroupにてソフトウェアエンジニアリングインターンですが、<strong>2027年3月〜6月頃開始のプロダクトマネージャーのインターンシップ</strong> を探しています。',
 
     'timeline.h2': "経歴",
     'timeline.academics': "学歴",
     'timeline.professional': "職歴",
-    'timeline.msc': "工学修士課程、Télécom Paris(IP Paris)。<br><br>専攻:データサイエンス&AI + 3Dグラフィックス&インタラクション(HCI)",
+    'timeline.msc': "工学修士課程 (MSc)、Télécom Paris(IP Paris)。<br><br>専攻:データサイエンス&AI + 3Dグラフィックス&インタラクション(HCI)",
     'timeline.arianegroup': "ソフトウェアエンジニアリングインターン、ArianeGroup",
-    'timeline.dataannotation': "AI評価者(パートタイム)、DataAnnotation",
-    'timeline.ey': "戦略・テクノロジーコンサルティングインターン、EY",
-    'timeline.joc': "日本オリンピック委員会会長付アシスタント、パリ2024オリンピック",
+    'timeline.dataannotation': "AI評価(パートタイム)、DataAnnotation",
+    'timeline.ey': "戦略・ITコンサルティングインターン、EY",
+    'timeline.joc': "日本オリンピック委員会会長アシスタント、パリ2024オリンピック",
 
     'how.h2': "働き方",
     'how.b1.title': "リリースするか、しないか",
     'how.b1.detail': `
             <small>Comète(Télécom Parisの映像制作クラブ)- 事務局長</small>
-            私たちの映像制作クラブComèteは、全学生に公開されたサイト上で年間5万枚以上のイベント写真を公開しています。ただ、自分が写っている写真を探すのは意外と大変。そこで顔認識を使って、誰もがアーカイブの中から自分自身を見つけられる機能をプロトタイプしました。実際に機能はしたのですが、生体データに関する課題を調べるうちに、リリースしないことに決めました。これまでで一番難しかったプロダクトの決断は、何かを作ることではなく、あえて世に出さないと選ぶことでした。
+            Télécom Parisの映像制作クラブComèteは、全学生に公開されたサイト上で年間5万枚以上の写真を公開しています。ですので、自分が写っている写真を探すのは意外と大変です。そこで顔認識を使って、誰もがアーカイブの中から自分自身を見つけられる機能をプロトタイプしました。実際に使えたのですが、生体データにまつわる課題を調べるうちに、リリースしないことを決めました。これまでで一番難しかったプロダクトの決断は、何かを作ることではなく、あえて世に出さないと決めることでした。
           `,
-    'how.b2.title': "複数言語で、リアルタイムに下す本物の決断",
+    'how.b2.title': "複数の言語での、リアルタイムな決断",
     'how.b2.detail': `
             <small>パリ2024オリンピック</small>
-            パリ2024オリンピック期間中、日本オリンピック委員会会長付アシスタントとして、めまぐるしく変わるスケジュールや利害の対立する中、日本代表団と現地関係者との調整を担当しました。すべてがリアルタイムで、日本語・フランス語・英語の3言語で進行します。振り返ってみると、言語の壁が一番の難しさだったわけではありません。本当に大変だったのは、皆が見ている中で素早く判断を下すことでした。
+            パリ2024オリンピック期間中、日本オリンピック委員会会長付アシスタントとして、変わるスケジュールや対立する利害の中で、日本代表団と現地関係者との調整を担当しました。すべてがリアルタイムで、しかも日本語・フランス語・英語の3言語が飛び交う環境です。振り返ってみると、一番の難しさは言語の壁ではありませんでした。本当に大変だったのは、皆が見ている中で素早く判断を下すことだったのです。
           `,
     'how.b3.title': "問題が本当にある場所を見つける",
     'how.b3.detail': `
             <small>EY - 戦略・テクノロジーコンサルティング</small>
-            EYでのインターン中、チームが実際にどうAIを導入しているのかを知るため、社内4部門で12件のインタビューを実施し、経営層向けの提言にまとめました。本当に役立つ情報は、ブリーフィングからではなく、人々が実際に働く様子を観察することから得られました。自分自身のプロジェクトでも同じ感覚があります。建築を学ぶ博士課程の学生から「コントローラーでの設計は反復するには遅すぎる」と聞き、友人二人と一緒に、主に音声で操作するVRツールを開発しました。推測するのではなく、現場の人と実際に話すことがどれほど大切か、そこから学びました。
+            EYでのインターン中、チームが実際にどうAIを使っているのかを知るため、社内4部門で12件のインタビューを実施し、経営層向けの提言にまとめました。本当に役立つ情報は、ブリーフィングからではなく、人々が実際に働く様子を観察することから得られました。自分自身のプロジェクトでも同じ感覚を持っています。建築を学ぶ博士課程の学生から「コントローラーでの設計は反復するには遅すぎる」と聞き、友人二人と一緒に、主に音声で操作するVRツールを開発しました。推測するのではなく、現場の人と実際に話すことがどれほど大切か、そこから学びました。
           `,
     'how.b4.title': "制約は仕事の障害ではなく、仕事そのもの",
     'how.b4.detail': `
@@ -1022,25 +1022,25 @@ const translations = {
     'portfolio.p1.small': "React Native, Expo, Skia Shaders - 個人開発、クローズドベータ",
     'portfolio.p1.summary': "写真そのものではなく、編集の「設定」をシェアできたら?",
     'portfolio.p1.intro1': "趣味で写真編集をしていて、いつも同じ壁にぶつかっていました。ある仕上がりを何時間眺めても、同じように再現できない。その「やり方」はアプリの中か、作った人の頭の中に閉じ込められたままなのです。",
-    'portfolio.p1.intro2': "そこで作ったのがRecette。写真編集のソーシャルアプリで、核となる発想はただ一つ:編集を隠れた副産物ではなく、コピーできる「レシピ」として扱うことです。フィードで気に入った仕上がりを見つけて、自分の写真にそのまま適用できます。「自分の写真もあんな風になればいいのに」という思いと、実際にそれを実現することの間にあるギャップを縮めるためのプロダクトです。",
-    'portfolio.p1.more1': "レシピを独立したオブジェクトとして扱う、という決断が、プロダクト全体の形を決めました。フィード、プロフィール、エディター。そのすべてが、完成した画像を見せるだけでなく、編集内容を読み取れてリミックスできるものである必要がありました。これこそが、単なる編集ツールをソーシャルなループへと変える鍵です。",
-    'portfolio.p1.more2': "VSCOのロックレイヤー方式からヒントを得て、レシピが構造化され、再現可能な状態を保てるようにしました。選んだフィルターの強さも調整できます。また、編集はSkiaシェーダーを使って端末(パソコンやスマートフォン)上で直接処理する設計にしました。調整のたびに即座に反映されるようにするためです。ソーシャルなループは、少しでも「待たされている」と感じた瞬間に失われてしまうものだからです。",
+    'portfolio.p1.intro2': "そこで作ったのがRecette。写真編集のソーシャルアプリで、核となる発想はただ一つ:編集を隠れた副産物ではなく、コピーできる「レシピ」として扱うことです。フィードで気に入った仕上がりを見つけたら、自分の写真にそのまま適用できます。「自分の写真もあんな風になればいいのに」という思いと、実際にそれを実現することの間にあるギャップを縮めるためのプロダクトです。",
+    'portfolio.p1.more1': "レシピを独立したオブジェクトとして扱う、という決断が、プロダクト全体の形を決めました。フィード、プロフィール、エディター。そのすべてが、完成した画像を見せるだけでなく、編集の中身を読み取ってリミックスできるものである必要がありました。これこそが、単なる編集ツールをソーシャルなループへと変える鍵です。",
+    'portfolio.p1.more2': "VSCOのロックレイヤー方式からヒントを得て、レシピが構造化され、再現可能な状態を保てるようにしました。選んだフィルターの強さも調整できます。また、編集はSkiaシェーダーを使って端末(パソコンやスマートフォン)上で直接処理する設計にしました。調整のたびに即座に反映されるようにするためです。ソーシャルなループは、少しでも「待たされている」と感じた瞬間に崩れてしまうものだからです。",
     'portfolio.p1.more3': "現在はクローズドベータ中で、特にユーザーの継続率を検証しながら、ゲーミフィケーションによる改善策を探っています。",
 
     'portfolio.p2.title': "レビュー感情分析プラットフォーム - インタラクティブマップ",
     'portfolio.p2.small': "Python, Leaflet, Selenium, RoBERTa - グループプロジェクト、学校の社会科学チームと共同",
     'portfolio.p2.summary': "何かが起きた後、評判の変化をどう可視化するか?",
     'portfolio.p2.intro1': "学校の社会科学チームから、ある出来事が場所の評判を時間とともにどう変えていくのか、というオープンな研究課題を持ちかけられました。これは扱いづらいテーマです。評判というものは輪郭が曖昧で、何千件もの口コミに散らばっていて、常に動いています。彼らに必要だったのは、評判を説明することではなく、実際に「見える」形にすることでした。",
-    'portfolio.p2.intro2': "そこで、散らばった一般公開の口コミを読み取れる信号に変換するインタラクティブマップを構築しました。Googleレビューをスクレイピングし、RoBERTaモデルによる感情分析でフリーテキストを扱いやすい信号に変換、それをLeafletの地図上に表示することで、出来事とその余波が時間の経過とともにひとつのパターンとして読み取れるようにしました。私はUI/UXを担当しました。",
-    'portfolio.p2.more1': "本当のデザイン上の課題は「読みやすさ」でした。時間、地理、感情という3つの次元が同時に存在しているからです。そして、時間の経過とともに変化を見ることこそが、研究にとって最も重要な要素でした。そこで鍵となる決断は、研究者たちが本当に知覚する必要があったこと、つまり「ある場所が時間とともにどう変わるか」だけに焦点を絞ってデザインすることでした。",
-    'portfolio.p2.more2': "その抑制こそが、単なるデータの山ではなく研究のための道具にした要因です。面白かったのはスクレイピングやモデルそのものではなく、曖昧な人間的な問いから出発して、その答えが見えるツールへと形にしていくプロセスでした。",
+    'portfolio.p2.intro2': "そこで、散らばった一般公開の口コミを読み取れる信号に変えるインタラクティブマップを構築しました。Googleレビューをスクレイピングし、RoBERTaモデルによる感情分析でフリーテキストを扱いやすい信号に変換、それをLeafletの地図上に表示することで、出来事とその余波が時間の経過とともにひとつのパターンとして読み取れるようにしました。私はUI/UXを担当しました。",
+    'portfolio.p2.more1': "本当のデザイン上の課題は「読みやすさ」でした。時間、地理、感情という3つの次元が同時に存在しているからです。そして、時間の経過とともに変化を見ることこそが、研究にとって最も重要な要素でした。だからこそ鍵となる決断は、研究者たちが本当に感じ取る必要があったこと、つまり「ある場所が時間とともにどう変わるか」だけに焦点を絞ってデザインすることでした。",
+    'portfolio.p2.more2': "あえて要素を絞り込んだことこそが、単なるデータの山ではなく、研究のための道具に変えた理由でした。面白かったのはスクレイピングやモデルそのものではなく、曖昧で人間的な問いから出発して、その答えが見えるツールへと形にしていくプロセスでした。",
 
     'portfolio.p3.title': "音声操作型VR建築スタジオ",
     'portfolio.p3.small': "Unity, Meta Quest, Gemini API - グループプロジェクト",
     'portfolio.p3.summary': "建物の設計は、まずゲーマーになることから始まる必要はないはず。",
-    'portfolio.p3.intro1': "きっかけは、建築を学ぶ博士課程の学生との会話でした。3Dの建物デザインをプロトタイピングし、反復していく作業がどれほど遅いか、という話です。ボトルネックはアイデアではなく、それを素早く使える形にする過程の摩擦にありました。",
+    'portfolio.p3.intro1': "きっかけは、建築を学ぶ博士課程の学生との会話でした。3Dの建物デザインをプロトタイピングし、反復していく作業がどれほど遅いか、という話です。ボトルネックはアイデアではなく、それを素早く使える形にするまでの摩擦にありました。",
     'portfolio.p3.intro2': "そこで、建築家たちが空間の中でプロトタイプを形作れるVRスタジオを作りました。中心となる決断は、コントローラーを音声に置き換えることです。ゲームをしない人にQuestのコントローラーを二つ渡して、滑らかな3D操作を期待するのは、すでにハードルが高すぎます。操作自体が障害になってしまうのです。音声ならそれを回避できます。欲しいものを言葉で説明すれば、インターフェースはほとんど意識されなくなります。こうしてツールは、ゲーマーになることを求めるのではなく、本当のユーザーに寄り添う形になりました。私はインタラクションデザインを担当しました。",
-    'portfolio.p3.more1': "この決断こそが、より興味深い課題を生み出しました。音声を使うということは、Gemini APIを活用して、あいまいな自然言語を構造化されたアクションに変換する必要がある、ということです。これはボタンと機能を対応させるのとはまったく異なる設計上の制約です。曖昧さと意図をくみ取るための設計であり、正確な入力のための設計ではありません。作業の多くは、人が実際にどう言葉にするかに対して、システムを寛容にすることに費やされました。",
+    'portfolio.p3.more1': "この決断こそが、より興味深い課題を生み出しました。音声を使うということは、Gemini APIを活用して、あいまいな自然言語を構造化されたアクションに変換する必要がある、ということです。これはボタンと機能を対応させるのとはまったく異なる設計上の制約です。曖昧さと意図をくみ取るための設計であり、正確な入力のための設計ではありません。作業の多くは、人が実際に使う言い回しに対して、システムを柔軟に対応させることに費やされました。",
     'portfolio.p3.more2': "そして、その言い回しは観察することでしか見つけられませんでした。ヘッドセットに実装する前に、9人のユーザーとともに7回のデザイン改善を重ねました。この反復の回数こそが、私が一番誇りに思っている部分です。本当の学びは、当たり前だと思っていたコマンドで誰かがつまずく様子を見て、それを作り直すところから生まれたからです。「当たり前」のコマンドが、思っていたほど当たり前であることは、ほとんどありませんでした。",
 
     'portfolio.p4.title': "視覚障がい者のための画像処理とメカトロニクス",
@@ -1057,10 +1057,10 @@ const translations = {
     'cv.arrowText': "お気軽にご連絡ください!",
 
     'creative.h2': "その他の作品",
-    'creative.intro': "仕事の側面以外にも、創造性を感じられることが大好きです!個人的なプロジェクトをいくつか紹介します:) クリックすると全画面で見られます。",
+    'creative.intro': "仕事以外でも、何かを創作すること全般が大好きです!個人的なプロジェクトをいくつか紹介します:) クリックすると全画面で見られます。",
     'creative.thingsIMake': "つくるもの",
     'creative.thingsIShoot': "撮るもの",
-    'creative.thingsIDo': "その他にしていること",
+    'creative.thingsIDo': "その他にやっていること",
     'creative.thingsIDoText': "12年間クラシックバレエを習っていましたが、最近はフィギュアスケートを始めました。音楽も大好きで、ピアノを弾いたり、RAYEやa6elを聴いたりしています。かわいいケーキを焼くのも好きです :) ",
 
     'creative.viewOnCanva': "Canvaで見る ↗",
@@ -1079,7 +1079,7 @@ const translations = {
     'creative.barcelonaRecap.title': "バルセロナ旅行の記録",
     'creative.barcelonaRecap.desc': "学生委員会主催のバルセロナ旅行をまとめたダイジェスト動画です。",
     'creative.aix.title': "南フランスの夏",
-    'creative.aix.desc': "友人たちと過ごした南フランスでの、ちょっとした旅の記録。友人と一緒に撮影しました。",
+    'creative.aix.desc': "友人たちと過ごした南フランスでの、ちょっとした旅の記録です。撮影も友人と一緒に。",
     'creative.flash.title': "フラッシュフォトグラフィー",
     'creative.flash.desc': "Y2Kスタイルにインスパイアされたシリーズ。友人たちとサクレー高原周辺の公共の場で撮影・編集しました。",
     'creative.wei.title': "Télécom Paris新入生歓迎ウィークエンド",
@@ -1089,7 +1089,7 @@ const translations = {
     'creative.ski.title': "スキー旅行の記録",
     'creative.ski.desc': "学生委員会向けに制作したソロプロジェクトで、撮影から編集まですべて一人で手がけました。",
 
-    'footer.text': "愛と、three.jsと、とても献身的な一羽のひよこによって作られました。読んでくれてありがとう!",
+    'footer.text': "愛を込めて作ったウェブサイトです。読んでくれてありがとう!",
 
     nextSectionTitles: ['自己紹介', '経歴', '働き方', 'ポートフォリオ', '履歴書', 'その他の作品', null, null],
   },
@@ -1128,12 +1128,12 @@ const translations = {
     'how.b1.title': "Launchen oder nicht launchen",
     'how.b1.detail': `
             <small>Comète (Audiovisueller Studierendenclub der Télécom Paris) - Generalsekretärin</small>
-            Unser Audiovisual-Club Comète veröffentlicht jährlich über 50.000 Eventfotos auf einer für alle Studierenden offenen Website. Die Fotos zu finden, auf denen man selbst zu sehen ist, kann dabei schnell mühsam werden. Also habe ich eine Gesichtserkennungs-Funktion prototypisiert, mit der sich jede*r in den Archiven wiederfinden kann. Das Tool funktionierte - aber nachdem ich mich mit den Fragen rund um biometrische Daten beschäftigt hatte, habe ich mich entschieden, es nicht zu launchen. Die schwierigste Produktentscheidung, die ich bisher getroffen habe, war also nicht etwas, das ich gebaut habe: Es war das, was ich bewusst nicht veröffentlicht habe.
+            Unser Audiovisual-Club Comète veröffentlicht jährlich über 50.000 Eventfotos auf einer für alle Studierenden offenen Website. Sich selbst auf diesen Fotos wiederzufinden, kann dabei schnell mühsam werden. Also habe ich eine Gesichtserkennungs-Funktion prototypisiert, mit der sich jede*r in den Archiven wiederfinden kann. Das Tool funktionierte - aber nachdem ich mich mit den Fragen rund um biometrische Daten beschäftigt hatte, habe ich mich entschieden, es nicht zu launchen. Die schwierigste Produktentscheidung, die ich bisher getroffen habe, war also nicht etwas, das ich gebaut habe: Es war das, was ich bewusst nicht veröffentlicht habe.
           `,
     'how.b2.title': "Echte Entscheidungen, live, über mehrere Sprachen hinweg",
     'how.b2.detail': `
             <small>Olympische Spiele Paris 2024</small>
-            Als Assistentin des Präsidenten des Japanischen Olympischen Komitees während der Spiele in Paris 2024 habe ich die japanische Delegation mit den lokalen Organisatoren koordiniert - bei sich ständig ändernden Zeitplänen und widersprüchlichen Interessen. Alles musste live entschieden werden, in 3 Sprachen (JP/FR/EN). Am Ende war die Sprachbarriere nie das Schwierige: Die eigentliche Herausforderung war, schnell zu entscheiden, während alle zusahen.
+            Als Assistentin des Präsidenten des Japanischen Olympischen Komitees während der Spiele in Paris 2024 habe ich die japanische Delegation mit den lokalen Organisatoren koordiniert - bei ständig wechselnden Zeitplänen und widersprüchlichen Interessen. Alles musste live entschieden werden, in 3 Sprachen (JP/FR/EN). Am Ende war die Sprachbarriere nie das Schwierige: Die eigentliche Herausforderung war, schnell zu entscheiden, während alle zusahen.
           `,
     'how.b3.title': "Das Problem dort finden, wo es wirklich liegt",
     'how.b3.detail': `
@@ -1189,9 +1189,9 @@ const translations = {
     'cv.arrowText': "Schreibt mir gerne!",
 
     'creative.h2': "Weitere Projekte",
-    'creative.intro': "Neben der beruflichen Seite liebe ich alles, was meine Kreativität rauslässt! Hier sind ein paar persönliche Projekte :) Klickt drauf, um sie im Vollbild zu sehen!",
+    'creative.intro': "Neben der beruflichen Seite liebe ich alles, wobei ich kreativ werden kann! Hier sind ein paar persönliche Projekte :) Klickt drauf, um sie im Vollbild zu sehen!",
     'creative.thingsIMake': "Was ich gestalte",
-    'creative.thingsIShoot': "Was ich filme",
+    'creative.thingsIShoot': "Was ich aufnehme",
     'creative.thingsIDo': "Was ich sonst mache",
     'creative.thingsIDoText': "Nach 12 Jahren klassischem Ballett habe ich vor Kurzem mit Eiskunstlauf angefangen. Außerdem liebe ich Musik - ob Klavier spielen oder RAYE und a6el hören - und schöne Kuchen backen :) ",
 
@@ -1222,7 +1222,6 @@ const translations = {
     'creative.ski.desc': "Ein Solo-Projekt für den Studierendenrat, von Anfang bis Ende selbst gedreht und geschnitten.",
 
     'footer.text': "Mit Liebe, three.js und einem sehr engagierten Küken gemacht. Danke fürs Lesen! ",
-
     nextSectionTitles: ['über mich', 'Werdegang', 'meine Arbeitsweise', 'Portfolio', 'Lebenslauf', 'weitere Projekte', null, null],
   },
 };
