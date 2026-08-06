@@ -19,6 +19,17 @@
     --body: "Lexend", system-ui, sans-serif;
   }
 
+  /* Japanese gets its own display/body font rather than falling through
+     to Sen/Lexend (Latin-only, so JP text would silently drop to the
+     system default) - Shippori Mincho B1 covers both scripts, so the
+     stray Latin bits (product names, "React Native", ...) that stay
+     untranslated still render in it too, instead of visibly switching font
+     mid-sentence. html[lang] is set by applyTranslations in script.js. */
+  html[lang="ja"] {
+    --display: "Shippori Mincho B1", "Sen", serif;
+    --body: "Shippori Mincho B1", "Lexend", serif;
+  }
+
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   /* justified body copy site-wide; single-line paragraphs (badges,
