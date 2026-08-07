@@ -870,7 +870,7 @@ updatePageNav();
    cv, creative, footer. entry i = title shown while ON section i (i.e.
    the title of section i+1); null hides the button (creative → footer
    has no real title, and footer has no next section at all). */
-const NEXT_SECTION_TITLE = ['about me', 'timeline', 'how i work', 'portfolio', 'cv', 'other fun stuff', null, null];
+const NEXT_SECTION_TITLE = ['about me', 'timeline', 'how i work', 'portfolio', 'resume', 'other fun stuff', null, null];
 const nextSectionBtn = document.getElementById('next-section-btn');
 const nextSectionBtnTitle = nextSectionBtn.querySelector('.next-section-btn-title');
 
@@ -927,10 +927,14 @@ const translations = {
     'timeline.academics': "Études",
     'timeline.professional': "Expérience professionnelle",
     'timeline.msc': "Diplôme d'ingénieur, <a href=\"https://www.telecom-paris.fr\" target=\"_blank\" rel=\"noopener\">Télécom Paris</a> (<a href=\"https://www.ip-paris.fr\" target=\"_blank\" rel=\"noopener\">IP Paris</a>). <br><br>Majeures : Data Science & IA + Graphisme 3D & Interactions (IHM)",
-    'timeline.arianegroup': "Stagiaire en développement logiciel, ArianeGroup",
-    'timeline.dataannotation': "Évaluatrice de modèles IA (temps partiel), DataAnnotation",
-    'timeline.ey': "Stagiaire en conseil stratégie &amp; tech, EY",
-    'timeline.joc': "Assistante du Président du Comité Olympique Japonais, Jeux Olympiques de Paris 2024",
+    'timeline.arianegroup.company': "ArianeGroup",
+    'timeline.arianegroup.role': "Stagiaire en développement logiciel",
+    'timeline.dataannotation.company': "DataAnnotation",
+    'timeline.dataannotation.role': "Évaluatrice de modèles IA (temps partiel)",
+    'timeline.ey.company': "EY",
+    'timeline.ey.role': "Stagiaire en conseil stratégie &amp; tech",
+    'timeline.joc.company': "Comité Olympique Japonais",
+    'timeline.joc.role': "Assistante du Président",
 
     'how.h2': "Ma façon de travailler",
     'how.b1.title': "Lancer ou ne pas lancer",
@@ -1074,10 +1078,14 @@ const translations = {
     'timeline.academics': "学歴",
     'timeline.professional': "職歴",
     'timeline.msc': "工学修士課程 (MSc)、<a href=\"https://www.telecom-paris.fr\" target=\"_blank\" rel=\"noopener\">Télécom Paris</a>(<a href=\"https://www.ip-paris.fr\" target=\"_blank\" rel=\"noopener\">IP Paris</a>)。<small>フランスを代表する工学系グランゼコールの一つ(選抜制の入学試験を経て入学)。</small><br><br>専攻:データサイエンス&AI + 3Dグラフィックス&インタラクション(HCI)",
-    'timeline.arianegroup': "ソフトウェアエンジニアリングインターン、ArianeGroup",
-    'timeline.dataannotation': "AI評価(パートタイム)、DataAnnotation",
-    'timeline.ey': "戦略・ITコンサルティングインターン、EY",
-    'timeline.joc': "日本オリンピック委員会会長アシスタント、パリ2024オリンピック",
+    'timeline.arianegroup.company': "ArianeGroup",
+    'timeline.arianegroup.role': "ソフトウェアエンジニアリングインターン",
+    'timeline.dataannotation.company': "DataAnnotation",
+    'timeline.dataannotation.role': "AI評価(パートタイム)",
+    'timeline.ey.company': "EY",
+    'timeline.ey.role': "戦略・ITコンサルティングインターン",
+    'timeline.joc.company': "日本オリンピック委員会",
+    'timeline.joc.role': "会長アシスタント",
 
     'how.h2': "働き方",
     'how.b1.title': "リリースするか、しないか",
@@ -1221,10 +1229,14 @@ const translations = {
     'timeline.academics': "Ausbildung",
     'timeline.professional': "Berufserfahrung",
     'timeline.msc': "Masterstudium Ingenieurwissenschaften, <a href=\"https://www.telecom-paris.fr\" target=\"_blank\" rel=\"noopener\">Télécom Paris</a> (<a href=\"https://www.ip-paris.fr\" target=\"_blank\" rel=\"noopener\">IP Paris</a>). <small>Eine der renommiertesten französischen Ingenieurhochschulen (Grande École, Zulassung über ein selektives Auswahlverfahren).</small><br><br>Schwerpunkte: Data Science &amp; KI + 3D-Grafik &amp; Interaktion (HCI)",
-    'timeline.arianegroup': "Praktikantin Softwareentwicklung, ArianeGroup",
-    'timeline.dataannotation': "KI-Bewerterin (Teilzeit), DataAnnotation",
-    'timeline.ey': "Praktikantin Strategie- &amp; Technologieberatung, EY",
-    'timeline.joc': "Assistentin des Präsidenten des Japanischen Olympischen Komitees, Olympische Spiele Paris 2024",
+    'timeline.arianegroup.company': "ArianeGroup",
+    'timeline.arianegroup.role': "Praktikantin Softwareentwicklung",
+    'timeline.dataannotation.company': "DataAnnotation",
+    'timeline.dataannotation.role': "KI-Bewerterin (Teilzeit)",
+    'timeline.ey.company': "EY",
+    'timeline.ey.role': "Praktikantin Strategie- &amp; Technologieberatung",
+    'timeline.joc.company': "Japanisches Olympisches Komitee",
+    'timeline.joc.role': "Assistentin des Präsidenten",
 
     'how.h2': "Meine Arbeitsweise",
     'how.b1.title': "Launchen oder nicht launchen",
