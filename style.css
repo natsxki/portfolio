@@ -946,6 +946,10 @@
     transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
   }
   #portfolio .project-gallery-frame img:hover { transform: scale(1.035); }
+  #portfolio .project-gallery-frame--no-mat {
+    background: none;
+    border-radius: 0;
+  }
   #portfolio .project-gallery-item figcaption {
     margin-top: 0.5rem;
     font-size: 0.8rem;
