@@ -896,7 +896,7 @@
     transition: transform 0.3s cubic-bezier(0.22,1,0.36,1), box-shadow 0.3s;
   }
   .project:hover { transform: translateY(-6px) rotate(-0.5deg); box-shadow: 0 16px 34px rgba(43,51,80,0.13); }
-  .project h3 { font-family: var(--display); font-size: 1.15rem; margin-bottom: 0.4em; }
+  .project h3 { font-family: var(--display); font-size: 1.4rem; margin-bottom: 0.4em; }
   .project small { color: #7a80a0; font-weight: 600; }
 
   /* portfolio: full-width project rows stacked in a single column
@@ -1008,7 +1008,7 @@
     text-align: center;
   }
 
-  #portfolio .project-summary { margin-bottom: 0; }
+  #portfolio .project-summary { text-align: center; margin: 1.7rem 0; }
   #portfolio .project-more {
     max-width: 70ch;
     max-height: 0;
