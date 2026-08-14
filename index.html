@@ -174,6 +174,34 @@
     <div class="card reveal">
       <h2 data-i18n="portfolio.h2">Portfolio</h2>
       <div class="projects">
+        <div class="project reveal" id="project-p1">
+          <h3 data-i18n="portfolio.p1.title">Recette - Social Photo-Editing App</h3>
+          <small data-i18n="portfolio.p1.small">React Native, Expo, Skia Shaders - Solo-designed, closed beta</small>
+          <p class="project-summary" data-i18n="portfolio.p1.summary">What if the edit was the thing you shared, not just the photo?</p>
+          <p data-i18n="portfolio.p1.intro1">I edit photos as a hobby, and I kept hitting the same wall: you can admire a look for hours and still not be able to reproduce it. The "how" stays locked inside the app, or inside the person who made it.</p>
+          <p data-i18n="portfolio.p1.intro2">So I built Recette, a social photo-editing app with one core bet: treat the edit as a copyable recipe, not a hidden byproduct. You find a look you love in the feed, and reuse it on your own shot. The product exists to shrink the gap between "I wish mine looked like that" and actually getting there.</p>
+          <figure class="project-video">
+            <div class="project-video-frame">
+              <video class="project-video-el" src="media/tech-projects/Recette-easy-demo.mov" controls playsinline preload="metadata" aria-label="Recette demo: browsing looks in the feed, then remixing a recipe onto a new photo"></video>
+              <button type="button" class="project-video-expand" aria-label="Expand video" data-i18n="portfolio.expandVideo" data-i18n-attr="aria-label">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3H5a2 2 0 0 0-2 2v4h2V5h4V3zm10 0h-4v2h4v4h2V5a2 2 0 0 0-2-2zM5 15H3v4a2 2 0 0 0 2 2h4v-2H5v-4zm14 4h-4v2h4a2 2 0 0 0 2-2v-4h-2v4z"/></svg>
+              </button>
+            </div>
+            <figcaption data-i18n="portfolio.p1.videoCaption">Browsing looks in the feed, then remixing a recipe onto a new photo</figcaption>
+          </figure>
+          <div class="project-more">
+            <p data-i18n="portfolio.p1.more1">That one decision: "recipe as a first-class object", shaped the entire product. The feed, the profile, the editor all had to make edits legible and remixable, not just show finished images. It's what turns the editing tool into a social loop, and it's the thing every downstream choice had to serve.</p>
+            <p data-i18n="portfolio.p1.more2">Two of those choices mattered most. I borrowed VSCO's locked-layer approach so recipes stay structured and reproducible instead of collapsing into one flat filter. You can read and adjust each step, not just the outcome. And I ran the edits on-device with Skia shaders so tweaking feels instant, because a social loop can die when it feels like waiting.</p>
+            <p data-i18n="portfolio.p1.more3">Currently testing the app in a closed beta: especially user retention, currently trying to figure out how to increase it through gamification.</p>
+            <p> If you are reading this and are interested in becoming a beta tester, let me know!!</p>
+          </div>
+          <button type="button" class="project-toggle" data-i18n="portfolio.readMore">read more ↓</button>
+          <button type="button" class="project-next" data-target="project-p2">
+            <span class="project-next-label" data-i18n="portfolio.nextProject">next:</span>
+            <span class="project-next-title" data-i18n="portfolio.p2.title">Review Sentiment Analysis Platform - Interactive Map</span>
+            <span class="project-next-arrow" aria-hidden="true">→</span>
+          </button>
+        </div>
         <div class="project reveal" id="project-p2">
           <h3 data-i18n="portfolio.p2.title">Review Sentiment Analysis Platform - Interactive Map</h3>
           <small data-i18n="portfolio.p2.small">Python, Leaflet, Selenium, Roberta - Group project, with school's social sciences team</small>
@@ -229,25 +257,6 @@
           <div class="project-more">
             <p data-i18n="portfolio.p3.more1">That one decision drove the harder problems. Voice meant leaning on the Gemini API to turn loose natural language into structured actions: a very different constraint from mapping a button to a function. You're designing for ambiguity and intent, not precise input, so much of the work was making the system forgiving of how people actually phrase things.</p>
             <p data-i18n="portfolio.p3.more2">And we only found those phrasings by watching. We ran 7 design revisions with 9 users before shipping to headset - that iteration count is the part I'm proudest of, because the real learning was watching someone fumble a command we thought was obvious, then reworking it. The obvious command was not always that obvious!</p>
-          </div>
-          <button type="button" class="project-toggle" data-i18n="portfolio.readMore">read more ↓</button>
-          <button type="button" class="project-next" data-target="project-p1">
-            <span class="project-next-label" data-i18n="portfolio.nextProject">next:</span>
-            <span class="project-next-title" data-i18n="portfolio.p1.title">Recette - Social Photo-Editing App</span>
-            <span class="project-next-arrow" aria-hidden="true">→</span>
-          </button>
-        </div>
-        <div class="project reveal" id="project-p1">
-          <h3 data-i18n="portfolio.p1.title">Recette - Social Photo-Editing App</h3>
-          <small data-i18n="portfolio.p1.small">React Native, Expo, Skia Shaders - Solo-designed, closed beta</small>
-          <p class="project-summary" data-i18n="portfolio.p1.summary">What if the edit was the thing you shared, not just the photo?</p>
-          <p data-i18n="portfolio.p1.intro1">I edit photos as a hobby, and I kept hitting the same wall: you can admire a look for hours and still not be able to reproduce it. The "how" stays locked inside the app, or inside the person who made it.</p>
-          <p data-i18n="portfolio.p1.intro2">So I built Recette, a social photo-editing app with one core bet: treat the edit as a copyable recipe, not a hidden byproduct. You find a look you love in the feed, and reuse it on your own shot. The product exists to shrink the gap between "I wish mine looked like that" and actually getting there.</p>
-          <div class="project-more">
-            <p data-i18n="portfolio.p1.more1">That one decision: "recipe as a first-class object", shaped the entire product. The feed, the profile, the editor all had to make edits legible and remixable, not just show finished images. It's what turns the editing tool into a social loop, and it's the thing every downstream choice had to serve.</p>
-            <p data-i18n="portfolio.p1.more2">Two of those choices mattered most. I borrowed VSCO's locked-layer approach so recipes stay structured and reproducible instead of collapsing into one flat filter. You can read and adjust each step, not just the outcome. And I ran the edits on-device with Skia shaders so tweaking feels instant, because a social loop can die when it feels like waiting.</p>
-            <p data-i18n="portfolio.p1.more3">Currently testing the app in a closed beta: especially user retention, currently trying to figure out how to increase it through gamification.</p>
-            <p> If you are reading this and are interested in becoming a beta tester, let me know!!</p>
           </div>
           <button type="button" class="project-toggle" data-i18n="portfolio.readMore">read more ↓</button>
           <button type="button" class="project-next" data-target="project-p4">

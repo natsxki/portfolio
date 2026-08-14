@@ -973,6 +973,7 @@ const translations = {
     'portfolio.p1.more1': "Cette décision, celle de traiter la recette comme un objet à part entière, a façonné tout mon produit. Le fil d\'actualité, le profil, l'éditeur : tout devait rendre les retouches lisibles et remixables, pas seulement afficher des images finies. C'est ce qui transforme un simple outil de retouche en boucle sociale.",
     'portfolio.p1.more2': "Je me suis inspirée du système de calques verrouillés de VSCO pour que les recettes restent structurées et reproductibles. On peut ajuster l'intensité du filtre choisi. J'ai aussi fait le choix de faire directement tourner les retouches sur l'appareil (ordinateur/téléphone) avec des shaders Skia, pour que chaque ajustement soit instantané : une boucle sociale meurt vite dès qu'elle donne une impression d'attente.",
     'portfolio.p1.more3': "L'appli est pour l'instant en bêta fermée : je teste surtout la rétention, et je cherche comment l'améliorer via la gamification.",
+    'portfolio.p1.videoCaption': "Parcourir les looks du fil, puis remixer une recette sur une nouvelle photo",
 
     'portfolio.p2.title': "Plateforme d'analyse de sentiment des avis - Carte interactive",
     'portfolio.p2.small': "Python, Leaflet, Selenium, RoBERTa - Projet de groupe, avec l'équipe de sciences sociales de l'école",
@@ -1124,6 +1125,7 @@ const translations = {
     'portfolio.p1.more1': "レシピを独立したオブジェクトとして扱う、という決断が、プロダクト全体の形を決めました。フィード、プロフィール、エディター。そのすべてが、完成した画像を見せるだけでなく、編集の中身を読み取ってリミックスできるものである必要がありました。これこそが、単なる編集ツールをソーシャルなループへと変える鍵です。",
     'portfolio.p1.more2': "VSCOのロックレイヤー方式からヒントを得て、レシピが構造化され、再現可能な状態を保てるようにしました。選んだフィルターの強さも調整できます。また、編集はSkiaシェーダーを使って端末(パソコンやスマートフォン)上で直接処理する設計にしました。調整のたびに即座に反映されるようにするためです。ソーシャルなループは、少しでも「待たされている」と感じた瞬間に崩れてしまうものだからです。",
     'portfolio.p1.more3': "現在はクローズドベータ中で、特にユーザーの継続率を検証しながら、ゲーミフィケーションによる改善策を探っています。",
+    'portfolio.p1.videoCaption': "フィードでルックを見つけて、新しい写真にレシピをリミックスする様子",
 
     'portfolio.p2.title': "レビュー感情分析プラットフォーム - インタラクティブマップ",
     'portfolio.p2.small': "Python, Leaflet, Selenium, RoBERTa - グループプロジェクト、学校の社会科学チームと共同",
@@ -1275,6 +1277,7 @@ const translations = {
     'portfolio.p1.more1': "Diese Entscheidung - das Rezept als eigenständiges Objekt zu behandeln - hat mein gesamtes Produkt geprägt. Feed, Profil, Editor: Alles musste die Bearbeitungen lesbar und remixbar machen, nicht nur fertige Bilder zeigen. Genau das macht aus einem einfachen Bearbeitungstool eine soziale Schleife.",
     'portfolio.p1.more2': "Ich habe mich von VSCOs System gesperrter Ebenen inspirieren lassen, damit Rezepte strukturiert und reproduzierbar bleiben. Die Intensität des gewählten Filters lässt sich anpassen. Außerdem lasse ich die Bearbeitung direkt auf dem Gerät (Computer/Handy) mit Skia-Shadern laufen, damit jede Anpassung sofort sichtbar ist - eine soziale Schleife stirbt schnell, sobald sie sich wie Warten anfühlt.",
     'portfolio.p1.more3': "Die App befindet sich derzeit in einer geschlossenen Beta: Ich teste vor allem die Nutzerbindung und suche nach Wegen, sie durch Gamification zu verbessern.",
+    'portfolio.p1.videoCaption': "Looks im Feed durchstöbern und ein Rezept auf ein neues Foto remixen",
 
     'portfolio.p2.title': "Plattform zur Sentiment-Analyse von Bewertungen - Interaktive Karte",
     'portfolio.p2.small': "Python, Leaflet, Selenium, RoBERTa - Gruppenprojekt mit dem Sozialwissenschafts-Team der Hochschule",
