@@ -902,26 +902,26 @@ updateNextSectionButton();
    until someone writes those dictionaries. */
 const translations = {
   fr: {
-    'social.nav': "liens sociaux",
-    'social.email': "M'envoyer un email",
-    'nav.pageNav': "navigation de la page",
-    'nav.home': "retour à l'accueil",
-    'nav.chooseLanguage': "choisir la langue",
+    'social.nav': "contacts",
+    'social.email': "m'envoyer un email",
+    'nav.pageNav': "navigation",
+    'nav.home': "accueil",
+    'nav.chooseLanguage': "langues",
     'nav.about': "à propos",
     'nav.howIWork': "ma façon de travailler",
     'nav.portfolio': "portfolio",
     'nav.cv': "cv",
     'nav.creative': "autres projets créatifs",
-    'nav.nextSection': "défiler vers la section suivante",
+    'nav.nextSection': "section suivante",
     'nav.next': "suivant",
 
-    'hero.hello': "cultures · systèmes · formes",
+    'hero.hello': "langues · systèmes · interfaces",
     'hero.h1': "Hello, moi c'est Lylia !",
-    'hero.scrollHint': "Défiler pour en savoir plus sur moi :)↓",
+    'hero.scrollHint': "Défilez pour en savoir plus sur moi :)↓",
 
-    'about.h2': "Enchantée c:",
-    'about.intro': "Grandir entre les cultures française et japonaise, tout en jonglant avec l'allemand et l'anglais dès le collège, m'a appris très tôt que la meilleure communication ne demande aucune traduction. J'applique le même instinct au produit : entre mes études en ingénierie et en design et mes expériences en stratégie, ce qui me plaît vraiment, c'est la jonction entre ces disciplines. Ce qui me passionne, c'est de transformer un problème flou en une décision claire, sur laquelle toute une équipe peut avancer.",
-    'about.status': '<strong>Actuellement</strong> stagiaire en développement logiciel chez ArianeGroup. <strong>Je recherche</strong> un stage de Product Manager, débutant entre mars et juin 2027.',
+    'about.h2': "Enchantée !",
+    'about.intro': "Entre le français et le japonais, puis l'allemand et l'anglais, j'ai appris très tôt que la meilleure communication ne demande aucune traduction. Je cherche la même évidence dans ce que je construis : à la frontière de l'ingénierie et du design, prendre un problème flou et le transformer en une décision claire, sur laquelle toute une équipe peut avancer.",
+    'about.status': '<strong>Actuellement</strong> stagiaire en développement logiciel chez ArianeGroup, je recherche un <strong>stage de Product Manager</strong>, débutant entre mars et juin 2027.',
 
     'timeline.h2': "parcours",
     'timeline.academics': "Études",
@@ -940,7 +940,7 @@ const translations = {
     'how.b1.title': "Lancer ou ne pas lancer",
     'how.b1.detail': `
             <small>Comète (club audiovisuel de Télécom Paris) - Secrétaire générale</small>
-            Notre club audiovisuel, Comète, publie plus de 50 000 photos d'événements par an, sur un site ouvert à tous les étudiants. Du coup, retrouver celles où on apparaît peut vite devenir laborieux. J'ai donc prototypé une fonctionnalité pour que chacun puisse se retrouver dans les archives grâce à la reconnaissance faciale. L'outil fonctionnait, mais en me renseignant sur les enjeux liés aux données biométriques, j'ai décidé de ne pas le lancer. La décision produit la plus difficile que j'ai prise jusqu'ici, ce n'est pas quelque chose que j'ai construit : c'est ce que j'ai choisi de ne pas lancer.
+            Notre club audiovisuel, Comète, publie plus de 50 000 photos d'événements par an, sur un site ouvert à tous les étudiants. Retrouver celles où on apparaît peut vite devenir chronophage. J'ai donc prototypé une fonctionnalité pour que chacun puisse se retrouver dans les archives grâce à la reconnaissance faciale. L'outil fonctionnait, mais en me renseignant sur les enjeux liés aux données biométriques, j'ai décidé de ne pas le lancer. La décision produit la plus difficile que j'ai prise jusqu'ici, ce n'est pas quelque chose que j'ai construit : c'est ce que j'ai choisi de ne pas lancer.
           `,
     'how.b2.title': "Des décisions réelles, en direct, en plusieurs langues",
     'how.b2.detail': `

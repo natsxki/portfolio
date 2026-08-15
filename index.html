@@ -69,12 +69,12 @@
   <div class="hero" id="hero">
     <p class="hello" data-i18n="hero.hello">cultures · engineering · design</p>
     <h1 data-i18n="hero.h1">hi, i'm Lylia!</h1>
-    <p class="scroll-hint" data-i18n="hero.scrollHint">scroll down to learn more about me :)↓</p>
+    <p class="scroll-hint" data-i18n="hero.scrollHint">scroll down to learn more about me :) ↓</p>
   </div>
 
   <section id="about">
     <div class="card reveal">
-      <h2 data-i18n="about.h2">i'm Lylia! Nice to meet you c:</h2>
+      <h2 data-i18n="about.h2">i'm Lylia, nice to meet you!</h2>
       <p data-i18n="about.intro">
         Growing up between French and Japanese cultures, while navigating German and English in school, taught me early on that the best communication requires no translation. I'm applying that same instinct to product: I've spent time in engineering, design and strategy, and what I actually like is the seam between them. Turning a messy, ambiguous problem into a decision the whole team can act on is what passionates me.
       </p>
@@ -82,8 +82,6 @@
     </div>
   </section>
 
-  <!-- no page-nav entry: this reads as an extension of "about me", just its
-       own snap-scroll stop so it doesn't get crowded into that card -->
   <section id="timeline">
     <div class="card reveal">
       <h2 data-i18n="timeline.h2">timeline</h2>
@@ -92,7 +90,7 @@
           <h4 data-i18n="timeline.academics">Academics</h4>
           <div class="about-timeline-entry reveal">
             <span class="about-timeline-year">2024 – Spring 2028</span>
-            <span class="about-timeline-what" data-i18n="timeline.msc">MSc in Engineering, <a href="https://www.telecom-paris.fr" target="_blank" rel="noopener">Télécom Paris</a> (<a href="https://www.ip-paris.fr" target="_blank" rel="noopener">IP Paris</a>). <small>One of France's top engineering grandes écoles (selective, competitive-exam entry).</small><br><br>Majors: Data Science & AI + 3D Graphics & Interaction (HCI).</span>
+            <span class="about-timeline-what" data-i18n="timeline.msc">MSc in Engineering, <a href="https://www.telecom-paris.fr" target="_blank" rel="noopener">Télécom Paris</a> (<a href="https://www.ip-paris.fr" target="_blank" rel="noopener">IP Paris</a>). <small>One of France's top engineering grandes écoles (selective, competitive-exam entry). Completed the Bachelor equivalent in July 2026.</small><br><br>Majors: Data Science & AI + 3D Graphics & Interaction (HCI).</span>
           </div>
         </div>
         <div class="about-timeline-col">
@@ -143,7 +141,7 @@
           <span class="bubble-title" data-i18n="how.b1.title">To ship or not to ship</span>
           <span class="bubble-detail" data-i18n="how.b1.detail">
             <small>Comète (Télécom Paris' Audiovisual Club) - Secretary General</small>
-            I realized our campus audiovisual club (Comète) archives 50k+ event photos a year, open to every student - and finding the ones I was actually in was painful. So I prototyped a face-search feature to let people find themselves in the archive using facial recognition. It worked. Then, I read up on GDPR and biometric-data rules, and killed it. The hardest product call I've made so far wasn't something I built: it was something I chose not to ship.
+            Our campus audiovisual club (Comète) archives 50k+ event photos a year, open to every student. I realized finding the ones I was actually in was painful. So I prototyped a face-search feature to let people find themselves in the archive using facial recognition. It worked, but then, I read up on GDPR and biometric-data rules, and killed it. The hardest product call I've made so far wasn't something I built: it was something I chose not to ship.
           </span>
         </button>
         <button type="button" class="bubble reveal">
@@ -164,7 +162,7 @@
           <span class="bubble-title" data-i18n="how.b4.title">Constraints as the job, not the obstacle</span>
           <span class="bubble-detail" data-i18n="how.b4.detail">
             <small>Télécom Paris' Student Board</small>
-            My team and I owned the budget and logistics for a €20,000 trip for 90 people. Fixed money, fixed dates, ... more wants than the budget could hold; so the actual job was deciding what mattered most and cutting the rest cleanly. Constraints aren't the annoying part of building something. They're usually the thing that create the real decision.
+            My team and I owned the budget and logistics for a €20,000 trip for 90 people. Fixed money, fixed dates, ... more wants than the budget could hold. So, the actual job was deciding what mattered most and cutting the rest cleanly. Constraints aren't the annoying part of building something. They're usually the thing that create the real decision!
           </span>
         </button>
       </div>
@@ -187,12 +185,12 @@
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3H5a2 2 0 0 0-2 2v4h2V5h4V3zm10 0h-4v2h4v4h2V5a2 2 0 0 0-2-2zM5 15H3v4a2 2 0 0 0 2 2h4v-2H5v-4zm14 4h-4v2h4a2 2 0 0 0 2-2v-4h-2v4z"/></svg>
               </button>
             </div>
-            <figcaption data-i18n="portfolio.p1.videoCaption">Browsing looks in the feed, then remixing a recipe onto a new photo</figcaption>
+            <figcaption data-i18n="portfolio.p1.videoCaption">Browsing looks in the feed, and remixing a recipe onto a new photo.</figcaption>
           </figure>
           <div class="project-more">
             <p data-i18n="portfolio.p1.more1">That one decision: "recipe as a first-class object", shaped the entire product. The feed, the profile, the editor all had to make edits legible and remixable, not just show finished images. It's what turns the editing tool into a social loop, and it's the thing every downstream choice had to serve.</p>
-            <p data-i18n="portfolio.p1.more2">Two of those choices mattered most. I borrowed VSCO's locked-layer approach so recipes stay structured and reproducible instead of collapsing into one flat filter. You can read and adjust each step, not just the outcome. And I ran the edits on-device with Skia shaders so tweaking feels instant, because a social loop can die when it feels like waiting.</p>
-            <p data-i18n="portfolio.p1.more3">Currently testing the app in a closed beta: especially user retention, currently trying to figure out how to increase it through gamification.</p>
+            <p data-i18n="portfolio.p1.more2">I borrowed VSCO's locked-layer approach so recipes stay structured and reproducible instead of collapsing into one flat filter. You can read and adjust each step, not just the outcome. And I ran the edits on-device with Skia shaders so tweaking feels instant, because a social loop can die when it feels like waiting.</p>
+            <p data-i18n="portfolio.p1.more3">Currently testing the app in a closed beta: especially user retention- currently trying to figure out how to increase it through gamification.</p>
             <p> If you are reading this and are interested in becoming a beta tester, let me know!!</p>
           </div>
           <button type="button" class="project-toggle" data-i18n="portfolio.readMore">read more ↓</button>
@@ -215,18 +213,18 @@
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3H5a2 2 0 0 0-2 2v4h2V5h4V3zm10 0h-4v2h4v4h2V5a2 2 0 0 0-2-2zM5 15H3v4a2 2 0 0 0 2 2h4v-2H5v-4zm14 4h-4v2h4a2 2 0 0 0 2-2v-4h-2v4z"/></svg>
               </button>
             </div>
-            <figcaption data-i18n="portfolio.p2.videoCaption">Interactive Map Overview</figcaption>
+            <figcaption data-i18n="portfolio.p2.videoCaption">Interactive Map Overview.</figcaption>
           </figure>
           <div class="project-more">
             <p data-i18n="portfolio.p2.more1">The real design problem was legibility: time, geography, and sentiment are three dimensions at once. Seeing the evolution in time is also a key element for research. So, the decision that mattered was designing for the one thing the researchers actually needed to perceive: change, over time, in a place.</p>
             <div class="project-gallery">
               <figure class="project-gallery-item">
                 <div class="project-gallery-frame"><img src="media/tech-projects/CRAFT-earlyconcept.png" alt="Early concept mockup of the CRAFT sentiment heatmap with a year slider"></div>
-                <figcaption data-i18n="portfolio.p2.mediaConceptCaption">Early concept design (Heatmap)</figcaption>
+                <figcaption data-i18n="portfolio.p2.mediaConceptCaption">Early concept design (Heatmap).</figcaption>
               </figure>
               <figure class="project-gallery-item">
                 <div class="project-gallery-frame"><img src="media/tech-projects/CRAFT-New.png" alt="Final CRAFT tool showing review sentiment over time on a map of Quartier Latin, Paris"></div>
-                <figcaption data-i18n="portfolio.p2.mediaRealCaption">Latest version</figcaption>
+                <figcaption data-i18n="portfolio.p2.mediaRealCaption">Latest version.</figcaption>
               </figure>
             </div>
             <p data-i18n="portfolio.p2.more2">The original concept and the final result do in fact look very different: apart from the color scale, it seemed important to add the average period as a parameter to make the <i>average</i> data meaningful. Plus, instead of smoothing the colors, I plotted them individually: a more accurate choice for less datapoints. The most interesting work was working backward from a vague human question to a tool that made the answer visible.</p>
