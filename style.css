@@ -821,6 +821,11 @@
     margin-bottom: 0.6em;
   }
   section p { line-height: 1.7; font-size: 1.05rem; max-width: 60ch; }
+  /* about's card grows with the viewport (up to 880px) like every other
+     card, but the 60ch cap above kept its paragraphs stuck at a fixed
+     width - same issue fixed for #portfolio's project text - so the
+     card visibly outgrew its own copy instead of the text filling it */
+  #about p { max-width: none; }
 
   /* ---------- timeline page: academics/professional tracks read in
      parallel, most recent first ---------- */
