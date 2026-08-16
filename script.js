@@ -920,8 +920,8 @@ const translations = {
     'hero.scrollHint': "En savoir plus sur moi :) ↓",
 
     'about.h2': "Enchantée !",
-    'about.intro': "Entre le français et le japonais, puis l'allemand et l'anglais, j'ai appris très tôt que la meilleure communication ne demande aucune traduction. Je cherche la même évidence dans ce que je construis : à la frontière de l'ingénierie et du design, prendre un problème flou et le transformer en une décision claire, sur laquelle toute une équipe peut avancer.",
-    'about.status': 'Actuellement stagiaire en développement logiciel chez ArianeGroup, je recherche un <strong>stage de Product Manager</strong>, débutant entre mars et juin 2027.',
+    'about.intro': "Entre le français et le japonais, puis l'allemand et l'anglais, j'ai appris très tôt que la meilleure communication ne demande aucune traduction. Je cherche cette même fluidité dans ce que je construis : à la frontière de l'ingénierie et du design, prendre un problème flou et le transformer en une décision claire, sur laquelle toute une équipe peut avancer.",
+    'about.status': 'Actuellement stagiaire en développement logiciel chez ArianeGroup, je recherche un <strong>stage de Product Manager</strong> entre mars et août 2027.',
 
     'timeline.h2': "parcours",
     'timeline.academics': "Études",
@@ -940,7 +940,7 @@ const translations = {
     'how.b1.title': "Lancer ou ne pas lancer",
     'how.b1.detail': `
             <small>Comète (club audiovisuel de Télécom Paris) - Secrétaire générale</small>
-            Notre club audiovisuel, Comète, publie plus de 50 000 photos d'événements par an, sur un site ouvert à tous les étudiants. Retrouver celles où on apparaît peut vite devenir chronophage. J'ai donc prototypé une fonctionnalité pour que chacun puisse se retrouver dans les archives grâce à la reconnaissance faciale. L'outil fonctionnait, mais en me renseignant sur les enjeux liés aux données biométriques, j'ai décidé de ne pas le lancer. La décision produit la plus difficile que j'ai prise jusqu'ici, ce n'est pas quelque chose que j'ai construit : c'est ce que j'ai choisi de ne pas lancer.
+            Notre club audiovisuel, Comète, publie plus de 50 000 photos d'événements par an, sur un site ouvert à tous les étudiants. Retrouver celles où on apparaît peut vite devenir chronophage. J'ai donc prototypé une fonctionnalité pour que chacun puisse se retrouver dans les archives grâce à la reconnaissance faciale. L'outil fonctionnait, mais en me renseignant sur les enjeux liés aux données biométriques, j'ai décidé de ne pas le lancer. .
           `,
     'how.b2.title': "Des décisions réelles, en direct, en plusieurs langues",
     'how.b2.detail': `
@@ -950,7 +950,7 @@ const translations = {
     'how.b3.title': "Trouver le problème là où il se trouve vraiment",
     'how.b3.detail': `
             <small>EY - Conseil en stratégie et technologie</small>
-            Pendant mon stage chez EY, j'ai mené 12 entretiens dans 4 pôles de l'entreprise sur la façon dont les équipes adoptent vraiment l'IA, que j'ai ensuite synthétisés en recommandations pour les managers. Le plus utile ne venait jamais du brief : il venait d'observer comment les gens travaillent réellement. Même réflexe sur mes propres projets : un doctorant en architecture m'a dit que concevoir à la manette était trop lent pour itérer, alors j'ai construit, avec deux amis, un outil VR piloté surtout par la voix. J'ai appris à quel point ça compte d'aller parler aux gens sur le terrain plutôt que de deviner.
+            Pendant mon stage chez EY, j'ai mené 12 entretiens dans 4 pôles de l'entreprise sur la façon dont les équipes adoptent vraiment l'IA, que j'ai ensuite synthétisés en recommandations pour les managers. Le plus utile ne venait jamais du brief : il venait d'observer comment les gens travaillent réellement. Même réflexe sur mes propres projets : un doctorant en architecture m'a dit que concevoir à la manette était trop lent pour itérer, alors j'ai construit, avec deux amis, un outil VR piloté surtout par la voix.
           `,
     'how.b4.title': "Les contraintes comme le vrai travail, pas comme l'obstacle",
     'how.b4.detail': `
@@ -978,10 +978,10 @@ const translations = {
     'portfolio.p2.title': "Plateforme d'analyse de sentiment - Carte interactive",
     'portfolio.p2.small': "Python, Leaflet, Selenium, RoBERTa - Projet de groupe, avec l'équipe de sciences sociales de l'école",
     'portfolio.p2.summary': "Comment voir évoluer la réputation d'un lieu après un événement ?",
-    'portfolio.p2.intro1': "L'équipe de sciences sociales de l'école est venue nous voir avec une question de recherche ouverte : comment un événement fait-il évoluer la réputation d'un lieu ? La réputation est déjà difficile à évaluer : on pourrait uniquement se baser sur les notes Google Reviews - mais elles existent par milliers, et les utilisateurs attribuent une note de manière subjective. Par exemple, \"Bien\" peut être équivalent à 3 étoiles ou 4, selon l'utilisateur.",
+    'portfolio.p2.intro1': "L'équipe de sciences sociales de l'école est venue nous voir avec une question de recherche ouverte : comment un événement fait-il évoluer la réputation d'un lieu ? La réputation est déjà difficile à évaluer : on pourrait uniquement se baser sur les notes Google Reviews - mais elles existent par milliers, et les utilisateurs ont chacun leur propre barême. Par exemple, \"Bien\" peut être équivalent à 3 étoiles ou 4, selon l'utilisateur.",
     'portfolio.p2.intro2': "Nous avons donc construit une carte interactive qui transforme les <i>commentaires</i> des avis publics en un signal quantitatif, lisible dans le temps et l'espace. Nous avons scrapé des avis Google, fait tourner une analyse de sentiment avec un modèle RoBERTa pour transformer le texte libre en valeurs exploitables, puis affiché le tout sur une carte Leaflet, pour qu'un événement et ses répercussions se lisent comme un motif dans le temps. Je me suis chargée de l'UI/UX.",
     'portfolio.p2.videoCaption': "Navigation dans l'interface.",
-    'portfolio.p2.more1': "Le vrai problème de conception, c'était la lisibilité : le temps, la géographie et le sentiment font ensemble trois dimensions à la fois. L'évolution dans le temps était justement ce qui comptait le plus pour la recherche. La décision clé a donc été de concevoir pour la seule chose que les chercheurs avaient vraiment besoin de percevoir : comment un lieu change, dans le temps.",
+    'portfolio.p2.more1': "Le vrai problème de conception, c'était la lisibilité : le temps, la géographie et le sentiment font ensemble trois dimensions à la fois. L'évolution dans le temps était justement ce qui comptait le plus pour la recherche. La décision clé a donc été de concevoir pour la seule chose que les chercheurs avaient vraiment besoin de percevoir : comment un lieu change, dans le temps. C'est ce qui fait la réelle différence entre la version finale et le concept original. J'ai fait le choix de représenter chaque point de manière locale (plus cohérent au vu du plus petit nombre de points), et ajouté le paramètre de période de moyennage, pour permettre une recherche plus fine.",
     'portfolio.p2.mediaConceptCaption': "Concept original.",
     'portfolio.p2.mediaRealCaption': "Version finale.",
     'portfolio.p2.more2': "Le plus intéressant dans ce projet n'était ni le scraping, ni le modèle : c'était de partir d'une question humaine floue pour en faire un outil de recherche qui rend les réponses visible.",
@@ -1078,7 +1078,7 @@ const translations = {
     'timeline.h2': "経歴",
     'timeline.academics': "学歴",
     'timeline.professional': "職歴",
-    'timeline.msc': "工学修士課程 (MSc)、<a href=\"https://www.telecom-paris.fr\" target=\"_blank\" rel=\"noopener\">Télécom Paris</a>(<a href=\"https://www.ip-paris.fr\" target=\"_blank\" rel=\"noopener\">IP Paris</a>)。<small>フランスを代表する工学系グランゼコールの一つ(選抜制の入学試験を経て入学)。</small><br><br>専攻:データサイエンス&AI + 3Dグラフィックス&インタラクション(HCI)",
+    'timeline.msc': "工学修士課程 (MEng)、<a href=\"https://www.telecom-paris.fr\" target=\"_blank\" rel=\"noopener\">Télécom Paris</a>(<a href=\"https://www.ip-paris.fr\" target=\"_blank\" rel=\"noopener\">IP Paris</a>)。<small>フランスを代表する工学系グランゼコールの一つ(選抜制の入学試験を経て入学)。</small> 2026年7月にBachelorを獲得。<br><br>専攻:データサイエンス&AI + 3Dグラフィックス&インタラクション(HCI)",
     'timeline.arianegroup.company': "ArianeGroup",
     'timeline.arianegroup.role': "ソフトウェアエンジニアリングインターン",
     'timeline.dataannotation.company': "DataAnnotation",
