@@ -60,7 +60,6 @@
 </nav>
 
 <button id="next-section-btn" class="next-section-btn" aria-label="scroll to next section" data-i18n="nav.nextSection" data-i18n-attr="aria-label">
-  <span class="next-section-btn-label" data-i18n="nav.next">next</span>
   <span class="next-section-btn-title"></span>
   <span class="next-section-btn-arrow">↓</span>
 </button>
@@ -175,7 +174,6 @@
         <div class="project reveal" id="project-p1">
           <h3 data-i18n="portfolio.p1.title">Recette - Social Photo-Editing App</h3>
           <small data-i18n="portfolio.p1.small">React Native, Expo, Skia Shaders - Solo-designed, closed beta</small>
-          <p class="project-summary" data-i18n="portfolio.p1.summary">What if the edit was the thing you shared, not just the photo?</p>
           <p data-i18n="portfolio.p1.intro1">I edit photos as a hobby, and I kept hitting the same wall: you can admire a look for hours and still not be able to reproduce it. The "how" stays locked inside the app, or inside the person who made it.</p>
           <p data-i18n="portfolio.p1.intro2">So I built Recette, a social photo-editing app with one core bet: treat the edit as a copyable recipe, not a hidden byproduct. You find a look you love in the feed, and reuse it on your own shot. The product exists to shrink the gap between "I wish mine looked like that" and actually getting there.</p>
           <figure class="project-video">
@@ -188,23 +186,27 @@
             <figcaption data-i18n="portfolio.p1.videoCaption">Browsing looks in the feed, and remixing a recipe onto a new photo.</figcaption>
           </figure>
           <div class="project-more">
-            <p data-i18n="portfolio.p1.more1">That one decision: "recipe as a first-class object", shaped the entire product. The feed, the profile, the editor all had to make edits legible and remixable, not just show finished images. It's what turns the editing tool into a social loop.</p>
-            <p data-i18n="portfolio.p1.more2">I borrowed VSCO's locked-layer approach so recipes stay structured and reproducible instead of collapsing into one flat filter. You can read and adjust each step, not just the outcome. And I ran the edits on-device with Skia shaders so tweaking feels instant, because a social loop can die when it feels like waiting.</p>
-            <p data-i18n="portfolio.p1.more3">Currently testing the app in a closed beta: especially user retention- currently trying to figure out how to increase it through gamification.</p>
-            <p> If you are reading this and are interested in becoming a beta tester, let me know!!</p>
+            <p class="project-label" data-i18n="portfolio.labelProblem">The problem</p>
+            <p data-i18n="portfolio.p1.problem">Good photo edits are easy to admire but tend to be difficult to reproduce. The technique disappears the moment the photo gets posted on a social platform.</p>
+            <p class="project-label" data-i18n="portfolio.labelTargetUser">Target user</p>
+            <p data-i18n="portfolio.p1.targetUser">Hobbyist photo editors who already treat editing as a craft, screenshot looks they love on social media but give up trying to match them.</p>
+            <p class="project-label" data-i18n="portfolio.labelCompetitors">Competitors</p>
+            <p data-i18n="portfolio.p1.competitors">VSCO and Lightroom let users save and share presets, but as standalone files disconnected from the photo that inspired them. You can't see a look you love and get its exact recipe in one tap. Outside of apps, the actual workaround people use today is screenshotting a look or asking for presets in the comments.</p>
+            <p class="project-label" data-i18n="portfolio.labelInsight">The insight</p>
+            <p data-i18n="portfolio.p1.insight">Most photo apps share the output: the finished image. But the actually valuable, transferable thing isn't the result, it's the transformation. My first instinct leaned toward a preset/filter marketplace, with static looks you apply, not far from a filter pack. It fell flat in early sketches: a filter is static, it doesn't adapt to the photo underneath it. The click was seeing the real shape of the problem: someone asks "how did you get that look?" and the honest answer is a paragraph of settings nobody's going to replicate by hand. That gap, between admiring a look and actually reproducing it, is the product.</p>
+            <p class="project-label" data-i18n="portfolio.labelSolution">My solution</p>
+            <p data-i18n="portfolio.p1.solution">I built the <i>recipe</i> as the app's first-class object: the feed, profile, and editor all had to make edits legible and remixable, not just display finished images. The locked-layer approach (inspired by VSCO) was a deliberate constraint too: I chose not to let people fully deconstruct someone else's edit down to raw values, trading maximum remixability for keeping the original creator's attribution intact. And I ran edits on-device with Skia shaders instead of a simpler server-side render, since a social loop dies the moment it makes the user wait. A tradeoff I made: I designed a full gamification economy: points for posting, points for being saved, a store to spend them in. But I then chose not to ship it wholesale. Early modeling showed it would create rich-get-richer dynamics: early savers compound their advantage and newcomers can't break in, which is the opposite of what a discovery feed should do. </p>
+            <p class="project-label" data-i18n="portfolio.labelFeedback">Feedback so far</p>
+            <p data-i18n="portfolio.p1.feedback">Still in closed beta, so the clearest signal so far is usage, not a wide survey. Retention is the number I watch most closely, and gamification is the current experiment for improving it. If you're reading this and want to be a beta tester, let me know!</p>
+            <p class="project-label" data-i18n="portfolio.labelImpact">Impact</p>
+            <p data-i18n="portfolio.p1.impact">34 beta users (by early July), with about 21% week-one retention, a metric I'm optimizing toward :)</p>
           </div>
-          <button type="button" class="project-toggle" data-i18n="portfolio.readMore">read more ↓</button>
-          <button type="button" class="project-next" data-target="project-p2">
-            <span class="project-next-label" data-i18n="portfolio.nextProject">next:</span>
-            <span class="project-next-title" data-i18n="portfolio.p2.title">Review Sentiment Analysis Platform - Interactive Map</span>
-            <span class="project-next-arrow" aria-hidden="true">→</span>
-          </button>
+          <button type="button" class="project-toggle" data-i18n="portfolio.readMore">the thinking ↓</button>
         </div>
         <div class="project reveal" id="project-p2">
           <h3 data-i18n="portfolio.p2.title">Review Sentiment Analysis Platform - Interactive Map</h3>
           <small data-i18n="portfolio.p2.small">Python, Leaflet, Selenium, Roberta - Group project, with school's social sciences team</small>
-          <p class="project-summary" data-i18n="portfolio.p2.summary">How do you see a reputation change after something happens?</p>
-          <p data-i18n="portfolio.p2.intro1">The school's social sciences team came to us with an open research question: how do events shift the reputation of a place over time? Hard to study: reputation is fuzzy, scattered across thousands of opinions, and it moves. </p>
+          <p data-i18n="portfolio.p2.intro1">The school's social sciences team came to us with an open research question: how do events shift the reputation of places over time? Hard to study: reputation is fuzzy, scattered across thousands of opinions, and it moves. </p>
           <p data-i18n="portfolio.p2.intro2">So we built an interactive map that turns scattered public reviews into a readable signal. We scraped Google reviews, ran RoBERTa sentiment analysis to turn free text into something trackable, and plotted it on a Leaflet map so an event and its aftermath show up as a pattern over time. I owned the UI/UX part.</p>
           <figure class="project-video">
             <div class="project-video-frame">
@@ -216,7 +218,16 @@
             <figcaption data-i18n="portfolio.p2.videoCaption">Interactive Map Overview.</figcaption>
           </figure>
           <div class="project-more">
-            <p data-i18n="portfolio.p2.more1">Now, time, geography, and sentiment are three dimensions at once. Seeing the evolution in time is also a key element for research. So, the decision that mattered was designing for the one thing the researchers actually needed to perceive: change, over time, in a place.</p>
+            <p class="project-label" data-i18n="portfolio.labelProblem">The problem</p>
+            <p data-i18n="portfolio.p2.problem">Reputation change is real but hard to study: it's scattered across thousands of individual opinions, it moves over time, and none of that is visible just by reading reviews one at a time.</p>
+            <p class="project-label" data-i18n="portfolio.labelTargetUser">Target user</p>
+            <p data-i18n="portfolio.p2.targetUser">The school's social sciences researchers, who needed to see patterns in public sentiment over time.</p>
+            <p class="project-label" data-i18n="portfolio.labelCompetitors">Competitors</p>
+            <p data-i18n="portfolio.p2.competitors">Off-the-shelf review dashboards (Google's own rating average, TripAdvisor-style aggregators) only show a static score, not how it moves over time or across a neighborhood. Of course a manual alternative before this would have been reading reviews one by one and tallying sentiment by hand. Accurate, but far too slow to spot a pattern across thousands of reviews.</p>
+            <p class="project-label" data-i18n="portfolio.labelInsight">The insight</p>
+            <p data-i18n="portfolio.p2.insight">The first version rendered a continuous heatmap, which looked authoritative but wasn't. A heat surface implies interpolation across geography, but the underlying data is actually discrete, unevenly-sampled review points. Dense downtown blocks and sparse residential ones don't carry equal statistical weight. So in the first version, the gradient was encoding the amount of available data as if it were "how strong the sentiment is here." The fix was switching to individual markers, sized and colored so density and intensity would not conflict into one misleading color.</p>
+            <p class="project-label" data-i18n="portfolio.labelSolution">My solution</p>
+            <p data-i18n="portfolio.p2.solution">We scraped Google reviews, ran RoBERTa sentiment analysis on the text itself (not just star ratings), and plotted the result on a Leaflet map with a year slider (so change over time was the thing you actually saw first) and an avergae period slider. The harder design call was resisting the urge to smooth the data, as mentioned previously. What we chose not to build was multi-city support or a public-facing version. This project was scoped tightly to one research question for one neighborhood, and generalizing it would have meant compromising the year-over-year precision that was the actual point.</p>
             <div class="project-gallery">
               <figure class="project-gallery-item">
                 <div class="project-gallery-frame"><img src="media/tech-projects/CRAFT-earlyconcept.png" alt="Early concept mockup of the CRAFT sentiment heatmap with a year slider"></div>
@@ -227,46 +238,45 @@
                 <figcaption data-i18n="portfolio.p2.mediaRealCaption">Latest version.</figcaption>
               </figure>
             </div>
-            <p data-i18n="portfolio.p2.more2">The original concept and the final result do in fact look very different: apart from the color scale, it seemed important to add the average period as a parameter to make the <i>average</i> data meaningful. Plus, instead of smoothing the colors, I plotted them individually: a more accurate choice for less datapoints. The most interesting work was working backward from a vague human question to a tool that made the answer visible.</p>
           </div>
-          <button type="button" class="project-toggle" data-i18n="portfolio.readMore">read more ↓</button>
-          <button type="button" class="project-next" data-target="project-p3">
-            <span class="project-next-label" data-i18n="portfolio.nextProject">next:</span>
-            <span class="project-next-title" data-i18n="portfolio.p3.title">Voice-driven VR architecture studio</span>
-            <span class="project-next-arrow" aria-hidden="true">→</span>
-          </button>
+          <button type="button" class="project-toggle" data-i18n="portfolio.readMore">the thinking ↓</button>
         </div>
         <div class="project reveal" id="project-p3">
           <h3 data-i18n="portfolio.p3.title">Voice-driven VR architecture studio</h3>
           <small data-i18n="portfolio.p3.small">Unity, Meta Quest, Gemini API - Group project</small>
-          <p class="project-summary" data-i18n="portfolio.p3.summary">Designing a building shouldn't require learning to be a gamer first.</p>
           <p data-i18n="portfolio.p3.intro1">This started from a conversation with an architecture PhD student about how slow it is to prototype and iterate on a 3D building design. The bottleneck wasn't ideas: it was the friction of getting them into a workable form, quickly.</p>
           <p data-i18n="portfolio.p3.intro2">So we built a VR studio where architects shape prototypes in space, with one core move: swapping controllers for voice. Handing a non-gamer two Quest controllers and expecting fluent 3D manipulation is a big ask; the controls become the barrier. Voice sidesteps it: you describe what you want, and the interface mostly disappears. This way, the system can be used by a vast majority of people, ranging from technical professionals to amateurs with design ideas. I focused on the interaction design.</p>
           <div class="project-gallery">
-            <figure class="project-gallery-item">
-              <div class="project-gallery-frame"><img src="media/tech-projects/VR-Design.JPG" alt="VR architecture studio - design mode screenshot"></div>
-              <figcaption data-i18n="portfolio.p3.media1Caption">Design Phase : I added a keyword summary made by Gemini to show the user what the system <i>understood</i> from their iterations. </figcaption>
-            </figure>
             <figure class="project-gallery-item">
               <div class="project-gallery-frame"><img src="media/tech-projects/VR-Generation.png" alt="VR architecture studio - generation/visualization mode screenshot"></div>
               <figcaption data-i18n="portfolio.p3.media2Caption">Generation Phase : The UI once the system has generated the two prototype options from the speech sent to Gemini.</figcaption>
             </figure>
           </div>
           <div class="project-more">
-            <p data-i18n="portfolio.p3.more1">Voice meant leaning on the Gemini API to turn loose natural language into structured actions. That meant designing for ambiguity and intent, not precise input; so much of the work was making the system forgiving of how people actually phrase things.</p>
-            <p data-i18n="portfolio.p3.more2">And we only found those phrasings by watching. We ran 7 design revisions with 9 users before shipping to headset - that iteration count is the part I'm proudest of, because the real learning was watching someone fumble a command we thought was obvious, then reworking it. The obvious command was not always that obvious!</p>
+            <p class="project-label" data-i18n="portfolio.labelProblem">The problem</p>
+            <p data-i18n="portfolio.p3.problem">Iterating on a 3D building concept design is slow. The main bottleneck is the friction of turning ideas into a visualizable 3D form quickly, especially for architects who aren't used to 3D softwares and VR/Gaming controls.</p>
+            <p class="project-label" data-i18n="portfolio.labelTargetUser">Target user</p>
+            <p data-i18n="portfolio.p3.targetUser">Technical professionals (architects, architecture students working on early stage concepts) and design-focused amateurs in general, not necessarily people who are comfortable with game-style/3D controls.</p>
+            <p class="project-label" data-i18n="portfolio.labelCompetitors">Competitors</p>
+            <p data-i18n="portfolio.p3.competitors">Traditional tools (Rhino, SketchUp) are precise but slow to iterate in for early concept work since they still require the user to input rather precise data. The manual workaround is still physical foam or cardboard massing models. Existing VR design tools like Gravity Sketch solve the 3D-in-space part, but still rely on handheld controllers, which reintroduces the exact barrier we were trying to remove for non-gamer architects.</p>
+            <p class="project-label" data-i18n="portfolio.labelInsight">The insight</p>
+            <p data-i18n="portfolio.p3.insight">The first version still relied on menus for common actions (e.g. selecting a wall type, adjusting a dimension, swapping a material), which is the standard VR-app pattern. It fought the medium: architects were trying to think and iterate spatially in real time, and every menu dive broke that flow. We realized the interaction cost itself was the problem, not which menu item was mislabeled. Voice, routed through Gemini, let people describe a change in plain terms instead of hunting through a hierarchy.</p>
+            <p class="project-label" data-i18n="portfolio.labelSolution">Our solution</p>
+            <p data-i18n="portfolio.p3.solution">We built a VR studio where the user describes what they want and the Gemini API turns that loose natural language into structured 3D actions, with a keyword summary shown back to the user so they can see what the system understood before committing. That meant designing for ambiguity and intent rather than precise input. Most of the real work was making the system forgiving of how people actually phrase things, which we only found by running 7 design revisions with 9 users. What we chose not to build mattered just as much: multi-user collaboration, and true free-form voice: we routed speech through Gemini but still scoped the intent space rather than accepting arbitrary commands, trading breadth for reliability on the commands that actually mattered.</p>
+            <div class="project-gallery">
+              <figure class="project-gallery-item">
+                <div class="project-gallery-frame"><img src="media/tech-projects/VR-Design.JPG" alt="VR architecture studio - design mode screenshot"></div>
+                <figcaption data-i18n="portfolio.p3.media1Caption">Design Phase: I added a keyword summary made by Gemini to show the user what the system <i>understood</i> from their iterations. </figcaption>
+              </figure>
+            </div>
+            <p class="project-label" data-i18n="portfolio.labelFeedback">Feedback</p>
+            <p data-i18n="portfolio.p3.feedback">The clearest feedback was behavioral: watching someone fumble a command we thought was obvious was more useful than anything they said afterward. The "obvious" command was rarely obvious on the first try.</p>
           </div>
-          <button type="button" class="project-toggle" data-i18n="portfolio.readMore">read more ↓</button>
-          <button type="button" class="project-next" data-target="project-p4">
-            <span class="project-next-label" data-i18n="portfolio.nextProject">next:</span>
-            <span class="project-next-title" data-i18n="portfolio.p4.title">Accessibility-focused sports vision</span>
-            <span class="project-next-arrow" aria-hidden="true">→</span>
-          </button>
+          <button type="button" class="project-toggle" data-i18n="portfolio.readMore">the thinking ↓</button>
         </div>
         <div class="project reveal" id="project-p4">
           <h3 data-i18n="portfolio.p4.title">Accessibility-focused sports vision</h3>
           <small data-i18n="portfolio.p4.small">Python, OpenCV, YOLOv9, Arduino - Top 3% nationally, graded 20/20</small>
-          <p class="project-summary" data-i18n="portfolio.p4.summary">Can a blind spectator follow a football match in real time?</p>
           <p data-i18n="portfolio.p4.intro1">The 2024 national engineering research project had the theme "sports". Instead of focusing on the analytics of sports, or performance tracking- I asked myself a different question: who can't currently enjoy a match? Visually-impaired spectators get the stadium's sound but lose the thread of where the ball actually is.</p>
           <p data-i18n="portfolio.p4.intro2">So I built an assistive tracking system that follows the ball and conveys its position through feel instead of sight. AI ball recognition plus pitch detection, translated into something you sense rather than see.</p>
           <div class="project-gallery">
@@ -276,7 +286,16 @@
             </figure>
           </div>
           <div class="project-more">
-            <p data-i18n="portfolio.p4.more1a">The decision that shaped everything was optimizing for real-time over precision. A match doesn't wait: an accurate system that lags is useless, because you'd be feeling a play that already happened. So I made latency the hard constraint and accepted a tolerable error in exchange: 180ms inference, ~6m localization.</p>
+            <p class="project-label" data-i18n="portfolio.labelProblem">The problem</p>
+            <p data-i18n="portfolio.p4.problem">Visually-impaired spectators get a stadium's sound and atmosphere, but lose the one piece of information that actually explains the game: where the ball is right now.</p>
+            <p class="project-label" data-i18n="portfolio.labelTargetUser">Target user</p>
+            <p data-i18n="portfolio.p4.targetUser">Blind and visually-impaired football spectators attending or watching a match live, who need position information fast enough to track a play as it happens.</p>
+            <p class="project-label" data-i18n="portfolio.labelCompetitors">Competitors</p>
+            <p data-i18n="portfolio.p4.competitors">Audio commentary already exists at most stadiums, but it's a human narrating in sentences, not continuous position data. That means there's an inherent lag and it can't convey exactly where on the pitch the ball is second to second. The common manual workaround today is a sighted companion sitting next to the spectator, quietly narrating the ball's position in real time.</p>
+            <p class="project-label" data-i18n="portfolio.labelInsight">The insight</p>
+            <p data-i18n="portfolio.p4.insight">My first pass used a heavier, higher-resolution detection model, chasing accuracy first and treating latency as secondary. It fell apart once it had to run on the actual edge/Arduino path. A two second delay is enough to make the whole system misleading, since the user would be feeling a play that's already over. The click was realizing accuracy only matters if it arrives in time to mean anything. That is why I traded high precision for frame rate and latency, which is what pushed me toward a YOLOv9 model with a low resolution input.</p>
+            <p class="project-label" data-i18n="portfolio.labelSolution">My solution</p>
+            <p data-i18n="portfolio.p4.solution">I made latency the hard constraint and accepted a tolerable error in exchange: 180ms inference and roughly 6 meters of localization error, converted into a haptic band the user feels under their fingers on a 12cm sensory board. That +/-6m error is precise enough to convey "ball's on the left wing, near the box" (since the physical system is rather small). Same logic for the hardware: I tested 60 camera placements to find the actual coverage/accuracy sweet spot, rather than guessing at one "obviously good" angle. What I did not to build: a full player-tracking system. That would have added latency and complexity for information a blind spectator can already get partly from crowd noise and commentary. </p>
             <div class="project-gallery">
               <figure class="project-gallery-item">
                 <div class="project-gallery-frame"><img src="media/tech-projects/football-algorithm.png" alt="Computer vision pipeline: camera image to Python ball/pitch detection to Arduino stepper motor movement"></div>
@@ -287,23 +306,22 @@
                 <figcaption data-i18n="portfolio.p4.mediaDetectionCaption">Ball detection.</figcaption>
               </figure>
             </div>
-            <p data-i18n="portfolio.p4.more1b">That ~6m is a deliberate trade, precise enough to convey "ball's on the left wing near the box", especially if the sensory board is small.</p>
             <div class="project-gallery">
               <figure class="project-gallery-item">
                 <div class="project-gallery-frame"><img src="media/tech-projects/football-hardware.jpg" alt="Hardware diagram: Arduino, stepper motor, belt and pulley moving the cursor the user touches"></div>
                 <figcaption data-i18n="portfolio.p4.mediaHardwareCaption">The actual hardware- the sensory part for the user only measures 12 cm.</figcaption>
               </figure>
             </div>
-            <p data-i18n="portfolio.p4.more1c">The same framing drove the hardware: I tested 60 camera placements to find the coverage/accuracy sweet spot, the kind of tradeoff you only find by testing systematically instead of guessing.</p>
             <div class="project-gallery">
               <figure class="project-gallery-item">
                 <div class="project-gallery-frame"><img src="media/tech-projects/football-positions.jpg" alt="Localization error across tested azimuth/elevation camera placements, minimal error 0.035m."></div>
                 <figcaption data-i18n="portfolio.p4.mediaPositionsCaption">Localization error across tested azimuth/elevation camera placements - minimal error 0.035m.</figcaption>
               </figure>
             </div>
-            <p data-i18n="portfolio.p4.more2">Thinking about all the different kinds of players and spectators is what led me here. And, starting from "who's being left out?" instead of "what's technically cool" is still how I like picking problems.</p>
+            <p class="project-label" data-i18n="portfolio.labelImpact">Impact</p>
+            <p data-i18n="portfolio.p4.impact">Ranked in the top 3% nationally in France's engineering student research competition, graded 20/20. Thinking about all the different kinds of players and spectators is what led me here. Starting from "who's being left out?" is still how I like picking problems.</p>
           </div>
-          <button type="button" class="project-toggle" data-i18n="portfolio.readMore">read more ↓</button>
+          <button type="button" class="project-toggle" data-i18n="portfolio.readMore">the thinking ↓</button>
         </div>
       </div>
     </div>

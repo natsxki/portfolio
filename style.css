@@ -395,13 +395,6 @@
     box-shadow: 0 12px 28px rgba(43, 51, 80, 0.18);
   }
   .next-section-btn:focus-visible { outline: 3px solid var(--beak); outline-offset: 3px; }
-  .next-section-btn-label {
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    opacity: 0.55;
-  }
   .next-section-btn-title {
     font-family: var(--display);
     font-weight: 700;
@@ -922,7 +915,7 @@
   .project:last-child { padding-bottom: 0; }
   .project + .project { border-top: 1px solid rgba(43, 51, 80, 0.12); }
   .project h3 { font-family: var(--display); font-size: 1.4rem; margin-bottom: 0.4em; }
-  .project small { color: #7a80a0; font-weight: 600; }
+  .project small { display: block; color: #7a80a0; font-weight: 600; margin-bottom: 1rem; }
 
   /* portfolio: full-width project rows stacked in a single column
      instead of side-by-side columns - each project reads top to bottom
@@ -1038,7 +1031,22 @@
     text-align: center;
   }
 
-  #portfolio .project-summary { text-align: center; margin: 1.7rem 0; }
+  /* small uppercase eyebrow marking each labeled subsection (The problem,
+     Target user, Competitors, ...) - same visual language as the
+     timeline's column headers (.about-timeline-col h4) */
+  #portfolio .project-label {
+    display: block;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: rgba(43, 51, 80, 0.5);
+    margin-top: 1.5rem;
+    margin-bottom: 0.4rem;
+  }
+  #portfolio .project-label:first-child { margin-top: 0; }
+  #portfolio .project-more .project-label:first-child { margin-top: 0; }
   #portfolio .project-more {
     max-height: 0;
     opacity: 0;
@@ -1074,29 +1082,6 @@
   #portfolio .project-toggle:hover,
   #portfolio .project-toggle:focus-visible { text-decoration: underline; }
   #portfolio .project-toggle:focus-visible { outline: 3px solid var(--beak); outline-offset: 3px; }
-
-  /* jumps straight to the next project card - a shortcut past whatever's
-     currently expanded in "read more", not a nav-menu entry */
-  #portfolio .project-next {
-    display: flex;
-    align-items: center;
-    gap: 0.35em;
-    margin-top: 0.6rem;
-    border: none;
-    background: none;
-    padding: 0;
-    font-family: var(--body);
-    font-weight: 600;
-    font-size: 0.85rem;
-    color: #7a80a0;
-    cursor: pointer;
-  }
-  #portfolio .project-next-arrow { transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1); }
-  #portfolio .project-next:hover,
-  #portfolio .project-next:focus-visible { color: var(--beak); }
-  #portfolio .project-next:hover .project-next-arrow,
-  #portfolio .project-next:focus-visible .project-next-arrow { transform: translateX(3px); }
-  #portfolio .project-next:focus-visible { outline: 3px solid var(--beak); outline-offset: 3px; }
 
   /* how-i-work: independent circular bubbles, one per bullet point -
      just the title by default, expanding into a rounded card with the
