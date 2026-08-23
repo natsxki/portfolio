@@ -51,11 +51,11 @@
     </div>
   </div>
   <div class="nav-links">
-    <a href="#about" data-idx="1" data-i18n="nav.about">about me</a>
-    <a href="#how-i-work" data-idx="3" data-i18n="nav.howIWork">how i work</a>
-    <a href="#portfolio" data-idx="4" data-i18n="nav.portfolio">portfolio</a>
-    <a href="#cv" data-idx="5" data-i18n="nav.cv">resume</a>
-    <a href="#creative" data-idx="6" data-i18n="nav.creative">other fun stuff</a>
+    <a href="#about" data-idx="1" data-i18n="nav.about">About Me</a>
+    <a href="#how-i-work" data-idx="3" data-i18n="nav.howIWork">How I Work</a>
+    <a href="#portfolio" data-idx="4" data-i18n="nav.portfolio">Portfolio</a>
+    <a href="#cv" data-idx="5" data-i18n="nav.cv">Resume</a>
+    <a href="#creative" data-idx="6" data-i18n="nav.creative">Other Fun Stuff</a>
   </div>
 </nav>
 
@@ -73,7 +73,7 @@
 
   <section id="about">
     <div class="card reveal">
-      <h2 data-i18n="about.h2">i'm Lylia, nice to meet you!</h2>
+      <h2 data-i18n="about.h2">I'm Lylia, nice to meet you!</h2>
       <p data-i18n="about.intro">
         Growing up between French and Japanese cultures, while navigating German and English in school, taught me early on that the best communication requires no translation. I'm applying that same instinct to product: I've spent time in engineering, design and strategy, and what I actually like is the seam between them. Turning a messy, ambiguous problem into a decision the whole team can act on is what passionates me.
       </p>
@@ -83,7 +83,7 @@
 
   <section id="timeline">
     <div class="card reveal">
-      <h2 data-i18n="timeline.h2">timeline</h2>
+      <h2 data-i18n="timeline.h2">Timeline</h2>
       <div class="about-timeline-grid">
         <div class="about-timeline-col">
           <h4 data-i18n="timeline.academics">Academics</h4>
@@ -133,7 +133,7 @@
 
   <section id="how-i-work">
     <div class="card reveal">
-      <h2 data-i18n="how.h2">How I work</h2>
+      <h2 data-i18n="how.h2">How I Work</h2>
     </div>
     <div class="bubbles">
         <button type="button" class="bubble reveal">
@@ -226,13 +226,15 @@
             <p data-i18n="portfolio.p2.competitors">Off-the-shelf review dashboards (Google's own rating average, TripAdvisor-style aggregators) only show a static score, not how it moves over time or across a neighborhood. Of course a manual alternative before this would have been reading reviews one by one and tallying sentiment by hand. Accurate, but far too slow to spot a pattern across thousands of reviews.</p>
             <p class="project-label" data-i18n="portfolio.labelInsight">The insight</p>
             <p data-i18n="portfolio.p2.insight">The first version rendered a continuous heatmap, which looked authoritative but wasn't. A heat surface implies interpolation across geography, but the underlying data is actually discrete, unevenly-sampled review points. Dense downtown blocks and sparse residential ones don't carry equal statistical weight. So in the first version, the gradient was encoding the amount of available data as if it were "how strong the sentiment is here." The fix was switching to individual markers, sized and colored so density and intensity would not conflict into one misleading color.</p>
-            <p class="project-label" data-i18n="portfolio.labelSolution">My solution</p>
-            <p data-i18n="portfolio.p2.solution">We scraped Google reviews, ran RoBERTa sentiment analysis on the text itself (not just star ratings), and plotted the result on a Leaflet map with a year slider (so change over time was the thing you actually saw first) and an avergae period slider. The harder design call was resisting the urge to smooth the data, as mentioned previously. What we chose not to build was multi-city support or a public-facing version. This project was scoped tightly to one research question for one neighborhood, and generalizing it would have meant compromising the year-over-year precision that was the actual point.</p>
             <div class="project-gallery">
               <figure class="project-gallery-item">
                 <div class="project-gallery-frame"><img src="media/tech-projects/CRAFT-earlyconcept.png" alt="Early concept mockup of the CRAFT sentiment heatmap with a year slider"></div>
                 <figcaption data-i18n="portfolio.p2.mediaConceptCaption">Early concept design (Heatmap).</figcaption>
               </figure>
+            </div>
+            <p class="project-label" data-i18n="portfolio.labelSolution">My solution</p>
+            <p data-i18n="portfolio.p2.solution">We scraped Google reviews, ran RoBERTa sentiment analysis on the text itself (not just star ratings), and plotted the result on a Leaflet map with a year slider (so change over time was the thing you actually saw first) and an avergae period slider. The harder design call was resisting the urge to smooth the data, as mentioned previously. What we chose not to build was multi-city support or a public-facing version. This project was scoped tightly to one research question for one neighborhood, and generalizing it would have meant compromising the year-over-year precision that was the actual point.</p>
+            <div class="project-gallery">
               <figure class="project-gallery-item">
                 <div class="project-gallery-frame"><img src="media/tech-projects/CRAFT-New.png" alt="Final CRAFT tool showing review sentiment over time on a map of Quartier Latin, Paris"></div>
                 <figcaption data-i18n="portfolio.p2.mediaRealCaption">Latest version.</figcaption>
@@ -294,16 +296,18 @@
             <p data-i18n="portfolio.p4.competitors">Audio commentary already exists at most stadiums, but it's a human narrating in sentences, not continuous position data. That means there's an inherent lag and it can't convey exactly where on the pitch the ball is second to second. The common manual workaround today is a sighted companion sitting next to the spectator, quietly narrating the ball's position in real time.</p>
             <p class="project-label" data-i18n="portfolio.labelInsight">The insight</p>
             <p data-i18n="portfolio.p4.insight">My first pass used a heavier, higher-resolution detection model, chasing accuracy first and treating latency as secondary. It fell apart once it had to run on the actual edge/Arduino path. A two second delay is enough to make the whole system misleading, since the user would be feeling a play that's already over. The click was realizing accuracy only matters if it arrives in time to mean anything. That is why I traded high precision for frame rate and latency, which is what pushed me toward a YOLOv9 model with a low resolution input.</p>
+            <div class="project-gallery">
+              <figure class="project-gallery-item">
+                <div class="project-gallery-frame"><img src="media/tech-projects/Football-detection.png" alt="Simulated camera view testing ball detection confidence for one candidate placement"></div>
+                <figcaption data-i18n="portfolio.p4.mediaDetectionCaption">Ball detection.</figcaption>
+              </figure>
+            </div>
             <p class="project-label" data-i18n="portfolio.labelSolution">My solution</p>
             <p data-i18n="portfolio.p4.solution">I made latency the hard constraint and accepted a tolerable error in exchange: 180ms inference and roughly 6 meters of localization error, converted into a haptic band the user feels under their fingers on a 12cm sensory board. That +/-6m error is precise enough to convey "ball's on the left wing, near the box" (since the physical system is rather small). Same logic for the hardware: I tested 60 camera placements to find the actual coverage/accuracy sweet spot, rather than guessing at one "obviously good" angle. What I did not to build: a full player-tracking system. That would have added latency and complexity for information a blind spectator can already get partly from crowd noise and commentary. </p>
             <div class="project-gallery">
               <figure class="project-gallery-item">
                 <div class="project-gallery-frame"><img src="media/tech-projects/football-algorithm.png" alt="Computer vision pipeline: camera image to Python ball/pitch detection to Arduino stepper motor movement"></div>
                 <figcaption data-i18n="portfolio.p4.mediaAlgorithmCaption">Full Algorithm</figcaption>
-              </figure>
-              <figure class="project-gallery-item">
-                <div class="project-gallery-frame"><img src="media/tech-projects/Football-detection.png" alt="Simulated camera view testing ball detection confidence for one candidate placement"></div>
-                <figcaption data-i18n="portfolio.p4.mediaDetectionCaption">Ball detection.</figcaption>
               </figure>
             </div>
             <div class="project-gallery">
@@ -346,7 +350,7 @@
 
   <section id="creative">
     <div class="card reveal">
-      <h2 data-i18n="creative.h2">Other fun stuff</h2>
+      <h2 data-i18n="creative.h2">Other Fun Stuff</h2>
       <p data-i18n="creative.intro">Aside from my professional side, I love anything that makes me feel creative! Here are a few personal projects :) Click to view them full screen.</p>
 
       <!-- each row is a horizontal-scrolling shelf of cover tiles. to add a
@@ -355,7 +359,7 @@
            title/description, and point href at the real project/post. -->
       <div class="creative-group">
         <div class="creative-label-row">
-          <h3 class="creative-label" data-i18n="creative.thingsIMake">Things I make</h3>
+          <h3 class="creative-label" data-i18n="creative.thingsIMake">Things I Make</h3>
           <div class="creative-tools">
             <span class="creative-tool"><img src="media/logo/AI.png" alt="Adobe Illustrator"><span class="creative-tool-name">Adobe Illustrator</span></span>
             <span class="creative-tool"><img src="media/logo/ID.png" alt="Adobe InDesign"><span class="creative-tool-name">Adobe InDesign</span></span>
@@ -390,7 +394,7 @@
 
       <div class="creative-group">
         <div class="creative-label-row">
-          <h3 class="creative-label" data-i18n="creative.thingsIShoot">Things I shoot</h3>
+          <h3 class="creative-label" data-i18n="creative.thingsIShoot">Things I Shoot</h3>
           <div class="creative-tools">
             <span class="creative-tool"><img src="media/logo/DV.png" alt="DaVinci Resolve"><span class="creative-tool-name">DaVinci Resolve</span></span>
             <span class="creative-tool"><img src="media/logo/LR.png" alt="Adobe Lightroom"><span class="creative-tool-name">Adobe Lightroom</span></span>
@@ -432,7 +436,7 @@
 
       <div class="creative-group">
         <div class="creative-label-row">
-          <h3 class="creative-label" data-i18n="creative.thingsIDo">Things I do</h3>
+          <h3 class="creative-label" data-i18n="creative.thingsIDo">Things I Do</h3>
         </div>
         <p data-i18n="creative.thingsIDoText">I've taken ballet lessons for 12 years, before getting into figure skating recently. I also love music (whether it's playing the piano, or listening to RAYE and a6el), and baking cute cakes :) </p>
       </div>
