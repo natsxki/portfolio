@@ -866,6 +866,15 @@
   }
   .about-timeline-text { display: flex; flex-direction: column; gap: 0.15rem; }
   .about-timeline-company { font-size: 0.92rem; line-height: 1.4; font-weight: 700; }
+  .about-timeline-company a {
+    color: var(--ink);
+    text-decoration-color: var(--beak);
+    text-underline-offset: 2px;
+  }
+  .about-timeline-company a:hover,
+  .about-timeline-company a:focus-visible {
+    color: var(--beak);
+  }
   .about-timeline-role { font-size: 0.92rem; line-height: 1.4; }
 
   /* entries reveal one at a time (top to bottom, per column) instead of
