@@ -910,37 +910,42 @@ const translations = {
     'hero.scrollHint': "En savoir plus sur moi :) ↓",
 
     'about.h2': "Enchantée !",
-    'about.intro': "J'ai grandi entre le français et le japonais, avec l'allemand et l'anglais en plus : quatre langues, mais surtout quatre manières de poser un même problème. C'est ce passage constant d'un cadre à l'autre qui m'a donné le goût de la traduction au sens large : pas entre les mots, mais entre les disciplines. Ingénierie, design, stratégie - ce qui me passionne, c'est de faire le lien entre les trois : prendre ce qu'un designer voit, ce qu'un ingénieur sait construire et ce qu'une roadmap exige, et en faire une décision commune sur laquelle toute une équipe peut avancer. C'est exactement là que j'ai envie d'être !",
+    'about.intro': "J'ai grandi entre le français et le japonais, puis appris l'allemand et l'anglais dès le collège, dans un contexte multiculturel : quatre langues, mais surtout quatre manières de poser un même problème. C'est ce passage constant d'un cadre à l'autre qui m'a donné le goût de la traduction au sens large : pas entre les mots, mais entre les disciplines. Ingénierie, design, stratégie - ce qui me passionne, c'est de faire le lien entre les trois : prendre ce qu'un designer voit, ce qu'un ingénieur sait construire et ce qu'une roadmap exige, et en faire une décision commune sur laquelle toute une équipe peut avancer ! ",
     'about.status': 'Actuellement stagiaire en développement logiciel chez ArianeGroup, je recherche un <strong>stage de Product Manager</strong> entre mars et août 2027.',
 
     'timeline.h2': "Parcours",
     'timeline.academics': "Études",
-    'timeline.professional': "Expérience professionnelle",
-    'timeline.msc': "Diplôme d'ingénieur, <a href=\"https://www.telecom-paris.fr\" target=\"_blank\" rel=\"noopener\">Télécom Paris</a> (<a href=\"https://www.ip-paris.fr\" target=\"_blank\" rel=\"noopener\">IP Paris</a>). <br><br>Majeures : Data Science & IA + Graphisme 3D & Interactions (IHM)",
+    'timeline.professional': "Expériences professionnelles",
+    'timeline.msc': "Diplôme d'ingénieur, <a href=\"https://www.telecom-paris.fr\" target=\"_blank\" rel=\"noopener\">Télécom Paris</a> (<a href=\"https://www.ip-paris.fr\" target=\"_blank\" rel=\"noopener\">IP Paris</a>).<br><small>Admission via le concours Mines-Ponts, après deux ans de classes préparatoires PCSI/PSI. Equivalent Bachelor/M1 obtenu en juillet 2026.</small><br><br>Majeures : Data Science & IA + Graphisme 3D & Interactions (IHM)",
+    'timeline.msc.dates': "2024 - Printemps 2028",
     'timeline.arianegroup.company': "<a href=\"https://www.ariane.group/\" target=\"_blank\" rel=\"noopener\">ArianeGroup</a>",
     'timeline.arianegroup.role': "Stagiaire en développement logiciel",
+    'timeline.arianegroup.dates': "Sept. 2026 - Fév. 2027",
     'timeline.dataannotation.company': "<a href=\"https://www.dataannotation.tech\" target=\"_blank\" rel=\"noopener\">DataAnnotation</a>",
     'timeline.dataannotation.role': "Évaluatrice de modèles IA (temps partiel)",
+    'timeline.dataannotation.dates': "Mai 2026 - Aujourd'hui",
     'timeline.ey.company': "<a href=\"https://www.ey.com/fr_fr\" target=\"_blank\" rel=\"noopener\">EY</a>",
     'timeline.ey.role': "Stagiaire en conseil stratégie &amp; tech",
+    'timeline.ey.dates': "Juin - Juil. 2025",
     'timeline.joc.company': "<a href=\"https://www.joc.or.jp/english/\" target=\"_blank\" rel=\"noopener\">Comité Olympique Japonais</a>",
     'timeline.joc.role': "Assistante du Président",
+    'timeline.joc.dates': "Juil. - Août 2024",
 
     'how.h2': "Ma façon de travailler",
     'how.b1.title': "Lancer ou ne pas lancer",
     'how.b1.detail': `
             <small>Comète (club audiovisuel de Télécom Paris) - Secrétaire générale</small>
-            Notre club audiovisuel, Comète, publie plus de 50 000 photos d'événements par an, sur un site ouvert à tous les étudiants. Retrouver celles où on apparaît peut vite devenir chronophage. J'ai donc prototypé une fonctionnalité pour que chacun puisse se retrouver dans les archives grâce à la reconnaissance faciale. L'outil fonctionnait, mais en me renseignant sur les enjeux liés aux données biométriques, j'ai décidé de ne pas le lancer. .
+            Notre club audiovisuel, Comète, publie plus de 50 000 photos d'événements par an, sur un site ouvert à tous les étudiants. Retrouver celles où on apparaît peut vite devenir chronophage. J'ai donc prototypé une fonctionnalité pour que chacun puisse se retrouver dans les archives grâce à la reconnaissance faciale. L'outil fonctionnait, mais en me renseignant sur les enjeux liés aux données biométriques, j'ai décidé de ne pas le lancer.
           `,
     'how.b2.title': "Des décisions réelles, en direct, en plusieurs langues",
     'how.b2.detail': `
             <small>Jeux Olympiques de Paris 2024</small>
-            En tant qu'assistante du président du Comité Olympique Japonais pendant les Jeux de Paris 2024, je coordonnais la délégation japonaise avec les organisateurs locaux, au milieu de plannings mouvants et de priorités contradictoires. Tout se jouait en direct, dans 3 langues (JP/FR/EN). Au fond, la barrière de la langue n'a jamais été le plus dur : le vrai défi, c'était de trancher vite, sous le regard de tous.
+            En tant qu'assistante du président du Comité Olympique Japonais pendant les Jeux de Paris 2024, je coordonnais la délégation japonaise avec les organisateurs locaux, au milieu de plannings mouvants et de priorités contradictoires. Tout se jouait en direct, dans 3 langues (JP/FR/EN). e vrai défi, c'était de trancher vite, sous le regard de tous.
           `,
     'how.b3.title': "Trouver le problème là où il se trouve vraiment",
     'how.b3.detail': `
             <small>EY - Conseil en stratégie et technologie</small>
-            Pendant mon stage chez EY, j'ai mené 12 entretiens dans 4 pôles de l'entreprise sur la façon dont les équipes adoptent vraiment l'IA, que j'ai ensuite synthétisés en recommandations pour les managers. Le plus utile ne venait jamais du brief : il venait d'observer comment les gens travaillent réellement. Même réflexe sur mes propres projets : un doctorant en architecture m'a dit que concevoir à la manette était trop lent pour itérer, alors j'ai construit, avec deux amis, un outil VR piloté surtout par la voix.
+            Durant mon stage chez EY, j'ai mené 12 entretiens dans 4 pôles de l'entreprise, sur la façon dont les équipes adoptent vraiment l'IA, que j'ai ensuite synthétisés en recommandations pour les managers. Mais au delà du brief, observer la manière dont les équipes travaillent sur le terrain a également été un moyen clef d'étudier ma problématique. Même réflexe sur mes propres projets : un doctorant en architecture m'a dit que concevoir à la manette était trop lent pour itérer, alors j'ai construit, avec deux amis, un outil VR piloté surtout par la voix.
           `,
     'how.b4.title': "Les contraintes comme le vrai travail, pas comme l'obstacle",
     'how.b4.detail': `
@@ -1084,14 +1089,19 @@ const translations = {
     'timeline.academics': "学歴",
     'timeline.professional': "職歴",
     'timeline.msc': "工学修士課程 (MEng)、<a href=\"https://www.telecom-paris.fr\" target=\"_blank\" rel=\"noopener\">Télécom Paris</a>(<a href=\"https://www.ip-paris.fr\" target=\"_blank\" rel=\"noopener\">IP Paris</a>)。<br><small>フランスを代表する工学系グランゼコールの一つ(選抜制の入学試験を経て入学)。2026年7月にBachelorを獲得。</small><br><br>専攻:データサイエンス&AI + 3Dグラフィックス&インタラクション(HCI)",
+    'timeline.msc.dates': "2024年〜2028年春",
     'timeline.arianegroup.company': "<a href=\"https://www.ariane.group/en/\" target=\"_blank\" rel=\"noopener\">ArianeGroup</a>",
     'timeline.arianegroup.role': "ソフトウェアエンジニアリングインターン",
+    'timeline.arianegroup.dates': "2026年9月〜2027年2月",
     'timeline.dataannotation.company': "<a href=\"https://www.dataannotation.tech\" target=\"_blank\" rel=\"noopener\">DataAnnotation</a>",
     'timeline.dataannotation.role': "AI評価(パートタイム)",
+    'timeline.dataannotation.dates': "2026年5月〜現在",
     'timeline.ey.company': "<a href=\"https://www.ey.com/ja_jp\" target=\"_blank\" rel=\"noopener\">EY</a>",
     'timeline.ey.role': "戦略・ITコンサルティングインターン",
+    'timeline.ey.dates': "2025年6月〜7月",
     'timeline.joc.company': "<a href=\"https://www.joc.or.jp\" target=\"_blank\" rel=\"noopener\">日本オリンピック委員会</a>",
     'timeline.joc.role': "会長アシスタント",
+    'timeline.joc.dates': "2024年7月〜8月",
 
 'how.h2': "働き方",
     'how.b1.title': "リリースするか、しないか",
@@ -1249,14 +1259,19 @@ const translations = {
     'timeline.academics': "Ausbildung",
     'timeline.professional': "Berufserfahrung",
     'timeline.msc': "Masterstudium Ingenieurwissenschaften, <a href=\"https://www.telecom-paris.fr\" target=\"_blank\" rel=\"noopener\">Télécom Paris</a> (<a href=\"https://www.ip-paris.fr\" target=\"_blank\" rel=\"noopener\">IP Paris</a>).<br><small>Eine der renommiertesten französischen Ingenieurhochschulen (Grande École, Zulassung über ein selektives Auswahlverfahren).</small><br><br>Schwerpunkte: Data Science &amp; KI + 3D-Grafik &amp; Interaktion (HCI)",
+    'timeline.msc.dates': "2024 - Frühjahr 2028",
     'timeline.arianegroup.company': "<a href=\"https://www.ariane.group/de/\" target=\"_blank\" rel=\"noopener\">ArianeGroup</a>",
     'timeline.arianegroup.role': "Praktikantin Softwareentwicklung",
+    'timeline.arianegroup.dates': "Sept. 2026 - Feb. 2027",
     'timeline.dataannotation.company': "<a href=\"https://www.dataannotation.tech\" target=\"_blank\" rel=\"noopener\">DataAnnotation</a>",
     'timeline.dataannotation.role': "KI-Bewerterin (Teilzeit)",
+    'timeline.dataannotation.dates': "Mai 2026 - Heute",
     'timeline.ey.company': "<a href=\"https://www.ey.com/de_de\" target=\"_blank\" rel=\"noopener\">EY</a>",
     'timeline.ey.role': "Praktikantin Strategie- &amp; Technologieberatung",
+    'timeline.ey.dates': "Juni - Juli 2025",
     'timeline.joc.company': "<a href=\"https://www.joc.or.jp/english/\" target=\"_blank\" rel=\"noopener\">Japanisches Olympisches Komitee</a>",
     'timeline.joc.role': "Assistentin des Präsidenten",
+    'timeline.joc.dates': "Juli - Aug. 2024",
 
     'how.h2': "Meine Arbeitsweise",
     'how.b1.title': "Launchen oder nicht launchen",
