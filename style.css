@@ -1201,7 +1201,11 @@
   #how-i-work .bubble:hover,
   #how-i-work .bubble:focus-visible,
   #how-i-work .bubble.is-open {
-    width: 320px;
+    /* wider card = fewer wrapped lines = shorter expanded height - matters
+       most for the two bottom-row bubbles, which sit close enough to the
+       viewport's bottom edge that German's longer wording was pushing
+       their expanded card past it */
+    width: min(85vw, 380px);
     height: auto;
     min-height: 170px;
     border-radius: 26px;
@@ -1214,7 +1218,10 @@
   #how-i-work .bubble:hover .bubble-detail,
   #how-i-work .bubble:focus-visible .bubble-detail,
   #how-i-work .bubble.is-open .bubble-detail {
-    max-height: 280px;
+    /* generous ceiling, not a real target height - German (and long
+       content in general) needs more than 280px, which was clipping
+       the last line or two via overflow:hidden */
+    max-height: 800px;
     opacity: 1;
     margin-top: 0.6rem;
   }
