@@ -910,7 +910,7 @@ const translations = {
     'hero.scrollHint': "En savoir plus sur moi :) ↓",
 
     'about.h2': "Enchantée !",
-    'about.intro': "J'ai grandi entre le français et le japonais, avec l'allemand et l'anglais en plus : quatre langues, mais surtout quatre manières de poser un même problème. C'est ce passage constant d'un cadre à l'autre qui m'a donné le goût de la traduction au sens large : pas entre les mots, mais entre les disciplines. Ingénierie, design, stratégie ; e qui me passionne, c'est de faire le lien entre les trois : prendre ce qu'un designer voit, ce qu'un ingénieur sait construire et ce qu'une roadmap exige, et en faire une décision commune sur laquelle toute une équipe peut avancer. C'est exactement là que j'ai envie d'être !",
+    'about.intro': "J'ai grandi entre le français et le japonais, avec l'allemand et l'anglais en plus : quatre langues, mais surtout quatre manières de poser un même problème. C'est ce passage constant d'un cadre à l'autre qui m'a donné le goût de la traduction au sens large : pas entre les mots, mais entre les disciplines. Ingénierie, design, stratégie - ce qui me passionne, c'est de faire le lien entre les trois : prendre ce qu'un designer voit, ce qu'un ingénieur sait construire et ce qu'une roadmap exige, et en faire une décision commune sur laquelle toute une équipe peut avancer. C'est exactement là que j'ai envie d'être !",
     'about.status': 'Actuellement stagiaire en développement logiciel chez ArianeGroup, je recherche un <strong>stage de Product Manager</strong> entre mars et août 2027.',
 
     'timeline.h2': "Parcours",
