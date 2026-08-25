@@ -1061,6 +1061,7 @@ const translations = {
   ja: {
     'social.nav': "ソーシャルリンク",
     'social.email': "メールを送る",
+    'social.emailName': "メサ(福島)リリア<br><span class=\"email-name-sub\">Lylia Mesa</span>",
     'nav.pageNav': "ページナビゲーション",
     'nav.home': "ホームに戻る",
     'nav.chooseLanguage': "言語を選択",

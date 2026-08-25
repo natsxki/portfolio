@@ -74,6 +74,7 @@
     gap: 0.7rem;
   }
   .social-links .icon-btn {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -95,6 +96,36 @@
     box-shadow: 0 12px 26px rgba(43, 51, 80, 0.18);
   }
   .social-links .icon-btn:focus-visible { outline: 3px solid var(--beak); outline-offset: 3px; }
+
+  /* small hover label under each icon - not above, since near the top of
+     the viewport that can render behind Safari's tab bar */
+  .icon-tooltip {
+    position: absolute;
+    top: calc(100% + 0.6rem);
+    left: 50%;
+    transform: translateX(-50%) translateY(-4px);
+    background: var(--card);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    padding: 0.35rem 0.7rem;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(43, 51, 80, 0.12);
+    font-family: var(--body);
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--ink);
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s cubic-bezier(0.22, 1, 0.36, 1), visibility 0.2s;
+  }
+  .icon-btn:hover .icon-tooltip,
+  .icon-btn:focus-visible .icon-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+  }
 
   /* ---------- email hover panel ---------- */
   .social-item { position: relative; }
@@ -138,6 +169,11 @@
     font-weight: 700;
     font-size: 1.15rem;
     color: var(--ink);
+  }
+  .email-name-sub {
+    font-weight: 500;
+    font-size: 0.75rem;
+    color: #7a80a0;
   }
   .email-address {
     display: block;
