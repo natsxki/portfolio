@@ -935,22 +935,22 @@ const translations = {
     'how.b1.title': "Lancer ou ne pas lancer",
     'how.b1.detail': `
             <small>Comète (club audiovisuel de Télécom Paris) - Secrétaire générale</small>
-            Notre club audiovisuel, Comète, publie plus de 50 000 photos d'événements par an, sur un site ouvert à tous les étudiants. Retrouver celles où on apparaît peut vite devenir chronophage. J'ai donc prototypé une fonctionnalité pour que chacun puisse se retrouver dans les archives grâce à la reconnaissance faciale. L'outil fonctionnait, mais en me renseignant sur les enjeux liés aux données biométriques, j'ai décidé de ne pas le lancer.
+            Notre club audiovisuel, Comète, publie plus de 50 000 photos d'événements par an, sur un site ouvert à tous les étudiants. Retrouver celles où on apparaît peut vite devenir chronophage. J'ai donc prototypé une fonctionnalité pour que chacun puisse se retrouver dans les archives grâce à la reconnaissance faciale, qui fonctionnait. Mais en me renseignant sur les enjeux liés aux données biométriques, j'ai décidé de ne pas le lancer.
           `,
     'how.b2.title': "Des décisions réelles, en direct, en plusieurs langues",
     'how.b2.detail': `
             <small>Jeux Olympiques de Paris 2024</small>
-            En tant qu'assistante du président du Comité Olympique Japonais pendant les Jeux de Paris 2024, je coordonnais la délégation japonaise avec les organisateurs locaux, au milieu de plannings mouvants et de priorités contradictoires. Tout se jouait en direct, dans 3 langues (JP/FR/EN). e vrai défi, c'était de trancher vite, sous le regard de tous.
+            En tant qu'assistante du président du Comité Olympique Japonais pendant les Jeux de Paris 2024, je coordonnais la délégation japonaise avec les organisateurs locaux, au milieu de plannings mouvants et de priorités contradictoires. Tout se jouait en direct, dans 3 langues (JP/FR/EN). Le vrai défi était de savoir rapidement prendre des décisions, sous le regard de tous.
           `,
     'how.b3.title': "Trouver le problème là où il se trouve vraiment",
     'how.b3.detail': `
             <small>EY - Conseil en stratégie et technologie</small>
-            Durant mon stage chez EY, j'ai mené 12 entretiens dans 4 pôles de l'entreprise, sur la façon dont les équipes adoptent vraiment l'IA, que j'ai ensuite synthétisés en recommandations pour les managers. Mais au delà du brief, observer la manière dont les équipes travaillent sur le terrain a également été un moyen clef d'étudier ma problématique. Même réflexe sur mes propres projets : un doctorant en architecture m'a dit que concevoir à la manette était trop lent pour itérer, alors j'ai construit, avec deux amis, un outil VR piloté surtout par la voix.
+            Durant mon stage chez EY, j'ai mené 12 entretiens dans 4 pôles de l'entreprise, sur la façon dont les équipes adoptent vraiment l'IA, que j'ai ensuite synthétisés en recommandations pour les managers. Mais au delà du brief, observer la manière dont les équipes travaillent sur le terrain a également été un moyen clef d'étudier ma problématique. Même réflexe sur mes propres projets ; Lorsqu'une doctorante en architecture nous a dit que concevoir des maquettes avec une souris ou des manettes était trop lent pour itérer, nous avons construit, avec deux amis, un outil VR principalement piloté par la voix.
           `,
-    'how.b4.title': "Les contraintes comme le vrai travail, pas comme l'obstacle",
+    'how.b4.title': "Les contraintes comme conditions et non des obstacles",
     'how.b4.detail': `
             <small>Bureau des Élèves de Télécom Paris</small>
-            Avec mon équipe, nous étions responsables du budget et de la logistique d'un voyage de 20 000 € pour 90 personnes. Budget fixe, dates fixes, et plus d'envies que le budget ne pouvait en satisfaire : le vrai travail, c'était donc de décider ce qui comptait le plus et de couper le reste proprement. Les contraintes ne sont pas la partie pénible d'un projet ; ce sont souvent elles qui forcent la vraie décision.
+            Avec mon équipe, nous étions responsables du budget et de la logistique d'un voyage de 20 000 € pour 90 personnes. Budget fixe, dates fixes, et plus d'envies que le budget ne pouvait en satisfaire : le vrai travail, c'était donc de décider ce qui comptait le plus et de couper le reste proprement. Les contraintes nous ont permis de façonner la décision finale.
           `,
 
     'portfolio.h2': "Portfolio",
@@ -1027,7 +1027,7 @@ const translations = {
     'cv.arrowText': "N'hésitez pas à me contacter !",
 
     'creative.h2': "Autres projets créatifs",
-    'creative.intro': "En dehors du côté pro, j'adore tout ce qui laisse parler ma créativité ! Voici quelques projets personnels. (Cliquez pour les voir en plein écran!)",
+    'creative.intro': "En dehors du côté pro, j'adore tout ce qui laisse parler ma créativité ! Voici quelques projets personnels. (Cliquer pour les voir en plein écran)",
     'creative.thingsIMake': "Du graphisme",
     'creative.thingsIShoot': "De l'image",
     'creative.thingsIDo': "Et d'autres choses...",

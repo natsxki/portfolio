@@ -854,6 +854,10 @@
      width - same issue fixed for #portfolio's project text - so the
      card visibly outgrew its own copy instead of the text filling it */
   #about p { max-width: none; }
+  /* same fix again: #creative's card is sized to fit-content around its
+     widest tile row, often much wider than 60ch, so the intro paragraph
+     was stuck narrow instead of matching that width */
+  #creative p { max-width: none; }
 
   /* ---------- timeline page: academics/professional tracks read in
      parallel, most recent first ---------- */
