@@ -905,13 +905,13 @@ const translations = {
     'nav.creative': "Autres projets créatifs",
     'nav.nextSection': "section suivante",
 
-    'hero.hello': "langues · systèmes · interfaces",
+    'hero.hello': "ingénierie · design · humain",
     'hero.h1': "Hello, moi c'est Lylia !",
     'hero.scrollHint': "En savoir plus sur moi :) ↓",
 
     'about.h2': "Enchantée !",
-    'about.intro': "J'ai grandi entre le français et le japonais, puis appris l'allemand et l'anglais dès le collège, dans un contexte multiculturel : quatre langues, mais surtout quatre manières de poser un même problème. C'est ce passage constant d'un cadre à l'autre qui m'a donné le goût de la traduction au sens large : pas entre les mots, mais entre les disciplines. Ingénierie, design, stratégie - ce qui me passionne, c'est de faire le lien entre les trois : prendre ce qu'un designer voit, ce qu'un ingénieur sait construire et ce qu'une roadmap exige, et en faire une décision commune sur laquelle toute une équipe peut avancer ! ",
-    'about.status': 'Actuellement stagiaire en développement logiciel chez ArianeGroup, je recherche un <strong>stage de Product Manager</strong> entre mars et août 2027.',
+    'about.intro': "J'ai grandi entre la France et le Japon, puis appris l'anglais et l'allemand en chemin : quatre langues, mais surtout quatre façons différentes d'aborder un même problème. Ce changement constant de perspective m'a donné le goût de la traduction au sens large : non pas entre les mots, mais entre les disciplines. Ingénierie, design, stratégie - ce qui me plaît, c'est de faire le lien entre les trois : réunir ce qu'un designer perçoit, ce qu'un ingénieur sait construire et ce que le problème exige, pour faire émerger quelque chose de cohérent et utile.",
+    'about.status': "Actuellement stagiaire en stratégie IT et développement logiciel chez ArianeGroup, je suis à la recherche d'opportunités de stage à partir de mars 2027 !",
 
     'timeline.h2': "Parcours",
     'timeline.academics': "Études",
@@ -919,7 +919,7 @@ const translations = {
     'timeline.msc': "Diplôme d'ingénieur, <a href=\"https://www.telecom-paris.fr\" target=\"_blank\" rel=\"noopener\">Télécom Paris</a> (<a href=\"https://www.ip-paris.fr\" target=\"_blank\" rel=\"noopener\">IP Paris</a>).<br><small>Admission via le concours Mines-Ponts, après deux ans de classes préparatoires PCSI/PSI. Equivalent Bachelor/M1 obtenu en juillet 2026.</small><br><br>Majeures : Data Science & IA + Graphisme 3D & Interactions (IHM)",
     'timeline.msc.dates': "2024 - Printemps 2028",
     'timeline.arianegroup.company': "<a href=\"https://www.ariane.group/\" target=\"_blank\" rel=\"noopener\">ArianeGroup</a>",
-    'timeline.arianegroup.role': "Stagiaire en développement logiciel",
+    'timeline.arianegroup.role': "Stagiaire en stratégie IT et ingénierie logicielle",
     'timeline.arianegroup.dates': "Sept. 2026 - Fév. 2027",
     'timeline.dataannotation.company': "<a href=\"https://www.dataannotation.tech\" target=\"_blank\" rel=\"noopener\">DataAnnotation</a>",
     'timeline.dataannotation.role': "Évaluatrice de modèles IA (temps partiel)",
@@ -1077,13 +1077,13 @@ const translations = {
     'nav.creative': "その他の作品",
     'nav.nextSection': "次のセクションへスクロール",
 
-    'hero.hello': "文化 · 工学 · デザイン",
+    'hero.hello': "エンジニアリング · デザイン · 人",
     'hero.h1': "はじめまして、リリアです。",
     'hero.scrollHint': "もっと詳しく↓",
 
     'about.h2': "はじめまして。",
-    'about.intro': "フランス語と日本語に囲まれて育ち、ドイツ語と英語も学んできたことで、いつの間にか四つの言語を日常的に使い分けるようになりました。そんな環境で育ったからこそ自然と身についたのが、「同じものでも、見る人や立つ場所が変われば、全く違って見える」という感覚です。そこから興味を持つようになったのが、言葉そのものではなく、異なる領域の間にある「翻訳」でした。デザイナーが思い描くもの、エンジニアが実現できること、そしてプロダクトが目指す方向。それぞれが違う言葉で語られる中で、その間をつなぎ、チームが同じ方向を向いて進める一つのプロダクト判断に落とし込む。異なる視点を理解して、その間をつなぐこと。私は、そんな役割に一番自分らしさと強みを感じています。",
-    'about.status': '現在はArianeGroup(フランス)でソフトウェアエンジニアリングのインターンをしていますが、<strong>2027年春または夏開始のプロダクトマネージャーインターンシップ</strong>を探しています。',
+    'about.intro': "私はフランスと日本の間で育ち、その中で英語とドイツ語も学びました。4つの言語を話すということ以上に、同じ問題を捉えるにも、4つの異なる視点があることを実感してきました。そうした絶え間ない視点の切り替えを通して、私は「翻訳」というものを、言葉と言葉の間だけでなく、分野と分野の間をつなぐものとして捉えるようになりました。<br><br>エンジニアリング、デザイン、そして戦略。私が面白いと感じるのは、この3つをつなぐことです。デザイナーが見ているもの、エンジニアが形にできるもの、そして目の前の課題が本当に求めているものを結びつけ、異なる視点から一つの意味のある形を生み出していく。そんな仕事に携わりたいと思っています。",
+    'about.status': "現在はフランス-ArianeGroupでのITストラテジー&ソフトウェアエンジニアリングインターン。2027年春〜夏からのインターンシップを探しています。",
 
     'timeline.h2': "経歴",
     'timeline.academics': "学歴",
@@ -1091,7 +1091,7 @@ const translations = {
     'timeline.msc': "工学修士課程 (MEng)、<a href=\"https://www.telecom-paris.fr\" target=\"_blank\" rel=\"noopener\">Télécom Paris</a>(<a href=\"https://www.ip-paris.fr\" target=\"_blank\" rel=\"noopener\">IP Paris</a>)。<br><small>フランスを代表する工学系グランゼコールの一つ(選抜制の入学試験を経て入学)。2026年7月にBachelorを獲得。</small><br><br>専攻:データサイエンス&AI + 3Dグラフィックス&インタラクション(HCI)",
     'timeline.msc.dates': "2024年〜2028年春",
     'timeline.arianegroup.company': "<a href=\"https://www.ariane.group/en/\" target=\"_blank\" rel=\"noopener\">ArianeGroup</a>",
-    'timeline.arianegroup.role': "ソフトウェアエンジニアリングインターン",
+    'timeline.arianegroup.role': "ITストラテジー&ソフトウェアエンジニアリングインターン",
     'timeline.arianegroup.dates': "2026年9月〜2027年2月",
     'timeline.dataannotation.company': "<a href=\"https://www.dataannotation.tech\" target=\"_blank\" rel=\"noopener\">DataAnnotation</a>",
     'timeline.dataannotation.role': "AI評価(パートタイム)",
@@ -1250,13 +1250,13 @@ const translations = {
     'nav.creative': "Weitere Projekte",
     'nav.nextSection': "zum nächsten Abschnitt scrollen",
 
-    'hero.hello': "Kulturen · Technik · Design",
+    'hero.hello': "Technik · Design · Menschen",
     'hero.h1': "Hallo, ich bin Lylia!",
     'hero.scrollHint': "um mehr über mich zu erfahren ↓",
 
     'about.h2': "Schön, dich kennenzulernen!",
-    'about.intro': "Aufgewachsen zwischen Französisch und Japanisch, mit Deutsch und Englisch dazu – vier Sprachen, aber vor allem vier verschiedene Arten, dasselbe Problem zu denken. Dieser ständige Wechsel zwischen Denkrahmen hat mir den Geschmack für Übersetzung im weiteren Sinne gegeben: nicht zwischen Wörtern, sondern zwischen Disziplinen. Ingenieurwesen, Design, Strategie – was mich begeistert, ist die Verbindung zwischen den dreien: sehen, was ein Designer sieht, verstehen, was ein Ingenieur bauen kann, und wissen, was eine Roadmap verlangt, um daraus eine gemeinsame Entscheidung zu formen, auf der ein ganzes Team aufbauen kann. Genau da will ich sein!",
-    'about.status': 'Jetzt Praktikantin (Softwareentwicklung) bei ArianeGroup in Frankreich. Ich suche ein <strong>Product Management Praktikum, das zwischen März und Juni 2027 beginnt.</strong>',
+    'about.intro': "Ich bin zwischen Frankreich und Japan aufgewachsen und habe unterwegs noch Deutsch und Englisch gelernt: vier Sprachen, aber vor allem vier verschiedene Arten, ein und dasselbe Problem zu betrachten. Dieser ständige Perspektivwechsel hat mir eine besondere Freude am „Übersetzen“ gegeben – nicht zwischen Sprachen, sondern zwischen Disziplinen. Ingenieurwesen, Design, Strategie – mich reizt es, diese drei Perspektiven miteinander zu verbinden: zusammenzubringen, was ein Designer sieht, was ein Ingenieur bauen kann und was ein Problem tatsächlich erfordert, um daraus etwas Sinnvolles zu schaffen. Genau dort möchte ich arbeiten.",
+    'about.status': "Offen für Praktikum Möglichkeiten ab März 2027.",
 
     'timeline.h2': "Werdegang",
     'timeline.academics': "Ausbildung",
@@ -1264,7 +1264,7 @@ const translations = {
     'timeline.msc': "Masterstudium Ingenieurwissenschaften, <a href=\"https://www.telecom-paris.fr\" target=\"_blank\" rel=\"noopener\">Télécom Paris</a> (<a href=\"https://www.ip-paris.fr\" target=\"_blank\" rel=\"noopener\">IP Paris</a>).<br><small>Eine der renommiertesten französischen Ingenieurhochschulen (Grande École, Zulassung über ein selektives Auswahlverfahren).</small><br><br>Schwerpunkte: Data Science &amp; KI + 3D-Grafik &amp; Interaktion (HCI)",
     'timeline.msc.dates': "2024 - Frühjahr 2028",
     'timeline.arianegroup.company': "<a href=\"https://www.ariane.group/de/\" target=\"_blank\" rel=\"noopener\">ArianeGroup</a>",
-    'timeline.arianegroup.role': "Praktikantin Softwareentwicklung",
+    'timeline.arianegroup.role': "Praktikantin IT-Strategie & Softwareentwicklung",
     'timeline.arianegroup.dates': "Sept. 2026 - Feb. 2027",
     'timeline.dataannotation.company': "<a href=\"https://www.dataannotation.tech\" target=\"_blank\" rel=\"noopener\">DataAnnotation</a>",
     'timeline.dataannotation.role': "KI-Bewerterin (Teilzeit)",
