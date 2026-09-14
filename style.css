@@ -744,7 +744,7 @@
     font-size: clamp(1.1rem, 2.2vw, 1.4rem);
     color: var(--ink);
     text-decoration: none;
-    background: linear-gradient(120deg, var(--duck), var(--beak));
+    background: var(--duck);
     padding: 0.85em 1.7em;
     border-radius: 999px;
     box-shadow: 0 10px 28px rgba(142, 182, 148, 0.35);
@@ -756,74 +756,11 @@
   }
   .cv-button:focus-visible { outline: 3px solid var(--beak); outline-offset: 4px; }
 
-  /* ---------- cv page: arrow pointing at the linkedin/email icons ----------
-     .cv-contact wraps the svg line, arrowhead and note; it gets a
-     "visible" class from JS the moment you scroll onto the cv page
-     (see updatePageNav), which cascades to all three children below. */
-  .cv-contact { position: absolute; inset: 0; pointer-events: none; }
-
-  .cv-arrow {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    overflow: visible;
+  .cv-updated {
+    margin-top: 0.7rem;
+    font-size: 0.8rem;
+    color: rgba(43, 51, 80, 0.5);
   }
-  .cv-arrow-path {
-    fill: none;
-    stroke: var(--beak);
-    stroke-width: 2.5;
-    stroke-linecap: round;
-    /* the svg's viewBox is set to real pixel dimensions in JS (see
-       layoutCvArrow), so this is a plain, undistorted 2.5px stroke - no
-       vector-effect needed. (non-scaling-stroke previously combined with a
-       non-uniform 0-100 "percentage" viewBox to glitch the dash rendering,
-       showing the line as broken segments instead of drawing on smoothly) */
-    /* stroke-dasharray/dashoffset are set precisely in JS from the path's
-       actual measured length (getTotalLength) - a guessed/oversized value
-       here made the line "pop in" partway instead of drawing on smoothly */
-    transition: stroke-dashoffset 1.3s cubic-bezier(0.22, 1, 0.36, 1) 0.35s;
-  }
-
-  .cv-arrowhead {
-    position: absolute;
-    top: 8%;
-    left: 94.5%;
-    width: 0;
-    height: 0;
-    border-left: 9px solid transparent;
-    border-right: 9px solid transparent;
-    border-bottom: 14px solid var(--beak);
-    transform: translate(-50%, -50%) rotate(36deg) scale(0);
-    transform-origin: center;
-    opacity: 0;
-    transition: opacity 0.3s ease 1.5s, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) 1.5s;
-  }
-  .cv-contact.visible .cv-arrowhead {
-    opacity: 1;
-    transform: translate(-50%, -50%) rotate(36deg) scale(1);
-  }
-
-  /* invisible twin of cv-arrow-path, offset a bit above it in JS - Chromium
-     doesn't support dy on <textPath> to lift text off the path it's bound
-     to, so the text instead follows this parallel, unrendered path */
-  .cv-arrow-text-path { fill: none; stroke: none; }
-
-  /* text rides the arrow path itself via textPath instead of sitting in
-     a separate bubble, so it reads as one continuous "arrow made of
-     words" rather than a line plus an unrelated caption */
-  .cv-arrow-text {
-    font-family: var(--display);
-    font-weight: 700;
-    font-size: clamp(0.7rem, 1.1vw, 0.95rem);
-    fill: var(--ink);
-    opacity: 0;
-    /* waits until the line has essentially finished drawing (0.35s delay +
-       1.3s duration) before fading in - starting it earlier meant the text
-       was fading in over a still-incomplete curve */
-    transition: opacity 0.5s ease 1.55s;
-  }
-  .cv-contact.visible .cv-arrow-text { opacity: 1; }
 
   section h2 {
     font-family: var(--display);

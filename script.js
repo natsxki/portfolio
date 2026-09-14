@@ -699,145 +699,6 @@ window.addEventListener('keydown', (e) => {
 ============================================================ */
 const pageNav = document.querySelector('.page-nav');
 const pageNavLinks = document.querySelectorAll('.page-nav a[data-idx]');
-const cvContact = document.querySelector('.cv-contact');
-const cvArrowSvg = document.querySelector('.cv-arrow');
-const cvArrowPath = document.querySelector('.cv-arrow-path');
-const cvArrowTextPath = document.querySelector('.cv-arrow-text-path');
-const cvArrowText = document.querySelector('.cv-arrow-text');
-let cvArrowLength = 0;
-
-// size the svg's viewBox to real pixel dimensions (1 unit = 1px) instead of
-// a 0-100 "percentage" viewBox stretched non-uniformly to fill the section -
-// that stretch, combined with vector-effect:non-scaling-stroke, made
-// Chromium glitch the dash-draw animation into broken-looking segments
-const cvSection = document.getElementById('cv');
-const cvCard = cvSection ? cvSection.querySelector('.card') : null;
-
-function layoutCvArrow() {
-  if (!cvArrowSvg || !cvArrowPath) return;
-  const w = window.innerWidth;
-  const h = window.innerHeight;
-  cvArrowSvg.setAttribute('viewBox', `0 0 ${w} ${h}`);
-
-  // the card's width is responsive (min(90vw, 880px)), so below ~977px
-  // wide it's ~90vw regardless - leaving almost no gap between its right
-  // edge and the screen edge. Starting the arrow there squeezes it into a
-  // cramped near-vertical squiggle. So the start point itself migrates:
-  // beside the card's right edge when there's real room for it, sliding
-  // down to just below the card's bottom-right when there isn't - t is
-  // driven by the actual measured gap, not a viewport-width guess.
-  let startX = 0.68 * w;
-  let startY = 0.30 * h;
-  let c1x = startX + 0.10 * w;
-  let c1y = startY + 0.02 * h;
-  if (cvSection && cvCard) {
-    const sectionRect = cvSection.getBoundingClientRect();
-    const cardRect = cvCard.getBoundingClientRect();
-    const cardLeft = cardRect.left - sectionRect.left;
-    const cardTop = cardRect.top - sectionRect.top;
-
-    const gapRight = w - cardRect.right; // actual room to the card's right, in real px
-    const GAP_NARROW = 80;  // ~no room -> start fully below the card
-    const GAP_WIDE = 260;   // comfortable room -> start fully beside the card
-    const t = Math.min(1, Math.max(0, (gapRight - GAP_NARROW) / (GAP_WIDE - GAP_NARROW)));
-
-    const besideX = cardLeft + cardRect.width + 0.025 * w;
-    const besideY = cardTop + cardRect.height * 0.4;
-    // not below the card: the end point sits near the very top of the
-    // screen, so starting from below the card forced the curve to rise
-    // back up *through* the card's own footprint to get there. Starting
-    // from just above the card's top-right corner instead keeps the
-    // whole line in the empty space above the card and needs far less
-    // vertical travel to reach the icons from there.
-    const aboveX = cardLeft + cardRect.width * 0.85;
-    const aboveY = cardTop - 10;
-
-    startX = aboveX + (besideX - aboveX) * t;
-    startY = aboveY + (besideY - aboveY) * t;
-    // beside the card, the curve immediately sweeps rightward; above the
-    // card, it's already heading the right way, so the pull just
-    // continues that rise instead of redirecting
-    const c1xBeside = besideX + 0.10 * w;
-    const c1yBeside = besideY + 0.02 * h;
-    const c1xAbove = aboveX + 0.08 * w;
-    const c1yAbove = aboveY - 0.05 * h;
-    c1x = c1xAbove + (c1xBeside - c1xAbove) * t;
-    c1y = c1yAbove + (c1yBeside - c1yAbove) * t;
-  }
-  // sweeps up into a convex curve, ending near the linkedin/email icons
-  // (~94.5% across, ~8% down) rather than the github one - those stay
-  // viewport fractions since the icons are position:fixed, not part of
-  // the card
-  const c2x = 0.90 * w, c2y = 0.18 * h;
-  const endX = 0.945 * w, endY = 0.08 * h;
-  const d = `M ${startX} ${startY} C ${c1x} ${c1y}, ${c2x} ${c2y}, ${endX} ${endY}`;
-  cvArrowPath.setAttribute('d', d);
-  cvArrowLength = cvArrowPath.getTotalLength();
-  // the caption text follows this second, unrendered path - a copy of the
-  // arrow shifted 14px up - instead of the visible one, so it reads as
-  // floating just above the line rather than sitting on top of it
-  if (cvArrowTextPath) {
-    const lift = 14;
-    // trimmed to the first ~85% of the curve (via De Casteljau subdivision,
-    // so the shortened curve still matches the original's shape exactly
-    // rather than just aiming at a nearby point) - a modest safety margin
-    // so the path itself never runs all the way into the icon
-    const trim = 0.85;
-    const p0 = { x: startX, y: startY - lift };
-    const p1 = { x: c1x, y: c1y - lift };
-    const p2 = { x: c2x, y: c2y - lift };
-    const p3 = { x: endX, y: endY - lift };
-    const lerp = (a, b, s) => ({ x: a.x + (b.x - a.x) * s, y: a.y + (b.y - a.y) * s });
-    const a = lerp(p0, p1, trim);
-    const b = lerp(p1, p2, trim);
-    const c = lerp(p2, p3, trim);
-    const d2 = lerp(a, b, trim);
-    const e = lerp(b, c, trim);
-    const f = lerp(d2, e, trim);
-    const dText = `M ${p0.x} ${p0.y} C ${a.x} ${a.y}, ${d2.x} ${d2.y}, ${f.x} ${f.y}`;
-    cvArrowTextPath.setAttribute('d', dText);
-
-    // the real guarantee against hiding behind the icon: measure the
-    // caption's actual on-screen box against the mail icon's and shrink the
-    // font until they clear. Arc length isn't a reliable stand-in for this -
-    // the curve moves mostly *vertically* near its end, so trimming arc
-    // length off the tail barely pulls the text's rightmost pixel back at
-    // all. Checking real getBoundingClientRect overlap sidesteps that
-    // entirely, and re-measuring after each shrink handles the curve's
-    // uneven speed without needing to model it.
-    const mailIcon = document.querySelector('.social-item .icon-btn');
-    if (cvArrowText && mailIcon) {
-      cvArrowText.style.fontSize = '';
-      cvArrowText.style.opacity = '';
-      const naturalSize = parseFloat(getComputedStyle(cvArrowText).fontSize);
-      const minSize = naturalSize * 0.8; // stay legible - don't shrink past this
-      const safetyGap = 4;
-      let size = naturalSize;
-      for (let i = 0; i < 6; i++) {
-        const textRect = cvArrowText.getBoundingClientRect();
-        const mailRect = mailIcon.getBoundingClientRect();
-        const overlap = textRect.right - (mailRect.left - safetyGap);
-        if (overlap <= 0 || size <= minSize) break;
-        const ratio = Math.max(0.85, 1 - (overlap / textRect.width) * 0.7);
-        size = Math.max(minSize, size * ratio);
-        cvArrowText.style.fontSize = `${size}px`;
-      }
-      // some window sizes are too cramped to fit the caption at all, even
-      // at the smallest legible size - hide it rather than let it run
-      // behind the icon; the line itself still points there without it
-      const finalRect = cvArrowText.getBoundingClientRect();
-      const mailRect = mailIcon.getBoundingClientRect();
-      if (finalRect.right > mailRect.left - safetyGap) {
-        cvArrowText.style.opacity = '0';
-      }
-    }
-  }
-  const isVisible = cvContact && cvContact.classList.contains('visible');
-  cvArrowPath.style.strokeDasharray = cvArrowLength;
-  cvArrowPath.style.strokeDashoffset = isVisible ? 0 : cvArrowLength;
-}
-layoutCvArrow();
-window.addEventListener('resize', layoutCvArrow);
 
 function updatePageNav() {
   const idx = Math.round(currentScrollIndex());
@@ -846,12 +707,6 @@ function updatePageNav() {
   pageNavLinks.forEach((a) => {
     a.classList.toggle('active', Number(a.dataset.idx) === idx);
   });
-  // cv page (idx 5): draw the "reach out" arrow toward the social icons
-  if (cvContact) {
-    const onCvPage = idx === 5;
-    cvContact.classList.toggle('visible', onCvPage);
-    if (cvArrowPath) cvArrowPath.style.strokeDashoffset = onCvPage ? 0 : cvArrowLength;
-  }
 }
 window.addEventListener('scroll', updatePageNav, { passive: true });
 updatePageNav();
@@ -1025,8 +880,8 @@ const translations = {
 
     'cv.h2': "CV",
     'cv.intro': "Tout ce qui précède, condensé en une seule page.",
-    'cv.download': "Mon CV ↓",
-    'cv.arrowText': "N'hésitez pas à me contacter !",
+    'cv.view': "Voir mon CV ↗",
+    'cv.updated': "Mis à jour en septembre 2026",
 
     'creative.h2': "Autres projets créatifs",
     'creative.intro': "En dehors du côté pro, j'adore tout ce qui laisse parler ma créativité ! Voici quelques projets personnels. (Cliquer pour les voir en plein écran)",
@@ -1197,8 +1052,8 @@ const translations = {
 
     'cv.h2': "履歴書",
     'cv.intro': "これまでの内容を1ページに凝縮しました。",
-    'cv.download': "履歴書 ↓",
-    'cv.arrowText': "お気軽にご連絡ください！",
+    'cv.view': "履歴書を見る ↗",
+    'cv.updated': "2026年9月更新",
 
     'creative.h2': "その他の作品",
     'creative.intro': "仕事以外でも、何かを創作すること全般が大好きです！個人的なプロジェクトをいくつか紹介します :) クリックすると全画面で見られます。",
@@ -1368,8 +1223,8 @@ const translations = {
 
     'cv.h2': "Lebenslauf",
     'cv.intro': "Alles oben Genannte, zusammengefasst auf einer Seite.",
-    'cv.download': "Lebenslauf herunterladen ↓",
-    'cv.arrowText': "Schreib mir gerne!",
+    'cv.view': "Lebenslauf ansehen ↗",
+    'cv.updated': "Aktualisiert im September 2026",
 
     'creative.h2': "Weitere Projekte",
     'creative.intro': "Neben der beruflichen Seite liebe ich alles, wobei ich kreativ werden kann! Hier sind ein paar persönliche Projekte :) Klick drauf, um sie im Vollbild zu sehen!",
