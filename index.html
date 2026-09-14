@@ -180,7 +180,7 @@
           <p data-i18n="portfolio.p1.intro2">So I built Recette, a social photo-editing app with one core bet: treat the edit as a copyable recipe, not a hidden byproduct. You find a look you love in the feed, and reuse it on your own shot. The product exists to shrink the gap between "I wish mine looked like that" and actually getting there.</p>
           <figure class="project-video">
             <div class="project-video-frame">
-              <video class="project-video-el" src="media/tech-projects/recette-demo-0.mov" poster="media/tech-projects/recette-demo-0-poster.jpg" controls playsinline preload="metadata" aria-label="Recette demo: browsing looks in the feed, then remixing a recipe onto a new photo"></video>
+              <video class="project-video-el" src="media/tech-projects/recette-demo-0.mov" poster="media/tech-projects/recette-demo-0-poster.jpg" controls playsinline preload="metadata" aria-label="Recette demo: browsing looks in the feed, then remixing a recipe onto a new photo" data-i18n="portfolio.p1.video.alt" data-i18n-attr="aria-label"></video>
               <button type="button" class="project-video-expand" aria-label="Expand video" data-i18n="portfolio.expandVideo" data-i18n-attr="aria-label">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3H5a2 2 0 0 0-2 2v4h2V5h4V3zm10 0h-4v2h4v4h2V5a2 2 0 0 0-2-2zM5 15H3v4a2 2 0 0 0 2 2h4v-2H5v-4zm14 4h-4v2h4a2 2 0 0 0 2-2v-4h-2v4z"/></svg>
               </button>
@@ -212,7 +212,7 @@
           <p data-i18n="portfolio.p2.intro2">So we built an interactive map that turns scattered public reviews into a readable signal. We scraped Google reviews, ran RoBERTa sentiment analysis to turn free text into something trackable, and plotted it on a Leaflet map so an event and its aftermath show up as a pattern over time. I owned the UI/UX part.</p>
           <figure class="project-video">
             <div class="project-video-frame">
-              <video class="project-video-el" src="media/tech-projects/CRAFT-Video.mov" poster="media/tech-projects/CRAFT-Video-poster.jpg" controls playsinline preload="metadata" aria-label="CRAFT interactive map demo video"></video>
+              <video class="project-video-el" src="media/tech-projects/CRAFT-Video.mov" poster="media/tech-projects/CRAFT-Video-poster.jpg" controls playsinline preload="metadata" aria-label="CRAFT interactive map demo video" data-i18n="portfolio.p2.video.alt" data-i18n-attr="aria-label"></video>
               <button type="button" class="project-video-expand" aria-label="Expand video" data-i18n="portfolio.expandVideo" data-i18n-attr="aria-label">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3H5a2 2 0 0 0-2 2v4h2V5h4V3zm10 0h-4v2h4v4h2V5a2 2 0 0 0-2-2zM5 15H3v4a2 2 0 0 0 2 2h4v-2H5v-4zm14 4h-4v2h4a2 2 0 0 0 2-2v-4h-2v4z"/></svg>
               </button>
@@ -230,7 +230,7 @@
             <p data-i18n="portfolio.p2.insight">The first version rendered a continuous heatmap, which looked authoritative but wasn't. A heat surface implies interpolation across geography, but the underlying data is actually discrete, unevenly-sampled review points. Dense downtown blocks and sparse residential ones don't carry equal statistical weight. So in the first version, the gradient was encoding the amount of available data as if it were "how strong the sentiment is here." The fix was switching to individual markers, sized and colored so density and intensity would not conflict into one misleading color.</p>
             <div class="project-gallery">
               <figure class="project-gallery-item">
-                <div class="project-gallery-frame"><img src="media/tech-projects/CRAFT-earlyconcept.png" alt="Early concept mockup of the CRAFT sentiment heatmap with a year slider"></div>
+                <div class="project-gallery-frame"><img src="media/tech-projects/CRAFT-earlyconcept.png" alt="Early concept mockup of the CRAFT sentiment heatmap with a year slider" data-i18n="portfolio.p2.img1.alt" data-i18n-attr="alt"></div>
                 <figcaption data-i18n="portfolio.p2.mediaConceptCaption">Early concept design (Heatmap).</figcaption>
               </figure>
             </div>
@@ -238,7 +238,7 @@
             <p data-i18n="portfolio.p2.solution">We scraped Google reviews, ran RoBERTa sentiment analysis on the text itself (not just star ratings), and plotted the result on a Leaflet map with a year slider (so change over time was the thing you actually saw first) and an averaging-period slider. The harder design call was resisting the urge to smooth the data, as mentioned previously. What we chose not to build was multi-city support or a public-facing version. This project was scoped tightly to one research question for one neighborhood, and generalizing it would have meant compromising the year-over-year precision that was the actual point.</p>
             <div class="project-gallery">
               <figure class="project-gallery-item">
-                <div class="project-gallery-frame"><img src="media/tech-projects/CRAFT-New.png" alt="Final CRAFT tool showing review sentiment over time on a map of Quartier Latin, Paris"></div>
+                <div class="project-gallery-frame"><img src="media/tech-projects/CRAFT-New.png" alt="Final CRAFT tool showing review sentiment over time on a map of Quartier Latin, Paris" data-i18n="portfolio.p2.img2.alt" data-i18n-attr="alt"></div>
                 <figcaption data-i18n="portfolio.p2.mediaRealCaption">Latest version.</figcaption>
               </figure>
             </div>
@@ -252,7 +252,7 @@
           <p data-i18n="portfolio.p3.intro2">So we built a VR studio where architects shape prototypes in space, with one core move: swapping controllers for voice. Handing a non-gamer two Quest controllers and expecting fluent 3D manipulation is a big ask; the controls become the barrier. Voice sidesteps it: you describe what you want, and the interface mostly disappears. This way, the system works for a much wider range of people, from technical professionals to amateurs with design ideas. I focused on the interaction design.</p>
           <div class="project-gallery">
             <figure class="project-gallery-item">
-              <div class="project-gallery-frame"><img src="media/tech-projects/VR-Generation.png" alt="VR architecture studio - generation/visualization mode screenshot"></div>
+              <div class="project-gallery-frame"><img src="media/tech-projects/VR-Generation.png" alt="VR architecture studio - generation/visualization mode screenshot" data-i18n="portfolio.p3.img1.alt" data-i18n-attr="alt"></div>
               <figcaption data-i18n="portfolio.p3.media2Caption">Generation Phase: the UI once the system has generated the two prototype options from the speech sent to Gemini.</figcaption>
             </figure>
           </div>
@@ -269,7 +269,7 @@
             <p data-i18n="portfolio.p3.solution">We built a VR studio where the user describes what they want and the Gemini API turns that loose natural language into structured 3D actions, with a keyword summary shown back to the user so they can see what the system understood before committing. That meant designing for ambiguity and intent rather than precise input. Most of the real work was making the system forgiving of how people actually phrase things, which we only found by running 7 design revisions with 9 users. What we chose not to build mattered just as much: multi-user collaboration, and true free-form voice. We routed speech through Gemini but still scoped the intent space rather than accepting arbitrary commands, trading breadth for reliability on the commands that actually mattered.</p>
             <div class="project-gallery">
               <figure class="project-gallery-item">
-                <div class="project-gallery-frame"><img src="media/tech-projects/VR-Design.JPG" alt="VR architecture studio - design mode screenshot"></div>
+                <div class="project-gallery-frame"><img src="media/tech-projects/VR-Design.JPG" alt="VR architecture studio - design mode screenshot" data-i18n="portfolio.p3.img2.alt" data-i18n-attr="alt"></div>
                 <figcaption data-i18n="portfolio.p3.media1Caption">Design Phase: I added a keyword summary made by Gemini to show the user what the system <i>understood</i> from their iterations.</figcaption>
               </figure>
             </div>
@@ -285,7 +285,7 @@
           <p data-i18n="portfolio.p4.intro2">So I built an assistive tracking system that follows the ball and conveys its position through feel instead of sight. AI ball recognition plus pitch detection, translated into something you sense rather than see.</p>
           <div class="project-gallery">
             <figure class="project-gallery-item">
-              <div class="project-gallery-frame project-gallery-frame--no-mat"><img src="media/tech-projects/football-cover.png" alt="Diagram translating the ball's left-right position on the pitch into a haptic band under the user's fingers"></div>
+              <div class="project-gallery-frame project-gallery-frame--no-mat"><img src="media/tech-projects/football-cover.png" alt="Diagram translating the ball's left-right position on the pitch into a haptic band under the user's fingers" data-i18n="portfolio.p4.img1.alt" data-i18n-attr="alt"></div>
               <figcaption data-i18n="portfolio.p4.mediaCoverCaption">Project's main idea</figcaption>
             </figure>
           </div>
@@ -300,7 +300,7 @@
             <p data-i18n="portfolio.p4.insight">My first pass used a heavier, higher-resolution detection model, chasing accuracy first and treating latency as secondary. It fell apart once it had to run on the actual edge/Arduino path. A two-second delay is enough to make the whole system misleading, since the user would be feeling a play that's already over. The click was realizing accuracy only matters if it arrives in time to mean anything. That is why I traded high precision for frame rate and latency, which is what pushed me toward a YOLOv9 model with a low resolution input.</p>
             <div class="project-gallery">
               <figure class="project-gallery-item">
-                <div class="project-gallery-frame"><img src="media/tech-projects/Football-detection.png" alt="Simulated camera view testing ball detection confidence for one candidate placement"></div>
+                <div class="project-gallery-frame"><img src="media/tech-projects/Football-detection.png" alt="Simulated camera view testing ball detection confidence for one candidate placement" data-i18n="portfolio.p4.img2.alt" data-i18n-attr="alt"></div>
                 <figcaption data-i18n="portfolio.p4.mediaDetectionCaption">Ball detection.</figcaption>
               </figure>
             </div>
@@ -308,19 +308,19 @@
             <p data-i18n="portfolio.p4.solution">I made latency the hard constraint and accepted a tolerable error in exchange: 180 ms inference and roughly 6 meters of localization error, converted into a haptic band the user feels under their fingers on a 12 cm sensory board. That ±6 m error is precise enough to convey "ball's on the left wing, near the box" (since the physical system is rather small). Same logic for the hardware: I tested 60 camera placements to find the actual coverage/accuracy sweet spot, rather than guessing at one "obviously good" angle. What I chose not to build: a full player-tracking system. That would have added latency and complexity for information a blind spectator can already get partly from crowd noise and commentary.</p>
             <div class="project-gallery">
               <figure class="project-gallery-item">
-                <div class="project-gallery-frame"><img src="media/tech-projects/football-algorithm.png" alt="Computer vision pipeline: camera image to Python ball/pitch detection to Arduino stepper motor movement"></div>
+                <div class="project-gallery-frame"><img src="media/tech-projects/football-algorithm.png" alt="Computer vision pipeline: camera image to Python ball/pitch detection to Arduino stepper motor movement" data-i18n="portfolio.p4.img3.alt" data-i18n-attr="alt"></div>
                 <figcaption data-i18n="portfolio.p4.mediaAlgorithmCaption">Full Algorithm</figcaption>
               </figure>
             </div>
             <div class="project-gallery">
               <figure class="project-gallery-item">
-                <div class="project-gallery-frame"><img src="media/tech-projects/football-hardware.jpg" alt="Hardware diagram: Arduino, stepper motor, belt and pulley moving the cursor the user touches"></div>
+                <div class="project-gallery-frame"><img src="media/tech-projects/football-hardware.jpg" alt="Hardware diagram: Arduino, stepper motor, belt and pulley moving the cursor the user touches" data-i18n="portfolio.p4.img4.alt" data-i18n-attr="alt"></div>
                 <figcaption data-i18n="portfolio.p4.mediaHardwareCaption">The actual hardware: the part the user touches measures only 12 cm.</figcaption>
               </figure>
             </div>
             <div class="project-gallery">
               <figure class="project-gallery-item">
-                <div class="project-gallery-frame"><img src="media/tech-projects/football-positions.jpg" alt="Localization error across tested azimuth/elevation camera placements, minimal error 0.035m."></div>
+                <div class="project-gallery-frame"><img src="media/tech-projects/football-positions.jpg" alt="Localization error across tested azimuth/elevation camera placements, minimal error 0.035m." data-i18n="portfolio.p4.img5.alt" data-i18n-attr="alt"></div>
                 <figcaption data-i18n="portfolio.p4.mediaPositionsCaption">Localization error across tested azimuth/elevation camera placements - minimal error 0.035 m.</figcaption>
               </figure>
             </div>
@@ -364,22 +364,22 @@
         </div>
         <div class="creative-scroll">
           <a class="creative-item" style="--accent: var(--blush);" href="https://canva.link/3mlnq85rgk06jes" target="_blank" rel="noopener">
-            <div class="creative-item-cover"><img src="media/projects/alpha.png" alt=""></div>
+            <div class="creative-item-cover"><img src="media/projects/alpha.png" alt="Cover page of Plaquette Alpha, a recruitment brochure showcasing campus and student life" data-i18n="creative.alpha.imgAlt" data-i18n-attr="alt"></div>
             <span class="creative-item-title" data-i18n="creative.alpha.title">Plaquette Alpha</span>
             <div class="creative-item-desc"><div class="creative-item-desc-inner" data-i18n="creative.alpha.desc">Designed about one third of a magazine showcasing the school's campus and student life, aimed at candidates from French preparatory classes, printed in approximately 3,000 copies.</div><span class="creative-item-site" data-i18n="creative.viewOnCanva">View on Canva ↗</span></div>
           </a>
           <a class="creative-item" style="--accent: var(--leaf);" href="https://canva.link/nzqslsv1ewdg4ty" target="_blank" rel="noopener">
-            <div class="creative-item-cover"><img src="media/projects/guide.png" alt=""></div>
+            <div class="creative-item-cover"><img src="media/projects/guide.png" alt="Cover of a welcome booklet designed for a Student Union trip to Barcelona" data-i18n="creative.guide.imgAlt" data-i18n-attr="alt"></div>
             <span class="creative-item-title" data-i18n="creative.guide.title">Barcelona Trip Guide</span>
             <div class="creative-item-desc"><div class="creative-item-desc-inner" data-i18n="creative.guide.desc">As part of the Student Union, I helped organize a Barcelona trip for 90 students and designed this booklet to welcome everyone coming along.</div><span class="creative-item-site" data-i18n="creative.viewOnCanva">View on Canva ↗</span></div>
           </a>
           <a class="creative-item" style="--accent: var(--duck);" href="https://canva.link/l68i0hw5vkfxo7f" target="_blank" rel="noopener">
-            <div class="creative-item-cover"><img src="media/projects/poster.JPG" alt="" style="object-position: 50% 30%;"></div>
+            <div class="creative-item-cover"><img src="media/projects/poster.JPG" alt="Event poster designed for a Télécom Paris student club" style="object-position: 50% 30%;" data-i18n="creative.poster.imgAlt" data-i18n-attr="alt"></div>
             <span class="creative-item-title" data-i18n="creative.poster.title">Event Posters</span>
             <div class="creative-item-desc"><div class="creative-item-desc-inner" data-i18n="creative.poster.desc">As part of three clubs at Télécom Paris, I designed various posters promoting events.</div><span class="creative-item-site" data-i18n="creative.viewOnCanva">View on Canva ↗</span></div>
           </a>
           <a class="creative-item" style="--accent: var(--blush);" href="https://canva.link/u13vyk2s6yavfdb" target="_blank" rel="noopener">
-            <div class="creative-item-cover"><img src="media/projects/chick.png" alt=""></div>
+            <div class="creative-item-cover"><img src="media/projects/chick.png" alt="Duck mascot character illustration created for this portfolio website" data-i18n="creative.website.imgAlt" data-i18n-attr="alt"></div>
             <span class="creative-item-title" data-i18n="creative.website.title">This Website</span>
             <div class="creative-item-desc"><div class="creative-item-desc-inner" data-i18n="creative.website.desc">Character design, custom icons, 3D modelling, and animation, built to bring this portfolio to life!</div><span class="creative-item-site" data-i18n="creative.viewOnCanva">View on Canva ↗</span></div>
           </a>
@@ -396,32 +396,32 @@
         </div>
         <div class="creative-scroll">
           <a class="creative-item" style="--accent: var(--leaf);" href="https://www.instagram.com/reel/DSskMchDQC-/?igsh=aGRhZjdhcjljYWZz" target="_blank" rel="noopener">
-            <div class="creative-item-cover"><img src="media/projects/barcelona.jpg" alt=""></div>
+            <div class="creative-item-cover"><img src="media/projects/barcelona.jpg" alt="Thumbnail from a recap video of the Student Union trip to Barcelona" data-i18n="creative.barcelonaRecap.imgAlt" data-i18n-attr="alt"></div>
             <span class="creative-item-title" data-i18n="creative.barcelonaRecap.title">Barcelona Trip Recap</span>
             <div class="creative-item-desc"><div class="creative-item-desc-inner" data-i18n="creative.barcelonaRecap.desc">My recap video capturing our Student Union trip to Barcelona.</div><span class="creative-item-site" data-i18n="creative.viewOnInstagram">View on Instagram ↗</span></div>
           </a>
           <a class="creative-item" style="--accent: var(--blush);" href="https://drive.google.com/file/d/1avTGXx0nLMCwwkUyWAaLT_0J3-FC99c2/view?usp=share_link" target="_blank" rel="noopener">
-            <div class="creative-item-cover"><img src="media/projects/aix.JPG" alt=""></div>
+            <div class="creative-item-cover"><img src="media/projects/aix.JPG" alt="Thumbnail from a travel diary video filmed in the South of France" data-i18n="creative.aix.imgAlt" data-i18n-attr="alt"></div>
             <span class="creative-item-title" data-i18n="creative.aix.title">Summer in the South of France</span>
             <div class="creative-item-desc"><div class="creative-item-desc-inner" data-i18n="creative.aix.desc">A travel diary from a summer in the South of France with friends. Shot with a friend; color grading and edit are mine.</div><span class="creative-item-site" data-i18n="creative.viewOnDrive">View on Drive ↗</span></div>
           </a>
           <a class="creative-item" style="--accent: var(--duck);" href="https://canva.link/fclftnbdwmacvus" target="_blank" rel="noopener">
-            <div class="creative-item-cover"><img src="media/projects/flash.jpg" alt=""></div>
+            <div class="creative-item-cover"><img src="media/projects/flash.jpg" alt="Y2K-inspired flash photography shot around the Plateau de Saclay" data-i18n="creative.flash.imgAlt" data-i18n-attr="alt"></div>
             <span class="creative-item-title" data-i18n="creative.flash.title">Flash Photography</span>
             <div class="creative-item-desc"><div class="creative-item-desc-inner" data-i18n="creative.flash.desc">Shot and edited this Y2K-inspired series with friends, using public spaces around the Plateau de Saclay.</div><span class="creative-item-site" data-i18n="creative.viewOnCanva">View on Canva ↗</span></div>
           </a>
           <a class="creative-item" style="--accent: var(--leaf);" href="https://www.instagram.com/reel/DPOolVuDXDL/?igsh=MW5xZDVudmx5cnlhaA==" target="_blank" rel="noopener">
-            <div class="creative-item-cover"><img src="media/projects/wei.jpg" alt=""></div>
+            <div class="creative-item-cover"><img src="media/projects/wei.jpg" alt="Thumbnail from a recap video of Télécom Paris's first-year welcome weekend" data-i18n="creative.wei.imgAlt" data-i18n-attr="alt"></div>
             <span class="creative-item-title" data-i18n="creative.wei.title">First-year Welcome Weekend</span>
             <div class="creative-item-desc"><div class="creative-item-desc-inner" data-i18n="creative.wei.desc">Footage by my audiovisual club, cut together by me.</div><span class="creative-item-site" data-i18n="creative.viewOnInstagram">View on Instagram ↗</span></div>
           </a>
           <a class="creative-item" style="--accent: var(--duck);" href="https://canva.link/rcdmjo4n6mqgjh1" target="_blank" rel="noopener">
-            <div class="creative-item-cover"><img src="media/projects/film.jpg" alt="" style="object-position: 50% 8%;"></div>
+            <div class="creative-item-cover"><img src="media/projects/film.jpg" alt="Film photograph taken on a trip in Europe" style="object-position: 50% 8%;" data-i18n="creative.film.imgAlt" data-i18n-attr="alt"></div>
             <span class="creative-item-title" data-i18n="creative.film.title">Film Photography</span>
             <div class="creative-item-desc"><div class="creative-item-desc-inner" data-i18n="creative.film.desc">A few photos taken on trips in France and Europe with my film camera, edited with Lightroom.</div><span class="creative-item-site" data-i18n="creative.viewOnCanva">View on Canva ↗</span></div>
           </a>
           <a class="creative-item" style="--accent: var(--blush);" href="https://www.instagram.com/reel/DVyGpF1jYRn/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener">
-            <div class="creative-item-cover"><img src="media/projects/ski.jpg" alt=""></div>
+            <div class="creative-item-cover"><img src="media/projects/ski.jpg" alt="Thumbnail from a recap video of a Student Union ski trip" data-i18n="creative.ski.imgAlt" data-i18n-attr="alt"></div>
             <span class="creative-item-title" data-i18n="creative.ski.title">Ski Trip Recap</span>
             <div class="creative-item-desc"><div class="creative-item-desc-inner" data-i18n="creative.ski.desc">A solo project made for the Student Union, shot and edited start to finish.</div><span class="creative-item-site" data-i18n="creative.viewOnInstagram">View on Instagram ↗</span></div>
           </a>
