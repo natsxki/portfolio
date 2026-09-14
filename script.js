@@ -763,7 +763,7 @@ const translations = {
     'nav.creative': "Autres projets créatifs",
     'nav.nextSection': "section suivante",
 
-    'hero.hello': "ingénierie · design · humain",
+    'hero.hello': "Relier les mondes par l’ingénierie et le design",
     'hero.h1': "Hello, moi c'est Lylia !",
     'hero.scrollHint': "En savoir plus sur moi ↓",
 
@@ -957,7 +957,7 @@ const translations = {
     'nav.creative': "その他の作品",
     'nav.nextSection': "次のセクションへスクロール",
 
-    'hero.hello': "エンジニアリング · デザイン · 人",
+    'hero.hello': "エンジニアリング、デザイン、そのあいだの「翻訳」",
     'hero.h1': "はじめまして、リリアです。",
     'hero.scrollHint': "もっと詳しく↓",
 
@@ -1150,7 +1150,7 @@ const translations = {
     'nav.creative': "Weitere Projekte",
     'nav.nextSection': "zum nächsten Abschnitt scrollen",
 
-    'hero.hello': "Technik · Design · Menschen",
+    'hero.hello': "Ingenieurwesen, Design und das Übersetzen dazwischen",
     'hero.h1': "Hallo, ich bin Lylia!",
     'hero.scrollHint': "Scroll runter, um mehr über mich zu erfahren ↓",
 
