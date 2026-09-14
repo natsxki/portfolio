@@ -889,8 +889,10 @@ updateNextSectionButton();
    the element's content). English is never stored in the dictionary -
    it's just whatever's already sitting in the HTML - so switching back
    to English means restoring the snapshot taken here at load time.
-   French is fully translated; Japanese/German are flag-only stubs
-   until someone writes those dictionaries. */
+   French, Japanese and German are all fully translated. Because English
+   lives in the HTML and the other three live here, the two can drift
+   apart silently: when you edit a string in the HTML, edit its three
+   counterparts below in the same commit. */
 const translations = {
   fr: {
     'social.nav': "contacts",
@@ -907,7 +909,7 @@ const translations = {
 
     'hero.hello': "ingénierie · design · humain",
     'hero.h1': "Hello, moi c'est Lylia !",
-    'hero.scrollHint': "En savoir plus sur moi :) ↓",
+    'hero.scrollHint': "En savoir plus sur moi ↓",
 
     'about.h2': "Enchantée !",
     'about.intro': "J'ai grandi entre la France et le Japon, puis appris l'anglais et l'allemand en chemin : quatre langues, mais surtout quatre façons différentes d'aborder un même problème. Ce changement constant de perspective m'a donné le goût de la traduction au sens large : non pas entre les mots, mais entre les disciplines. Ingénierie, design, stratégie - ce qui me plaît, c'est de faire le lien entre les trois : réunir ce qu'un designer perçoit, ce qu'un ingénieur sait construire et ce que le problème exige, pour faire émerger quelque chose de cohérent et utile.",
@@ -945,7 +947,7 @@ const translations = {
     'how.b3.title': "Trouver le problème là où il se trouve vraiment",
     'how.b3.detail': `
             <small>EY - Conseil en stratégie et technologie</small>
-            Durant mon stage chez EY, j'ai mené 12 entretiens dans 4 pôles de l'entreprise, sur la façon dont les équipes adoptent vraiment l'IA, que j'ai ensuite synthétisés en recommandations pour les managers. Mais au delà du brief, observer la manière dont les équipes travaillent sur le terrain a également été un moyen clef d'étudier ma problématique. Même réflexe sur mes propres projets ; Lorsqu'une doctorante en architecture nous a dit que concevoir des maquettes avec une souris ou des manettes était trop lent pour itérer, nous avons construit, avec deux amis, un outil VR principalement piloté par la voix.
+            Durant mon stage chez EY, j'ai mené 12 entretiens dans 4 pôles de l'entreprise, sur la façon dont les équipes adoptent vraiment l'IA, que j'ai ensuite synthétisés en recommandations pour les managers. Mais au-delà du brief, observer la manière dont les équipes travaillent sur le terrain a également été un moyen clef d'étudier ma problématique. Même réflexe sur mes propres projets : lorsqu'une doctorante en architecture nous a dit que concevoir des maquettes avec une souris ou des manettes était trop lent pour itérer, nous avons construit, avec deux amis, un outil VR principalement piloté par la voix.
           `,
     'how.b4.title': "Les contraintes comme conditions et non des obstacles",
     'how.b4.detail': `
@@ -973,17 +975,17 @@ const translations = {
     'portfolio.p1.problem': "Un bon rendu photo s'admire facilement, mais se révèle généralement difficile à reproduire. La technique disparaît dès que la photo est publiée sur un réseau social.",
     'portfolio.p1.targetUser': "Les passionnés de retouche photo amateur, qui donnent de l'importance à la retouche. (Je garde moi-même souvent en capture d'écran les rendus que j'aime sur les réseaux sociaux, mais j'arrive rarement à les reproduire.)",
     'portfolio.p1.competitors': "VSCO et Lightroom permettent aux utilisateurs de sauvegarder et partager des <i>presets</i>, mais sous forme de fichiers isolés, déconnectés de la photo qui les a inspirés. Impossible de voir un rendu qu'on aime et d'obtenir sa recette exacte en un geste. ",
-    'portfolio.p1.insight': "La plupart des applis photo partagent le résultat, l'image finie. Mais ce qui a réellement de la valeur dans le contexte de la retouche, c'est la transformation de l'image initiale pour obtenir le résultat. L'idée initiale que j'avais pour l'application penchait davantage vers une <i>marketplace</i> de préréglages, où on applique des rendus statiques, comme avec des pack de filtres. Mais un même filtre statique ne s'adapte pas parfaitement à toutes les photos : il faut pouvoir l'adapter à l'image que l'on a choisie.",
-    'portfolio.p1.solution': "J'ai fait de la <i>recette</i> (= l'ensemble des réglages de retouche derrière une résultat final publié) l'objet central de l'appli. Le fil, le profil et l'éditeur devaient rendre les retouches facilement remixables, pas seulement afficher des images finies. Le système de calques verrouillés (inspiré de VSCO) est aussi un choix réfléchi : j'ai choisi de ne pas laisser les utilisateurs déconstruire entièrement la retouche de quelqu'un d'autre jusqu'aux valeurs brutes, pour préserver l'attribution du créateur original. J'ai également décidé de faire tourner les retouches localement sur l'appareil de l'utilisateur avec des shaders Skia plutôt qu'un rendu côté serveur. Une boucle sociale meurt dès qu'elle fait attendre l'utilisateur, donc j'ai cherché à réduire au maximum la latence de l'application. Une dernière caractéristique clef : j'ai conçu une économie de gamification complète, avec des points lors de la publication ou la sauvegarde d'une de nos <i>recettes</i>, avec une boutique pour les dépenser. Là, j'ai cherché à réduire au maximum la dynamique d'économies / d'enrichissement : le but de l'application reste d'encourager les utilisateurs à publier un maximum de <i>belles</i> retouches, ensuite vues sur le fil d'actualité et réutilisées par les autres.",
+    'portfolio.p1.insight': "La plupart des applis photo partagent le résultat, l'image finie. Mais ce qui a réellement de la valeur dans le contexte de la retouche, c'est la transformation de l'image initiale pour obtenir le résultat. L'idée initiale que j'avais pour l'application penchait davantage vers une <i>marketplace</i> de préréglages, où on applique des rendus statiques, comme avec des packs de filtres. Mais un même filtre statique ne s'adapte pas parfaitement à toutes les photos : il faut pouvoir l'adapter à l'image que l'on a choisie.",
+    'portfolio.p1.solution': "J'ai fait de la <i>recette</i> (= l'ensemble des réglages de retouche derrière un résultat final publié) l'objet central de l'appli. Le fil, le profil et l'éditeur devaient rendre les retouches facilement remixables, pas seulement afficher des images finies. Le système de calques verrouillés (inspiré de VSCO) est aussi un choix réfléchi : j'ai choisi de ne pas laisser les utilisateurs déconstruire entièrement la retouche de quelqu'un d'autre jusqu'aux valeurs brutes, pour préserver l'attribution du créateur original. J'ai également décidé de faire tourner les retouches localement sur l'appareil de l'utilisateur avec des shaders Skia plutôt qu'un rendu côté serveur : une boucle sociale meurt dès qu'elle fait attendre l'utilisateur. Un dernier arbitrage : j'avais conçu une économie de gamification complète, avec des points gagnés en publiant ou en voyant sa <i>recette</i> sauvegardée, et une boutique pour les dépenser. J'ai finalement choisi de ne pas la déployer telle quelle. Les premières modélisations montraient qu'elle créerait une dynamique où les premiers arrivés accumulent un avantage que les nouveaux venus ne peuvent plus rattraper, soit l'inverse de ce que doit faire un fil de découverte.",
     'portfolio.p1.feedback': "Toujours en bêta fermée, à petite échelle. La rétention est le chiffre que je surveille le plus, et j'essaie de voir comment la gamification peut l'augmenter. (N'hésitez pas à m'écrire si vous souhaitez également devenir bêta-testeur ;))",
-    'portfolio.p1.impact': "34 bêta-testeurs (début juillet), avec une rétention à J+7 d'environ 21%, une métrique que je cherche à optimiser à plus grand échelle :)",
+    'portfolio.p1.impact': "34 bêta-testeurs (début juillet), avec une rétention à J+7 d'environ 21%, une métrique que je cherche à optimiser à plus grande échelle !",
     'portfolio.p1.videoCaption': "Parcours du fil d'actualité et remix d'une recette sur une nouvelle photo",
 
     'portfolio.p2.title': "Plateforme d'analyse de sentiment - Carte interactive",
     'portfolio.p2.small': "Python, Leaflet, Selenium, RoBERTa - Projet de groupe, avec l'équipe de sciences sociales de l'école",
-    'portfolio.p2.intro1': "L'équipe de sciences sociales de l'école est venue nous voir avec une question ouverte : Comment un événement fait-il évoluer la réputation d'un lieu ? La réputation elle-même est assez difficile à définir et évaluer. Notre première idée était de se baser sur les notes Google Reviews, mais celles-ci existent par milliers, et les utilisateurs ont chacun un barême qui leur est propre. Par exemple, \"Bien\" peut être équivalent à 3 étoiles comme 4, selon l'utilisateur.",
+    'portfolio.p2.intro1': "L'équipe de sciences sociales de l'école est venue nous voir avec une question ouverte : Comment un événement fait-il évoluer la réputation d'un lieu ? La réputation elle-même est assez difficile à définir et évaluer. Notre première idée était de se baser sur les notes Google Reviews, mais celles-ci existent par milliers, et les utilisateurs ont chacun un barème qui leur est propre. Par exemple, \"Bien\" peut être équivalent à 3 étoiles comme 4, selon l'utilisateur.",
     'portfolio.p2.intro2': "Nous avons donc construit une carte interactive qui transforme les <i>commentaires</i> des avis publics en un signal quantitatif, lisible dans le temps et l'espace. Nous avons scrapé des avis Google, fait tourner une analyse de sentiment avec un modèle RoBERTa pour transformer le texte libre en valeurs exploitables, puis affiché le tout sur une carte Leaflet, pour qu'un événement et ses répercussions se lisent comme un motif dans le temps. Je me suis chargée de l'UI/UX.",
-    'portfolio.p2.problem': "L'évolution de la réputation est un phénomène perpetuel et réel, mais difficile à étudier. Les avis existent par milliers sur internet, mais ne permettent pas de quantifier instantanément une évolution sur le long terme.",
+    'portfolio.p2.problem': "L'évolution de la réputation est un phénomène perpétuel et réel, mais difficile à étudier. Les avis existent par milliers sur internet, mais ne permettent pas de quantifier instantanément une évolution sur le long terme.",
     'portfolio.p2.videoCaption': "Navigation dans l'interface.",
     'portfolio.p2.targetUser': "Les chercheurs de l'équipe de sciences sociales de l'école, qui avaient besoin de voir concrètement l'évolution de l'opinion publique dans l'espace et le temps.",
     'portfolio.p2.competitors': "Les tableaux de bord d'avis classiques (la note moyenne Google, les agrégateurs façon TripAdvisor...) n'affichent qu'un score statique, pas son évolution dans le temps ou l'espace. Une alternative manuelle aurait bien sûr été de lire les avis un par un et de noter leur sentiment à la main. Bien trop lent pour repérer un motif parmi des milliers d'avis.",
@@ -1017,13 +1019,13 @@ const translations = {
     'portfolio.p4.mediaPositionsCaption': "Erreur de localisation selon les positions de caméra testées (azimut/élévation) - erreur minimale de 0,035 m.",
     'portfolio.p4.targetUser': "Les spectateurs aveugles et malvoyants assistant à un match en direct, qui ont besoin d'une information de position assez rapide pour suivre une action pendant qu'elle se déroule.",
     'portfolio.p4.competitors': "La plupart des matchs importants sont commentés en direct, mais cela ne permet pas le suivi continu de la position de la balle. La solution de contournement manuelle la plus courante aujourd'hui est un accompagnant voyant assis à côté du spectateur, qui commente discrètement la position du ballon en temps réel.",
-    'portfolio.p4.insight': "Ma première version utilisait un modèle de détection fonctionnant à plus haute résolution, en privilégiant la précision et en traitant la latence comme secondaire. Mais en pratique, un délai de deux secondes suffit à rendre le système trompeur, puisque l'utilisateur ressentirait une action déjà passée. C'est pourquoi j'ai décider de priviligier la fréquence d'images et la latence, ce qui m'a orientée vers un modèle YOLOv9 avec une image en entrée de plus basse résolution.",
+    'portfolio.p4.insight': "Ma première version utilisait un modèle de détection fonctionnant à plus haute résolution, en privilégiant la précision et en traitant la latence comme secondaire. Mais en pratique, un délai de deux secondes suffit à rendre le système trompeur, puisque l'utilisateur ressentirait une action déjà passée. C'est pourquoi j'ai décidé de privilégier la fréquence d'images et la latence, ce qui m'a orientée vers un modèle YOLOv9 avec une image en entrée de plus basse résolution.",
     'portfolio.p4.solution': "J'ai fait de la latence la contrainte principale, en acceptant en échange une marge d'erreur tolérable : 180 ms d'inférence et environ 6 mètres d'erreur de localisation. Cette erreur de +/-6 m est assez précise pour transmettre « le ballon est sur l'aile gauche, près de la surface » (le système physique étant plutôt petit). J'ai également testé 60 emplacements de caméra pour trouver le vrai équilibre couverture/précision, plutôt que de deviner un angle « évidemment bon ». Ce que je n'ai pas construit : un système de suivi de tous les joueurs. Cela aurait ajouté de la latence et de la complexité pour une information qu'un spectateur aveugle perçoit déjà en partie grâce au bruit de la foule et au commentaire.",
-    'portfolio.p4.impact': "Projet classé dans le top 3% national au TIPE, noté 20/20. Penser à tous les profils qui existent autour du sport m'a menée à ce projet etreste ma manière préférée de choisir mes problèmes !",
+    'portfolio.p4.impact': "Projet classé dans le top 3% national au TIPE, noté 20/20. Penser à tous les profils qui existent autour du sport m'a menée à ce projet et reste ma manière préférée de choisir mes problèmes !",
 
     'cv.h2': "CV",
     'cv.intro': "Tout ce qui précède, condensé en une seule page.",
-    'cv.download': "Mon cv ↓",
+    'cv.download': "Mon CV ↓",
     'cv.arrowText': "N'hésitez pas à me contacter !",
 
     'creative.h2': "Autres projets créatifs",
@@ -1031,7 +1033,7 @@ const translations = {
     'creative.thingsIMake': "Du graphisme",
     'creative.thingsIShoot': "De l'image",
     'creative.thingsIDo': "Et d'autres choses...",
-    'creative.thingsIDoText': "Après avoir fait de la danse classique pendant 12 ans, je me suis récemment mise au patinage artistique. J'adore aussi la musique (que ce soit jouer du piano, ou écouter RAYE et a6el), et faire de jolis gâteaux :) ",
+    'creative.thingsIDoText': "Après avoir fait de la danse classique pendant 12 ans, je me suis récemment mise au patinage artistique. J'adore aussi la musique (que ce soit jouer du piano, ou écouter RAYE et a6el), et faire de jolis gâteaux ^3^ ",
 
     'creative.viewOnCanva': "Voir sur Canva ↗",
     'creative.viewOnInstagram': "Voir sur Instagram ↗",
@@ -1042,7 +1044,7 @@ const translations = {
     'creative.guide.title': "Guide de Barcelone",
     'creative.guide.desc': "Dans le cadre de mon rôle au Bureau des Élèves, j'ai aidé à organiser un voyage à Barcelone pour 90 étudiants, et conçu ce livret pour guider tout le monde dans les meilleures conditions.",
     'creative.poster.title': "Affiches d'événements",
-    'creative.poster.desc': "Etant membre de trois associations à Télécom Paris, j'ai conçu diverses affiches pour promouvoir des événements.",
+    'creative.poster.desc': "Étant membre de trois associations à Télécom Paris, j'ai conçu diverses affiches pour promouvoir des événements.",
     'creative.website.title': "Ce site",
     'creative.website.desc': "Design du poussin, icônes personnalisées, modélisation 3D et animation, pour donner vie à ce portfolio !",
 
@@ -1061,12 +1063,12 @@ const translations = {
 
     'footer.text': "Portfolio fait avec amour, three.js et un poussin très dévoué. Merci de m'avoir lue ! ",
 
-    nextSectionTitles: ['A propos', 'Parcours', 'Ma façon de travailler', 'Portfolio', 'CV', 'Autres projets créatifs', null, null],
+    nextSectionTitles: ['À propos', 'Parcours', 'Ma façon de travailler', 'Portfolio', 'CV', 'Autres projets créatifs', null, null],
   },
   ja: {
     'social.nav': "ソーシャルリンク",
     'social.email': "メールを送る",
-    'social.emailName': "メサ(福島)リリア<br><span class=\"email-name-sub\">Lylia Mesa</span>",
+    'social.emailName': "メサ（福島）リリア<br><span class=\"email-name-sub\">Lylia Mesa</span>",
     'nav.pageNav': "ページナビゲーション",
     'nav.home': "ホームに戻る",
     'nav.chooseLanguage': "言語を選択",
@@ -1083,18 +1085,18 @@ const translations = {
 
     'about.h2': "はじめまして。",
     'about.intro': "私はフランスと日本の間で育ち、その中で英語とドイツ語も学びました。4つの言語を話すということ以上に、同じ問題を捉えるにも、4つの異なる視点があることを実感してきました。そうした絶え間ない視点の切り替えを通して、私は「翻訳」というものを、言葉と言葉の間だけでなく、分野と分野の間をつなぐものとして捉えるようになりました。<br><br>エンジニアリング、デザイン、そして戦略。私が面白いと感じるのは、この3つをつなぐことです。デザイナーが見ているもの、エンジニアが形にできるもの、そして目の前の課題が本当に求めているものを結びつけ、異なる視点から一つの意味のある形を生み出していく。そんな仕事に携わりたいと思っています。",
-    'about.status': "現在はフランス-ArianeGroupでのITストラテジー&ソフトウェアエンジニアリングインターン。2027年春〜夏からのインターンシップを探しています。",
+    'about.status': "現在はフランスのArianeGroupで、ITストラテジー・ソフトウェアエンジニアリングのインターンをしています。2027年春から夏にかけてのインターンシップを探しています。",
 
     'timeline.h2': "経歴",
     'timeline.academics': "学歴",
     'timeline.professional': "職歴",
-    'timeline.msc': "工学修士課程 (MEng)、<a href=\"https://www.telecom-paris.fr\" target=\"_blank\" rel=\"noopener\">Télécom Paris</a>(<a href=\"https://www.ip-paris.fr\" target=\"_blank\" rel=\"noopener\">IP Paris</a>)。<br><small>フランスを代表する工学系グランゼコールの一つ(選抜制の入学試験を経て入学)。2026年7月にBachelorを獲得。</small><br><br>専攻:データサイエンス&AI x HCI&3Dグラフィックス",
+    'timeline.msc': "工学修士課程 (MEng)、<a href=\"https://www.telecom-paris.fr\" target=\"_blank\" rel=\"noopener\">Télécom Paris</a>（<a href=\"https://www.ip-paris.fr\" target=\"_blank\" rel=\"noopener\">IP Paris</a>）。<br><small>フランスを代表する工学系グランゼコールの一つ（選抜制の入学試験を経て入学）。2026年7月に学士相当の課程を修了。</small><br><br>専攻：データサイエンス・AI × HCI・3Dグラフィックス",
     'timeline.msc.dates': "2024年〜2028年春",
     'timeline.arianegroup.company': "<a href=\"https://www.ariane.group/en/\" target=\"_blank\" rel=\"noopener\">ArianeGroup</a>",
-    'timeline.arianegroup.role': "ITストラテジー&ソフトウェアエンジニアリングインターン",
+    'timeline.arianegroup.role': "ITストラテジー・ソフトウェアエンジニアリング インターン",
     'timeline.arianegroup.dates': "2026年9月〜2027年2月",
     'timeline.dataannotation.company': "<a href=\"https://www.dataannotation.tech\" target=\"_blank\" rel=\"noopener\">DataAnnotation</a>",
-    'timeline.dataannotation.role': "AI評価(パートタイム)",
+    'timeline.dataannotation.role': "AI評価（パートタイム）",
     'timeline.dataannotation.dates': "2026年5月〜現在",
     'timeline.ey.company': "<a href=\"https://www.ey.com/ja_jp\" target=\"_blank\" rel=\"noopener\">EY</a>",
     'timeline.ey.role': "戦略・ITコンサルティングインターン",
@@ -1103,30 +1105,28 @@ const translations = {
     'timeline.joc.role': "会長アシスタント",
     'timeline.joc.dates': "2024年7月〜8月",
 
+    'how.h2': "働き方",
+    'how.b1.title': "リリースするか、しないか",
+    'how.b1.detail': `
+            <small>Comète（Télécom Parisの映像制作クラブ）- 事務局長</small>
+            Télécom Parisの映像制作クラブComèteでは、全学生がアクセスできるサイトに年間5万枚を超える写真を掲載しています。そのため、自分が写っている一枚を探すのは、意外と大変です。そこで顔認識を使って、アーカイブの中から自分の写真を見つけられる機能をプロトタイプしました。技術的には問題なく動きましたが、生体データを扱うことについて調べるうちに、最終的にはリリースしないという判断をしました。これまでで一番難しかったプロダクトの決断は、何かを作ることではなく、あえて世に出さないと決めることでした。
+          `,
+    'how.b2.title': "複数の言語で、リアルタイムに決断する",
+    'how.b2.detail': `
+            <small>パリ2024オリンピック</small>
+            パリ2024オリンピック期間中、日本オリンピック委員会会長付アシスタントとして、刻々と変わるスケジュールやさまざまな利害が入り混じる中で、日本代表団と現地関係者との調整を担いました。すべてがその場での判断を求められ、しかも日本語・フランス語・英語が飛び交う環境です。振り返ってみると、一番の難しさは言語の壁ではありませんでした。本当に難しかったのは、多くの人が見ている中で、状況を素早く理解し、判断し続けることでした。
+          `,
+    'how.b3.title': "問題が本当にある場所を見つける",
+    'how.b3.detail': `
+            <small>EY - 戦略・テクノロジーコンサルティング</small>
+            EYでのインターンでは、チームが実際にどうAIを使っているのかを知るため、社内4部門で12件のインタビューを行い、管理職向けの提言にまとめました。本当に役立つ情報は、ブリーフィング資料からではなく、人々が実際に働く様子を見たり、直接話を聞いたりする中から見えてきました。この感覚は、自分自身のプロジェクトにも通じています。建築専門の博士課程の学生から「コントローラーでの設計は、試行錯誤するには遅すぎる」と聞き、友人2人とともに、主に音声で操作するVRツールを開発しました。推測だけで問題を決めつけるのではなく、実際にその現場にいる人と話すこと。その大切さを、ここから学びました。
+          `,
+    'how.b4.title': "制約は仕事の障害ではなく、仕事そのもの",
+    'how.b4.detail': `
+            <small>Télécom Paris学生委員会</small>
+            チームで、90人・予算2万ユーロの旅行について、予算組みと手配を担当しました。予算も日程も動かせない一方で、やりたいことはどんどん増えていく。だからこそ、何を優先するのかを見極めることが、本当の仕事でした。制約はプロジェクトの厄介な部分ではありません。むしろ、何を選び、何を諦めるのかという、本当の意味での決断を迫ってくれるものだと思っています。
+          `,
 
-'how.h2': "働き方",
-'how.b1.title': "リリースするか、しないか",
-'how.b1.detail': `
-        <small>Comète(Télécom Parisの映像制作クラブ)- 事務局長</small>
-        Télécom Parisの映像制作クラブComèteでは、全学生がアクセスできるサイトに年間5万枚を超える写真を掲載しています。そのため、自分が写っている一枚を探すのは、意外と大変です。そこで顔認識を使って、アーカイブの中から自分の写真を見つけられる機能をプロトタイプしました。技術的には問題なく動きましたが、生体データを扱うことについて調べるうちに、最終的にはリリースしないという判断をしました。これまでで一番難しかったプロダクトの決断は、何かを作ることではなく、あえて世に出さないと決めることでした。
-      `,
-'how.b2.title': "複数の言語で、リアルタイムに決断する",
-'how.b2.detail': `
-        <small>パリ2024オリンピック</small>
-        パリ2024オリンピック期間中、日本オリンピック委員会会長付アシスタントとして、刻々と変わるスケジュールやさまざまな利害が入り混じる中で、日本代表団と現地関係者との調整を担いました。すべてがその場での判断を求められ、しかも日本語・フランス語・英語が飛び交う環境です。振り返ってみると、一番の難しさは言語の壁ではありませんでした。本当に難しかったのは、多くの人が見ている中で、状況を素早く理解し、判断し続けることでした。
-      `,
-'how.b3.title': "問題が本当にある場所を見つける",
-'how.b3.detail': `
-        <small>EY - 戦略・テクノロジーコンサルティング</small>
-        EYでのインターンでは、チームが実際にどうAIを使っているのかを知るため、社内4部門で12件のインタビューを行い、経営層向けの提言にまとめました。本当に役立つ情報は、ブリーフィング資料からではなく、人々が実際に働く様子を見たり、直接話を聞いたりする中から見えてきました。この感覚は、自分自身のプロジェクトにも通じています。建築専門の博士課程の学生から「コントローラーでの設計は、試行錯誤するには遅すぎる」と聞き、友人2人とともに、主に音声で操作するVRツールを開発しました。推測だけで問題を決めつけるのではなく、実際にその現場にいる人と話すこと。その大切さを、ここから学びました。
-      `,
-'how.b4.title': "制約は仕事の障害ではなく、仕事そのもの",
-'how.b4.detail': `
-        <small>Télécom Paris学生委員会</small>
-        チームで、90人・予算2万ユーロの旅行について、予算組みと手配を担当しました。予算も日程も動かせない一方で、やりたいことはどんどん増えていく。だからこそ、何を優先するのかを見極めることが、本当の仕事でした。制約はプロジェクトの厄介な部分ではありません。むしろ、何を選び、何を諦めるのかという、本当の意味での決断を迫ってくれるものだと思っています。
-      `,
-
-        
     'portfolio.h2': "ポートフォリオ",
     'portfolio.readMore': "思考 ↓",
     'portfolio.lightboxClose': "閉じる",
@@ -1140,72 +1140,72 @@ const translations = {
     'portfolio.labelFeedback': "現在までの反応",
     'portfolio.labelImpact': "成果",
 
-'portfolio.p1.title': "Recette - ソーシャル写真編集アプリ",
-'portfolio.p1.small': "React Native, Expo, Skia Shaders - 個人開発、クローズドベータ中",
-'portfolio.p1.intro1': "趣味で写真を編集していると、いつも同じ壁にぶつかります。好きな仕上がりを見つけても、なかなか同じようには再現できない。「どうやって作ったのか」が、アプリの中か、それを作った本人の頭の中にしかないからです。",
-'portfolio.p1.intro2': "それがRecetteを作ったきっかけでした。写真編集のソーシャルアプリで、発想はシンプル。編集を「レシピ」として保存し、誰でもコピーできるようにすること。フィードで気に入った仕上がりを見つけたら、そのまま自分の写真に適用できる。「こんな風にしたい」と思った瞬間に、それを自分の写真で試せるプロダクトです。",
-'portfolio.p1.problem': "素敵な写真の仕上がりは、見て憧れるのは簡単でも、自分で再現するのは難しい。その編集のノウハウは、写真がSNSに投稿された瞬間に見えなくなってしまいます。",
-'portfolio.p1.targetUser': "写真が好きで、編集すること自体を楽しむ人たち。SNSで気に入った仕上がりをスクショしては、自分で真似してみるものの、なかなか同じようにできずに諦めてしまうような人を想定しています。",
-'portfolio.p1.competitors': "VSCOやLightroomでもプリセットの保存・共有はできますが、あくまで単体のファイルとして扱われ、元の写真とは切り離されています。気に入った仕上がりを見つけて、その編集レシピをワンタップで手に入れることはできません。今ある現実的な方法は、スクショを撮るか、コメント欄でプリセットを聞くことくらいです。",
-'portfolio.p1.insight': "多くの写真編集アプリが共有するのは「結果」、つまり完成した画像です。でも、人に渡せる本当の価値は、結果そのものではなく、そこに至る「変換のプロセス」にあるのではないかと考えました。最初に思いついたのは、静的なルックを適用するプリセットのマーケットプレイスで、フィルターパックに近い発想でした。でも、初期のスケッチを進める中ですぐに限界が見えました。フィルターは固定されていて、実際の写真に合わせて変化しないからです。本当の課題がはっきりしたのは、ある場面を想像したときでした。誰かに「その仕上がり、どうやったの？」と聞かれて、正直に説明しようとすると、手作業では誰にも再現できないような設定の羅列になってしまう。憧れることと、実際に再現できることの間にあるこのギャップこそが、プロダクトの核でした。",
-'portfolio.p1.solution': "<i>レシピ</i>をアプリの中心に据えました。フィード、プロフィール、エディターのどこにいても、完成した画像を見るだけでなく、その編集内容を読み取ってリミックスできる設計にする必要がありました。VSCOのロックレイヤー方式を参考にしたのも、意図的な制約です。他人の編集を生の数値まで完全に分解できないようにし、リミックスの自由度よりも、元のクリエイターへの帰属を優先しました。また、よりシンプルなサーバーサイドレンダリングではなく、Skiaシェーダーによる端末上での処理を選びました。ソーシャルの体験は、ユーザーを待たせた瞬間に壊れてしまうからです。もうひとつ、投稿やセーブに対するポイント付与とストアを含む完全なゲーミフィケーション経済も設計しましたが、そのままではリリースしませんでした。初期のモデリングで、「持てる者がさらに持つ」構造になることが分かったからです。早期ユーザーほど有利になり、新しいユーザーが入り込みにくくなる。それは、発見のためのフィードが目指すべき姿とは正反対でした。",
-'portfolio.p1.feedback': "まだクローズドベータの段階なので、今いちばん確かな手がかりは、大規模な調査よりも実際の利用データです。特に注目しているのは継続率で、そこを改善するために今まさにゲーミフィケーションを使った実験を進めています。もしここまで読んで、ベータテスターに興味を持っていただけたら、ぜひご連絡ください！",
-'portfolio.p1.impact': "ベータユーザー34人 (7月上旬時点)、初週継続率は約21%。まずはここを伸ばすことが目標です。",
-'portfolio.p1.videoCaption': "フィードで好みのルックを見つけ、新しい写真にレシピをリミックスする様子",
+    'portfolio.p1.title': "Recette - ソーシャル写真編集アプリ",
+    'portfolio.p1.small': "React Native, Expo, Skia Shaders - 個人開発、クローズドベータ中",
+    'portfolio.p1.intro1': "趣味で写真を編集していると、いつも同じ壁にぶつかります。好きな仕上がりを見つけても、なかなか同じようには再現できない。「どうやって作ったのか」が、アプリの中か、それを作った本人の頭の中にしかないからです。",
+    'portfolio.p1.intro2': "それがRecetteを作ったきっかけでした。写真編集のソーシャルアプリで、発想はシンプル。編集を「レシピ」として保存し、誰でもコピーできるようにすること。フィードで気に入った仕上がりを見つけたら、そのまま自分の写真に適用できる。「こんな風にしたい」と思った瞬間に、それを自分の写真で試せるプロダクトです。",
+    'portfolio.p1.problem': "素敵な写真の仕上がりは、見て憧れるのは簡単でも、自分で再現するのは難しい。その編集のノウハウは、写真がSNSに投稿された瞬間に見えなくなってしまいます。",
+    'portfolio.p1.targetUser': "写真が好きで、編集すること自体を楽しむ人たち。SNSで気に入った仕上がりをスクショしては、自分で真似してみるものの、なかなか同じようにできずに諦めてしまうような人を想定しています。",
+    'portfolio.p1.competitors': "VSCOやLightroomでもプリセットの保存・共有はできますが、あくまで単体のファイルとして扱われ、元の写真とは切り離されています。気に入った仕上がりを見つけて、その編集レシピをワンタップで手に入れることはできません。今ある現実的な方法は、スクショを撮るか、コメント欄でプリセットを聞くことくらいです。",
+    'portfolio.p1.insight': "多くの写真編集アプリが共有するのは「結果」、つまり完成した画像です。でも、人に渡せる本当の価値は、結果そのものではなく、そこに至る「変換のプロセス」にあるのではないかと考えました。最初に思いついたのは、静的なルックを適用するプリセットのマーケットプレイスで、フィルターパックに近い発想でした。でも、初期のスケッチを進める中ですぐに限界が見えました。フィルターは固定されていて、実際の写真に合わせて変化しないからです。本当の課題がはっきりしたのは、ある場面を想像したときでした。誰かに「その仕上がり、どうやったの？」と聞かれて、正直に説明しようとすると、手作業では誰にも再現できないような設定の羅列になってしまう。憧れることと、実際に再現できることの間にあるこのギャップこそが、プロダクトの核でした。",
+    'portfolio.p1.solution': "<i>レシピ</i>をアプリの中心に据えました。フィード、プロフィール、エディターのどこにいても、完成した画像を見るだけでなく、その編集内容を読み取ってリミックスできる設計にする必要がありました。VSCOのロックレイヤー方式を参考にしたのも、意図的な制約です。他人の編集を生の数値まで完全に分解できないようにし、リミックスの自由度よりも、元のクリエイターへの帰属を優先しました。また、よりシンプルなサーバーサイドレンダリングではなく、Skiaシェーダーによる端末上での処理を選びました。ソーシャルの体験は、ユーザーを待たせた瞬間に壊れてしまうからです。もうひとつ、投稿やセーブに対するポイント付与とストアを含む完全なゲーミフィケーション経済も設計しましたが、そのままではリリースしませんでした。初期のモデリングで、「持てる者がさらに持つ」構造になることが分かったからです。早期ユーザーほど有利になり、新しいユーザーが入り込みにくくなる。それは、発見のためのフィードが目指すべき姿とは正反対でした。",
+    'portfolio.p1.feedback': "まだクローズドベータの段階なので、今いちばん確かな手がかりは、大規模な調査よりも実際の利用データです。特に注目しているのは継続率で、そこを改善するために今まさにゲーミフィケーションを使った実験を進めています。もしここまで読んで、ベータテスターに興味を持っていただけたら、ぜひご連絡ください！",
+    'portfolio.p1.impact': "ベータユーザー34人（7月上旬時点）、初週継続率は約21%。まずはここを伸ばすことが目標です。",
+    'portfolio.p1.videoCaption': "フィードで好みのルックを見つけ、新しい写真にレシピをリミックスする様子",
 
-'portfolio.p2.title': "レビュー感情分析プラットフォーム - インタラクティブマップ",
-'portfolio.p2.small': "Python, Leaflet, Selenium, RoBERTa - グループプロジェクト、学校の社会科学チームとの共同研究",
-'portfolio.p2.intro1': "学校の社会科学チームから、「ある出来事によって、場所の評判は時間とともにどう変わるのか」というオープンな研究課題を持ちかけられました。扱うのが難しいテーマです。評判は曖昧で、何千件もの口コミの中に散らばり、しかも時間とともに変化していく。彼らに必要だったのは、評判を言葉で説明することではなく、目に見える形にすることでした。",
-'portfolio.p2.intro2': "そこで、ばらばらに存在する公開口コミを、読み取れるシグナルに変えるインタラクティブマップを作りました。Googleレビューをスクレイピングし、RoBERTaで感情分析を行うことで、フリーテキストを扱いやすいデータに変換。それをLeafletの地図上に重ねることで、ある出来事とその余波が、時間の経過とともにパターンとして浮かび上がるようにしました。私はUI/UXを担当しました。",
-'portfolio.p2.problem': "評判が変化していること自体は分かっていても、それを研究するのは簡単ではありません。何千もの個別の意見に散らばり、時間とともに変化していくため、レビューを一件ずつ読んでいるだけでは全体のパターンが見えてこないからです。",
-'portfolio.p2.videoCaption': "アプリの作動",
-'portfolio.p2.targetUser': "学校の社会科学チームの研究者たち。世論の時系列的なパターンを把握する必要がありました。",
-'portfolio.p2.competitors': "既存のレビューダッシュボード (Google自体の平均評価やTripAdvisorのような集計サービス)は、基本的に静的なスコアを示すだけで、時間や地域による変化までは見えません。手作業であれば、レビューを一件ずつ読み、感情を手動で集計する方法もあります。正確ではありますが、何千件ものレビューからパターンを見つけるには時間がかかりすぎます。",
-'portfolio.p2.insight': "最初のバージョンでは連続ヒートマップを使っていて、見た目にはそれらしく見えました。でも、実はデータを正しく表現できていませんでした。ヒートサーフェスは地理空間上の補間を前提としますが、実際のデータは離散的で、サンプル密度も場所によって大きく偏っています。レビューが密集した中心部のブロックと、まばらな住宅地では、統計的な意味がまったく違います。結果として最初のバージョンでは、データの「量」が感情の「強さ」であるかのように見えてしまっていました。そこで、個別マーカーに切り替えました。密度と感情の強さがひとつの色に混ざらないよう、それぞれをサイズと色で分けて表現しました。",
-'portfolio.p2.solution': "Googleレビューをスクレイピングし、星評価だけでなくテキスト本文にもRoBERTaで感情分析をかけました。その結果を、年スライダー (時間変化がまず目に入るように)と平均期間スライダーを備えたLeafletマップ上に表示しています。設計上いちばん難しかったのは、前述の通り、データを滑らかに見せたいという誘惑に抗うことでした。あえて作らなかったものは、複数都市への対応と一般公開版です。このプロジェクトは、ひとつの地区とひとつの研究課題に意図的に絞っています。汎用化してしまえば、このプロジェクトの核だった年単位での精度が失われると考えました。",
-'portfolio.p2.mediaConceptCaption': "オリジナルコンセプト",
-'portfolio.p2.mediaRealCaption': "ファイナル",
+    'portfolio.p2.title': "レビュー感情分析プラットフォーム - インタラクティブマップ",
+    'portfolio.p2.small': "Python, Leaflet, Selenium, RoBERTa - グループプロジェクト、学校の社会科学チームとの共同研究",
+    'portfolio.p2.intro1': "学校の社会科学チームから、「ある出来事によって、場所の評判は時間とともにどう変わるのか」というオープンな研究課題を持ちかけられました。扱うのが難しいテーマです。評判は曖昧で、何千件もの口コミの中に散らばり、しかも時間とともに変化していく。彼らに必要だったのは、評判を言葉で説明することではなく、目に見える形にすることでした。",
+    'portfolio.p2.intro2': "そこで、ばらばらに存在する公開口コミを、読み取れるシグナルに変えるインタラクティブマップを作りました。Googleレビューをスクレイピングし、RoBERTaで感情分析を行うことで、フリーテキストを扱いやすいデータに変換。それをLeafletの地図上に重ねることで、ある出来事とその余波が、時間の経過とともにパターンとして浮かび上がるようにしました。私はUI/UXを担当しました。",
+    'portfolio.p2.problem': "評判が変化していること自体は分かっていても、それを研究するのは簡単ではありません。何千もの個別の意見に散らばり、時間とともに変化していくため、レビューを一件ずつ読んでいるだけでは全体のパターンが見えてこないからです。",
+    'portfolio.p2.videoCaption': "アプリの作動",
+    'portfolio.p2.targetUser': "学校の社会科学チームの研究者たち。世論の時系列的なパターンを把握する必要がありました。",
+    'portfolio.p2.competitors': "既存のレビューダッシュボード（Google自体の平均評価やTripAdvisorのような集計サービス）は、基本的に静的なスコアを示すだけで、時間や地域による変化までは見えません。手作業であれば、レビューを一件ずつ読み、感情を手動で集計する方法もあります。正確ではありますが、何千件ものレビューからパターンを見つけるには時間がかかりすぎます。",
+    'portfolio.p2.insight': "最初のバージョンでは連続ヒートマップを使っていて、見た目にはそれらしく見えました。でも、実はデータを正しく表現できていませんでした。ヒートサーフェスは地理空間上の補間を前提としますが、実際のデータは離散的で、サンプル密度も場所によって大きく偏っています。レビューが密集した中心部のブロックと、まばらな住宅地では、統計的な意味がまったく違います。結果として最初のバージョンでは、データの「量」が感情の「強さ」であるかのように見えてしまっていました。そこで、個別マーカーに切り替えました。密度と感情の強さがひとつの色に混ざらないよう、それぞれをサイズと色で分けて表現しました。",
+    'portfolio.p2.solution': "Googleレビューをスクレイピングし、星評価だけでなくテキスト本文にもRoBERTaで感情分析をかけました。その結果を、年スライダー（時間変化がまず目に入るように）と平均期間スライダーを備えたLeafletマップ上に表示しています。設計上いちばん難しかったのは、前述の通り、データを滑らかに見せたいという誘惑に抗うことでした。あえて作らなかったものは、複数都市への対応と一般公開版です。このプロジェクトは、ひとつの地区とひとつの研究課題に意図的に絞っています。汎用化してしまえば、このプロジェクトの核だった年単位での精度が失われると考えました。",
+    'portfolio.p2.mediaConceptCaption': "オリジナルコンセプト",
+    'portfolio.p2.mediaRealCaption': "ファイナル",
 
-'portfolio.p3.title': "音声操作型VR建築スタジオ",
-'portfolio.p3.small': "Unity, Meta Quest, Gemini API - グループプロジェクト",
-'portfolio.p3.intro1': "きっかけは、建築専門の博士課程の学生との会話でした。どんなに色々なアイデアがあっても、3Dの建物デザインを試作しながら形にしていく作業が、いかに時間のかかるものかということでした。",
-'portfolio.p3.intro2': "そこで、建築家が空間の中で直接プロトタイプを形にできるVRスタジオを作りました。いちばん大きな判断は、コントローラーを音声に置き換えたことです。普段ゲームをしない人にQuestのコントローラーを2本渡して、スムーズな3D操作を期待するのは、それだけで大きなハードルになります。操作方法そのものが壁になってしまう。音声なら、その壁を取り除けます。やりたいことを言葉で伝えれば、インターフェースをほとんど意識せずに操作できる。こうして、ツールをユーザーに合わせるのではなく、実際に使う人に合わせてインターフェースを設計しました。私はインタラクションデザインを担当しました。",
-'portfolio.p3.problem': "3Dの建物コンセプトを目に見える3Dの形にするまでにかかる時間を減らし、3Dソフトやゲーム、VRの操作に慣れていない建築家などにも使用してもらえるツ-ルを作るのが目的です。",
-'portfolio.p3.media1Caption': "設計フェーズ：Geminiが生成したキーワード要約を加え、ユーザーの発話をシステムがどう<i>解釈した</i>のかを確認できるようにしました。",
-'portfolio.p3.media2Caption': "生成フェーズ：ユーザーの発話をGeminiに渡し、システムが2つのプロトタイプ案を生成した後のUIです。",
-'portfolio.p3.targetUser': "技術系の専門家 (建築家や、初期段階のコンセプトに取り組む建築学生)と、デザイン志向のアマチュア。ゲーム機や3D操作に慣れている人だけを対象にしたものではありません。",
-'portfolio.p3.competitors': "RhinoやSketchUpのような従来型のツールは精度が高い一方で、かなり正確なデータ入力を求められるため、初期コンセプトを素早く試行錯誤するには向いていません。手作業なら、今でも発泡スチロールや厚紙を使ったマスモデルがあります。Gravity Sketchのような既存のVRデザインツールは、空間内で3D作業をするという点では解決していますが、依然としてハンドコントローラーに頼っています。ゲーマーではない建築家にとっては、取り除きたかった壁がそのまま残ってしまいます。",
-'portfolio.p3.insight': "最初のバージョンでは、壁の種類の選択、寸法の調整、素材の変更といった操作を、典型的なVRアプリにあるようなメニューで処理していました。でも、これはVRという媒体と根本的に相性が悪かった。建築家たちは空間の中でリアルタイムに考え、試行錯誤したいのに、メニューを開くたびにその流れが途切れてしまうからです。そこで気づいたのは、問題は「どのメニュー項目が分かりにくいか」ではなく、「操作すること自体にかかるコスト」にあるということでした。Geminiを介した音声操作によって、メニューの階層を辿る代わりに、変えたいことを自然な言葉で伝えられるようにしました。",
-'portfolio.p3.solution': "ユーザーが欲しいものを言葉で説明すると、Gemini APIがその自然言語を構造化された3Dアクションに変換するVRスタジオを構築しました。システムが何を理解したのかをユーザー自身が確認してから確定できるよう、キーワード要約も画面に表示しています。つまり、正確な入力を求めるのではなく、曖昧さや意図をそのまま扱える設計です。実際の開発では、人が本当に使う自然な言い回しに対してシステムを柔軟にすることに多くの時間を使いました。そこに必要なことは、9人のユーザーと7回のイテレーションを重ねて初めて見えてきました。あえて作らなかったものも同じくらい重要です。複数人での共同作業と、完全に自由な音声入力です。発話はGeminiを通して処理しましたが、意図の範囲はある程度限定し、あらゆるコマンドを受け付ける設計にはしませんでした。対応範囲を広げることよりも、本当に重要なコマンドを確実に動かすことを優先したということです。",
-'portfolio.p3.feedback': "いちばん多くを学べたのは、実際の行動を観察することでした。当たり前だと思っていたコマンドで誰かがつまずく瞬間を見ることは、後から聞くどんなフィードバックよりも多くを教えてくれました。「当たり前」だと思っていたコマンドが、最初から本当に当たり前だったことはほとんどありませんでした。",
+    'portfolio.p3.title': "音声操作型VR建築スタジオ",
+    'portfolio.p3.small': "Unity, Meta Quest, Gemini API - グループプロジェクト",
+    'portfolio.p3.intro1': "きっかけは、建築専門の博士課程の学生との会話でした。どんなに色々なアイデアがあっても、3Dの建物デザインを試作しながら形にしていく作業が、いかに時間のかかるものかということでした。",
+    'portfolio.p3.intro2': "そこで、建築家が空間の中で直接プロトタイプを形にできるVRスタジオを作りました。いちばん大きな判断は、コントローラーを音声に置き換えたことです。普段ゲームをしない人にQuestのコントローラーを2本渡して、スムーズな3D操作を期待するのは、それだけで大きなハードルになります。操作方法そのものが壁になってしまう。音声なら、その壁を取り除けます。やりたいことを言葉で伝えれば、インターフェースをほとんど意識せずに操作できる。こうして、ツールをユーザーに合わせるのではなく、実際に使う人に合わせてインターフェースを設計しました。私はインタラクションデザインを担当しました。",
+    'portfolio.p3.problem': "3Dの建物コンセプトを試しながら形にしていく作業には、時間がかかります。最大のボトルネックは、アイデアをすぐに視覚化できる3Dの形に落とし込むまでの手間です。とりわけ、3Dソフトやゲーム・VRの操作に慣れていない建築家にとっては、大きな障壁になります。",
+    'portfolio.p3.media1Caption': "設計フェーズ：Geminiが生成したキーワード要約を加え、ユーザーの発話をシステムがどう<i>解釈した</i>のかを確認できるようにしました。",
+    'portfolio.p3.media2Caption': "生成フェーズ：ユーザーの発話をGeminiに渡し、システムが2つのプロトタイプ案を生成した後のUIです。",
+    'portfolio.p3.targetUser': "技術系の専門家（建築家や、初期段階のコンセプトに取り組む建築学生）と、デザイン志向のアマチュア。ゲーム機や3D操作に慣れている人だけを対象にしたものではありません。",
+    'portfolio.p3.competitors': "RhinoやSketchUpのような従来型のツールは精度が高い一方で、かなり正確なデータ入力を求められるため、初期コンセプトを素早く試行錯誤するには向いていません。手作業なら、今でも発泡スチロールや厚紙を使ったマスモデルがあります。Gravity Sketchのような既存のVRデザインツールは、空間内で3D作業をするという点では解決していますが、依然としてハンドコントローラーに頼っています。ゲーマーではない建築家にとっては、取り除きたかった壁がそのまま残ってしまいます。",
+    'portfolio.p3.insight': "最初のバージョンでは、壁の種類の選択、寸法の調整、素材の変更といった操作を、典型的なVRアプリにあるようなメニューで処理していました。でも、これはVRという媒体と根本的に相性が悪かった。建築家たちは空間の中でリアルタイムに考え、試行錯誤したいのに、メニューを開くたびにその流れが途切れてしまうからです。そこで気づいたのは、問題は「どのメニュー項目が分かりにくいか」ではなく、「操作すること自体にかかるコスト」にあるということでした。Geminiを介した音声操作によって、メニューの階層を辿る代わりに、変えたいことを自然な言葉で伝えられるようにしました。",
+    'portfolio.p3.solution': "ユーザーが欲しいものを言葉で説明すると、Gemini APIがその自然言語を構造化された3Dアクションに変換するVRスタジオを構築しました。システムが何を理解したのかをユーザー自身が確認してから確定できるよう、キーワード要約も画面に表示しています。つまり、正確な入力を求めるのではなく、曖昧さや意図をそのまま扱える設計です。実際の開発では、人が本当に使う自然な言い回しに対してシステムを柔軟にすることに多くの時間を使いました。そこに必要なことは、9人のユーザーと7回のイテレーションを重ねて初めて見えてきました。あえて作らなかったものも同じくらい重要です。複数人での共同作業と、完全に自由な音声入力です。発話はGeminiを通して処理しましたが、意図の範囲はある程度限定し、あらゆるコマンドを受け付ける設計にはしませんでした。対応範囲を広げることよりも、本当に重要なコマンドを確実に動かすことを優先したということです。",
+    'portfolio.p3.feedback': "いちばん多くを学べたのは、実際の行動を観察することでした。当たり前だと思っていたコマンドで誰かがつまずく瞬間を見ることは、後から聞くどんなフィードバックよりも多くを教えてくれました。「当たり前」だと思っていたコマンドが、最初から本当に当たり前だったことはほとんどありませんでした。",
 
-'portfolio.p4.title': "視覚障がい者のための画像処理とメカトロニクス",
-'portfolio.p4.small': "Python, OpenCV, YOLOv9, Arduino - TIPE全国上位3%、20/20評価",
-'portfolio.p4.intro1': "2024年のTIPE (フランスの理工系グランゼコール入試における研究課題)のテーマはスポーツでした。周りの学生の多くがパフォーマンス分析に取り組む中、私が考えたのは別の問いでした。いま、試合を十分に楽しめていないのは誰だろう？視覚に障がいのある観客は、スタジアムの熱気を聞き取ることはできても、ボールが実際にどこにあるのかを追うことができません。",
-'portfolio.p4.intro2': "そこで、ボールの位置を視覚ではなく触覚で伝えるトラッキングシステムを作りました。AIによるボール認識とフィールド検出を組み合わせ、「見る」情報を「触れる」情報に変換しています。",
-'portfolio.p4.problem': "視覚に障がいのある観客は、スタジアムの音や熱気を感じることはできます。でも、試合を本当に追うために必要なたったひとつの情報-「今、ボールがどこにあるか」-が分かりません。",
-'portfolio.p4.mediaCoverCaption': "プロジェクトの中心となるアイデア",
-'portfolio.p4.mediaAlgorithmCaption': "アルゴリズムの全体像",
-'portfolio.p4.mediaHardwareCaption': "実際のハードウェア。ユーザーが触れる部分はわずか12cmです。",
-'portfolio.p4.mediaDetectionCaption': "ボール検出。",
-'portfolio.p4.mediaPositionsCaption': "検証した方位角・仰角ごとのカメラ配置における位置誤差。最小誤差は0.035m。",
-'portfolio.p4.targetUser': "試合を生で観戦する視覚に障がいのある観客。プレーが起きているその瞬間に追えるだけの速さで、位置情報が届く必要があります。",
-'portfolio.p4.competitors': "音声解説はほとんどのスタジアムにすでにありますが、人間が言葉で伝える解説であって、連続的な位置データではありません。そのため本質的に遅れがあり、ピッチ上のどこにボールがあるかを秒単位で正確に伝えることもできません。現状よくある方法は、隣に座った目の見える付き添いの人が、その場でボールの位置を小声で伝え続けることです。",
-'portfolio.p4.insight': "最初のバージョンでは、より重く高解像度な検出モデルを使い、精度を優先して遅延は後回しにしていました。ところが、実際のエッジ/Arduinoパイプラインで動かした途端に破綻しました。2秒の遅れがあれば、もう終わったプレーを触覚で感じることになる-それだけでシステム全体がかえってユーザーを惑わせてしまいます。ここで、精度は意味のあるタイミングで届いて初めて価値を持つのだと気づきました。そこで高い精度をフレームレートと低遅延のために手放し、低解像度入力のYOLOv9モデルに切り替えました。",
-'portfolio.p4.solution': "遅延を最優先の制約とし、その代わりに許容できる誤差を受け入れました。推論時間180ミリ秒、位置精度は約6メートルです。それを12cmの感覚ボード上で、指に伝わる触覚バンドに変換しています。この±6メートルの誤差は、物理デバイス自体が小さいこともあり、「ボールは左サイド、ペナルティエリア付近」と伝えるには十分でした。ハードウェアについても同じ考え方です。「良さそうな角度」を感覚で決めるのではなく、カバー範囲と精度の最適なバランスを見つけるために60通りのカメラ配置を検証しました。あえて作らなかったものは、全選手のトラッキングです。それを入れれば、視覚に障がいのある観客が歓声や解説からすでにある程度得ている情報のために、遅延と複雑さを増やすことになります。",
-'portfolio.p4.impact': "フランスの理工系学生向け研究コンテストTIPEで全国上位3%に入り、20/20の評価を受けました。スポーツを取り巻くさまざまな立場の人たち-選手、観客、スタッフ-を想像したことが、このプロジェクトの出発点でした。「取り残されているのは誰か？」から考え始めること。それが今も変わらない、私の課題の選び方です。",
+    'portfolio.p4.title': "視覚障がい者のための画像処理とメカトロニクス",
+    'portfolio.p4.small': "Python, OpenCV, YOLOv9, Arduino - TIPE全国上位3%、20/20評価",
+    'portfolio.p4.intro1': "2024年のTIPE（フランスの理工系グランゼコール入試における研究課題）のテーマはスポーツでした。周りの学生の多くがパフォーマンス分析に取り組む中、私が考えたのは別の問いでした。いま、試合を十分に楽しめていないのは誰だろう？視覚に障がいのある観客は、スタジアムの熱気を聞き取ることはできても、ボールが実際にどこにあるのかを追うことができません。",
+    'portfolio.p4.intro2': "そこで、ボールの位置を視覚ではなく触覚で伝えるトラッキングシステムを作りました。AIによるボール認識とフィールド検出を組み合わせ、「見る」情報を「触れる」情報に変換しています。",
+    'portfolio.p4.problem': "視覚に障がいのある観客は、スタジアムの音や熱気を感じることはできます。でも、試合を本当に追うために必要なたったひとつの情報——「今、ボールがどこにあるか」——が分かりません。",
+    'portfolio.p4.mediaCoverCaption': "プロジェクトの中心となるアイデア",
+    'portfolio.p4.mediaAlgorithmCaption': "アルゴリズムの全体像",
+    'portfolio.p4.mediaHardwareCaption': "実際のハードウェア。ユーザーが触れる部分はわずか12cmです。",
+    'portfolio.p4.mediaDetectionCaption': "ボール検出。",
+    'portfolio.p4.mediaPositionsCaption': "検証した方位角・仰角ごとのカメラ配置における位置誤差。最小誤差は0.035m。",
+    'portfolio.p4.targetUser': "試合を生で観戦する視覚に障がいのある観客。プレーが起きているその瞬間に追えるだけの速さで、位置情報が届く必要があります。",
+    'portfolio.p4.competitors': "音声解説はほとんどのスタジアムにすでにありますが、人間が言葉で伝える解説であって、連続的な位置データではありません。そのため本質的に遅れがあり、ピッチ上のどこにボールがあるかを秒単位で正確に伝えることもできません。現状よくある方法は、隣に座った目の見える付き添いの人が、その場でボールの位置を小声で伝え続けることです。",
+    'portfolio.p4.insight': "最初のバージョンでは、より重く高解像度な検出モデルを使い、精度を優先して遅延は後回しにしていました。ところが、実際のエッジ/Arduinoパイプラインで動かした途端に破綻しました。2秒の遅れがあれば、もう終わったプレーを触覚で感じることになります。それだけでシステム全体が、かえってユーザーを惑わせてしまいます。ここで、精度は意味のあるタイミングで届いて初めて価値を持つのだと気づきました。そこで高い精度をフレームレートと低遅延のために手放し、低解像度入力のYOLOv9モデルに切り替えました。",
+    'portfolio.p4.solution': "遅延を最優先の制約とし、その代わりに許容できる誤差を受け入れました。推論時間180ミリ秒、位置精度は約6メートルです。それを12cmの感覚ボード上で、指に伝わる触覚バンドに変換しています。この±6メートルの誤差は、物理デバイス自体が小さいこともあり、「ボールは左サイド、ペナルティエリア付近」と伝えるには十分でした。ハードウェアについても同じ考え方です。「良さそうな角度」を感覚で決めるのではなく、カバー範囲と精度の最適なバランスを見つけるために60通りのカメラ配置を検証しました。あえて作らなかったものは、全選手のトラッキングです。それを入れれば、視覚に障がいのある観客が歓声や解説からすでにある程度得ている情報のために、遅延と複雑さを増やすことになります。",
+    'portfolio.p4.impact': "フランスの理工系学生向け研究コンテストTIPEで全国上位3%に入り、20/20の評価を受けました。スポーツを取り巻くさまざまな立場の人たち——選手、観客、スタッフ——を想像したことが、このプロジェクトの出発点でした。「取り残されているのは誰か？」から考え始めること。それが今も変わらない、私の課題の選び方です。",
 
     'cv.h2': "履歴書",
     'cv.intro': "これまでの内容を1ページに凝縮しました。",
     'cv.download': "履歴書 ↓",
-    'cv.arrowText': "お気軽にご連絡ください!",
+    'cv.arrowText': "お気軽にご連絡ください！",
 
     'creative.h2': "その他の作品",
-    'creative.intro': "仕事以外でも、何かを創作すること全般が大好きです!個人的なプロジェクトをいくつか紹介します:) クリックすると全画面で見られます。",
+    'creative.intro': "仕事以外でも、何かを創作すること全般が大好きです！個人的なプロジェクトをいくつか紹介します :) クリックすると全画面で見られます。",
     'creative.thingsIMake': "つくるもの",
     'creative.thingsIShoot': "撮るもの",
     'creative.thingsIDo': "その他",
-    'creative.thingsIDoText': "12年間クラシックバレエを習っていましたが、最近はフィギュアスケートを始めました。音楽も大好きで、ピアノを弾いたり、RAYEやa6elを聴いたりしています。かわいいケーキを焼くのも好きです :) ",
+    'creative.thingsIDoText': "12年間クラシックバレエを習っていましたが、最近はフィギュアスケートを始めました。音楽も大好きで、ピアノを弾いたり、RAYEやa6elを聴いたりしています。ケーキ作りも私の楽しみです ^3^ ",
 
     'creative.viewOnCanva': "Canvaで見る ↗",
     'creative.viewOnInstagram': "Instagramで見る ↗",
@@ -1218,7 +1218,7 @@ const translations = {
     'creative.poster.title': "イベントポスター",
     'creative.poster.desc': "Télécom Parisの3つの団体に所属していた際、イベント告知用のさまざまなポスターをデザインしました。",
     'creative.website.title': "このサイト",
-    'creative.website.desc': "ひよこのキャラクターデザイン、オリジナルアイコン、3Dモデリング、アニメーションを手がけ、このポートフォリオに命を吹き込みました!",
+    'creative.website.desc': "ひよこのキャラクターデザイン、オリジナルアイコン、3Dモデリング、アニメーションを手がけ、このポートフォリオに命を吹き込みました！",
 
     'creative.barcelonaRecap.title': "バルセロナ旅行の記録",
     'creative.barcelonaRecap.desc': "学生委員会主催のバルセロナ旅行をまとめたダイジェスト動画です。",
@@ -1233,7 +1233,7 @@ const translations = {
     'creative.ski.title': "スキー旅行の記録",
     'creative.ski.desc': "学生委員会向けに制作したソロプロジェクトで、撮影から編集まですべて一人で手がけました。",
 
-    'footer.text': "愛を込めて作ったウェブサイトです。読んでくれてありがとう!",
+    'footer.text': "愛と three.js、そしてとても働き者のひよこで作ったウェブサイトです。読んでいただき、ありがとうございました！",
 
     nextSectionTitles: ['自己紹介', '経歴', '働き方', 'ポートフォリオ', '履歴書', 'その他の作品', null, null],
   },
@@ -1252,16 +1252,16 @@ const translations = {
 
     'hero.hello': "Technik · Design · Menschen",
     'hero.h1': "Hallo, ich bin Lylia!",
-    'hero.scrollHint': "um mehr über mich zu erfahren ↓",
+    'hero.scrollHint': "Scroll runter, um mehr über mich zu erfahren ↓",
 
     'about.h2': "Schön, dich kennenzulernen!",
     'about.intro': "Ich bin zwischen Frankreich und Japan aufgewachsen und habe unterwegs noch Deutsch und Englisch gelernt: vier Sprachen, aber vor allem vier verschiedene Arten, ein und dasselbe Problem zu betrachten. Dieser ständige Perspektivwechsel hat mir eine besondere Freude am „Übersetzen“ gegeben – nicht zwischen Sprachen, sondern zwischen Disziplinen. Ingenieurwesen, Design, Strategie – mich reizt es, diese drei Perspektiven miteinander zu verbinden: zusammenzubringen, was ein Designer sieht, was ein Ingenieur bauen kann und was ein Problem tatsächlich erfordert, um daraus etwas Sinnvolles zu schaffen. Genau dort möchte ich arbeiten.",
-    'about.status': "Offen für Praktikum Möglichkeiten ab März 2027.",
+    'about.status': "Aktuell Praktikantin für IT-Strategie und Softwareentwicklung bei ArianeGroup. Ich suche Praktikumsmöglichkeiten ab Frühjahr oder Sommer 2027.",
 
     'timeline.h2': "Werdegang",
     'timeline.academics': "Ausbildung",
     'timeline.professional': "Berufserfahrung",
-    'timeline.msc': "Masterstudium Ingenieurwissenschaften, <a href=\"https://www.telecom-paris.fr\" target=\"_blank\" rel=\"noopener\">Télécom Paris</a> (<a href=\"https://www.ip-paris.fr\" target=\"_blank\" rel=\"noopener\">IP Paris</a>).<br><small>Eine der renommiertesten französischen Ingenieurhochschulen (Grande École, Zulassung über ein selektives Auswahlverfahren).</small><br><br>Schwerpunkte: Data Science &amp; KI x HCI &amp; 3D-Grafik",
+    'timeline.msc': "Masterstudium Ingenieurwissenschaften, <a href=\"https://www.telecom-paris.fr\" target=\"_blank\" rel=\"noopener\">Télécom Paris</a> (<a href=\"https://www.ip-paris.fr\" target=\"_blank\" rel=\"noopener\">IP Paris</a>).<br><small>Eine der renommiertesten französischen Ingenieurhochschulen (Grande École, Zulassung über ein selektives Auswahlverfahren). Bachelor-Äquivalent im Juli 2026 abgeschlossen.</small><br><br>Schwerpunkte: Data Science &amp; KI x HCI &amp; 3D-Grafik",
     'timeline.msc.dates': "2024 - Frühjahr 2028",
     'timeline.arianegroup.company': "<a href=\"https://www.ariane.group/de/\" target=\"_blank\" rel=\"noopener\">ArianeGroup</a>",
     'timeline.arianegroup.role': "Praktikantin IT-Strategie & Softwareentwicklung",
@@ -1277,10 +1277,10 @@ const translations = {
     'timeline.joc.dates': "Juli - Aug. 2024",
 
     'how.h2': "Meine Arbeitsweise",
-    'how.b1.title': "Launchen oder nicht launchen",
+    'how.b1.title': "Veröffentlichen oder nicht",
     'how.b1.detail': `
-            <small>Comète (Audiovisueller Studierendenclub der Télécom Paris) - Generalsekretärin</small>
-            Unser Audiovisual-Club Comète veröffentlicht jährlich über 50.000 Eventfotos auf einer offenen Website. Sich selbst darin wiederzufinden ist mühsam. Also habe ich eine Gesichtserkennungs-Funktion prototypisiert, mit der man sich in den Archiven wiederfindet. Das Tool funktionierte- aber nachdem ich mich mit den Fragen rund um biometrische Daten auseinandergesetzt hatte, habe ich mich entschieden, es nicht zu veröffentlichen. Die schwierigste Produktentscheidung, die ich bisher getroffen habe, war nicht etwas, das ich gebaut habe; sondern etwas, das ich bewusst zurückgehalten habe.
+            <small>Comète (audiovisueller Studierendenclub der Télécom Paris) - Generalsekretärin</small>
+            Unser audiovisueller Club Comète veröffentlicht jährlich über 50.000 Eventfotos auf einer offenen Website. Sich selbst darin wiederzufinden ist mühsam. Also habe ich eine Gesichtserkennungs-Funktion prototypisiert, mit der man sich in den Archiven wiederfindet. Das Tool funktionierte, aber nachdem ich mich mit den Fragen rund um biometrische Daten auseinandergesetzt hatte, habe ich mich entschieden, es nicht zu veröffentlichen. Die schwierigste Produktentscheidung, die ich bisher getroffen habe, war nicht etwas, das ich gebaut habe, sondern etwas, das ich bewusst zurückgehalten habe.
           `,
     'how.b2.title': "Echte Entscheidungen, live, über mehrere Sprachen hinweg",
     'how.b2.detail': `
@@ -1292,7 +1292,7 @@ const translations = {
             <small>EY - Strategie- &amp; Technologieberatung</small>
             Während meines Praktikums bei EY habe ich 12 Interviews in 4 Unternehmensbereichen geführt, um zu verstehen, wie Teams KI wirklich einsetzen, und daraus Empfehlungen für Führungskräfte abgeleitet. Das Nützlichste kam daraus, zu beobachten, wie Menschen tatsächlich arbeiten. Denselben Instinkt hatte ich bei meinen eigenen Projekten: Eine Architektur-Doktorandin erzählte mir, dass Controller-Steuerung beim Entwerfen zu langsam zum Iterieren sei. Also habe ich mit zwei Freunden ein VR-Tool gebaut, das hauptsächlich per Sprache funktioniert. Was ich dabei gelernt habe: Vor Ort mit den Leuten reden, statt zu raten.
           `,
-    'how.b4.title': "Rahmenbedingungen als eigentliche Aufgabe, nicht als Hindernis",
+    'how.b4.title': "Rahmenbedingungen als die eigentliche Aufgabe, nicht als Hindernis",
     'how.b4.detail': `
             <small>Bureau des Élèves (Studierendenrat) der Télécom Paris</small>
             Mit meinem Team war ich für Budget und Logistik einer 20.000-€-Reise für 90 Personen verantwortlich. Festes Budget, feste Termine - und mehr Wünsche, als das Budget hergab: Die eigentliche Arbeit bestand also darin, zu entscheiden, was am wichtigsten war, und den Rest sauber zu streichen. Rahmenbedingungen sind nicht der lästige Teil eines Projekts; oft sind sie es, die zur eigentlichen Entscheidung zwingen.
@@ -1311,17 +1311,17 @@ const translations = {
     'portfolio.labelFeedback': "Feedback bisher",
     'portfolio.labelImpact': "Wirkung",
 
-'portfolio.p1.title': "Recette - Soziales Netzwerk für Fotobearbeitung",
+    'portfolio.p1.title': "Recette - Soziales Netzwerk für Fotobearbeitung",
     'portfolio.p1.small': "React Native, Expo, Skia Shaders - Soloprojekt, geschlossene Beta",
     'portfolio.p1.intro1': "Ich bearbeite Fotos als Hobby und laufe dabei immer wieder in dasselbe Problem: Man kann einen Look ewig bewundern, ohne je herauszufinden, wie er entstanden ist. Das <i>Wie</i> bleibt in der App eingesperrt, oder im Kopf desjenigen, der ihn gebaut hat.",
-    'portfolio.p1.intro2': "Deshalb habe ich Recette gebaut- ein soziales Netzwerk für Fotobearbeitung, das auf einer einzigen Wette aufbaut: die Bearbeitung als kopierbares <i>Rezept</i> zu behandeln. Man scrollt durch den Feed, entdeckt einen Look, und wendet ihn direkt aufs eigene Foto an. Der Kern des Produkts ist, die Lücke zwischen <i>ich wünschte, meins sähe so aus</i> und dem tatsächlichen Ergebnis zu schließen.",
+    'portfolio.p1.intro2': "Deshalb habe ich Recette gebaut, ein soziales Netzwerk für Fotobearbeitung, das auf einer einzigen Wette aufbaut: die Bearbeitung als kopierbares <i>Rezept</i> zu behandeln. Man scrollt durch den Feed, entdeckt einen Look, und wendet ihn direkt aufs eigene Foto an. Der Kern des Produkts ist, die Lücke zwischen <i>ich wünschte, meins sähe so aus</i> und dem tatsächlichen Ergebnis zu schließen.",
     'portfolio.p1.problem': "Einen guten Foto-Look kann man sofort erkennen; ihn nachzubauen ist eine ganz andere Sache. Die Technik dahinter geht in dem Moment verloren, in dem das Bild auf Social Media landet.",
-    'portfolio.p1.targetUser': "Hobby-Fotobearbeiter:innen, die Bearbeitung bereits als Handwerk verstehen: Sie screenshotten Looks, die ihnen auf Social Media gefallen, geben dann aber auf, wenn sie versuchen, sie nachzubauen.",
+    'portfolio.p1.targetUser': "Hobbyfotograf:innen, die ihre Bilder selbst bearbeiten und das Bearbeiten bereits als Handwerk verstehen: Sie screenshotten Looks, die ihnen auf Social Media gefallen, geben dann aber auf, wenn sie versuchen, sie nachzubauen.",
     'portfolio.p1.competitors': "VSCO und Lightroom erlauben zwar, Presets zu speichern und zu teilen. Aber als lose Dateien, getrennt von dem Foto, das sie inspiriert hat. Man kann nirgends einen Look sehen, den man liebt, und mit einem Tap sein genaues Rezept bekommen. In der Praxis sieht der Workaround heute so aus: Screenshot machen oder in den Kommentaren nach dem Preset fragen.",
     'portfolio.p1.insight': "Die meisten Foto-Apps teilen das Ergebnis: das fertige Bild. Aber das eigentlich Wertvolle, das Übertragbare, ist die Transformation. Mein erster Reflex ging Richtung Preset-Marktplatz: statische Looks zum Anwenden, im Grunde ein Filterpaket. Das scheiterte schon in den ersten Skizzen. Ein Filter ist starr, er passt sich nicht ans jeweilige Foto an. Der Durchbruch kam, als mir die eigentliche Form des Problems klar wurde: Jemand fragt <i>wie hast du diesen Look hinbekommen?</i>, und die ehrliche Antwort ist ein ganzer Absatz voller Einstellungen, den niemand von Hand nachbauen wird. Genau diese Lücke - zwischen einen Look bewundern und ihn tatsächlich reproduzieren können - ist das Produkt.",
-    'portfolio.p1.solution': "Ich habe das <i>Rezept</i> zum zentralen Objekt der App gemacht: Feed, Profil und Editor mussten Bearbeitungen lesbar und remixbar zeigen, nicht bloß fertige Bilder. Die gesperrten Ebenen (inspiriert von VSCO) waren eine bewusste Einschränkung: Nutzer:innen können die Bearbeitung anderer nicht bis auf die Rohwerte auseinandernehmen. Maximale Remixbarkeit wurde zugunsten der Namensnennung geopfert. Und ich habe mich entschieden, Bearbeitungen mit Skia-Shadern direkt auf dem Gerät laufen zu lassen statt über ein einfacheres serverseitiges Rendering, weil eine soziale Schleife stirbt, sobald sie Nutzer:innen warten lässt. Ein Kompromiss, den ich eingegangen bin: Ich habe eine vollständige Gamification-Ökonomie entworfen: Punkte fürs Posten, fürs Gespeichertwerden, und ein Shop, um sie auszugeben. Dann habe ich mich entschieden, sie nicht komplett auszurollen. Frühe Modellierungen zeigten, dass sie eine Dynamik erzeugen würde, in der die Ersten immer reicher werden: Frühe Nutzer:innen bauen einen Vorsprung auf, Neueinsteiger:innen kommen nicht mehr rein - das Gegenteil dessen, was ein Entdeckungs-Feed leisten soll.",
+    'portfolio.p1.solution': "Ich habe das <i>Rezept</i> zum zentralen Objekt der App gemacht: Feed, Profil und Editor mussten Bearbeitungen lesbar und remixbar zeigen, nicht bloß fertige Bilder. Die gesperrten Ebenen (inspiriert von VSCO) waren eine bewusste Einschränkung: Nutzer:innen können die Bearbeitung anderer nicht bis auf die Rohwerte auseinandernehmen. Maximale Remixbarkeit habe ich bewusst zugunsten der Namensnennung aufgegeben. Und ich habe mich entschieden, Bearbeitungen mit Skia-Shadern direkt auf dem Gerät laufen zu lassen statt über ein einfacheres serverseitiges Rendering, weil eine soziale Schleife stirbt, sobald sie Nutzer:innen warten lässt. Ein Kompromiss, den ich eingegangen bin: Ich habe eine vollständige Gamification-Ökonomie entworfen: Punkte fürs Posten, fürs Gespeichertwerden, und ein Shop, um sie auszugeben. Dann habe ich mich entschieden, sie nicht komplett auszurollen. Frühe Modellierungen zeigten, dass sie eine Dynamik erzeugen würde, in der die Ersten immer reicher werden: Frühe Nutzer:innen bauen einen Vorsprung auf, Neueinsteiger:innen kommen nicht mehr rein - das Gegenteil dessen, was ein Entdeckungs-Feed leisten soll.",
     'portfolio.p1.feedback': "Noch in geschlossener Beta. Das klarste Signal kommt bisher aus dem tatsächlichen Nutzungsverhalten, nicht aus einer breiten Umfrage. Retention ist die Zahl, die ich am genauesten beobachte, und Gamification das aktuelle Experiment, um sie zu verbessern. Wer das hier liest und Beta-Tester:in werden möchte: gerne melden!",
-    'portfolio.p1.impact': "34 Beta-Nutzer:innen (Stand Anfang Juli), mit einer Woche-1-Retention von etwa 21 %, eine Kennzahl, an der ich aktiv arbeite :)",
+    'portfolio.p1.impact': "34 Beta-Nutzer:innen (Stand Anfang Juli), mit einer Woche-1-Retention von etwa 21 %, eine Kennzahl, an der ich aktiv arbeite!",
     'portfolio.p1.videoCaption': "Looks im Feed durchstöbern und ein Rezept auf ein neues Foto remixen",
 
     'portfolio.p2.title': "Plattform zur Sentiment-Analyse von Bewertungen - Interaktive Karte",
@@ -1345,8 +1345,8 @@ const translations = {
     'portfolio.p3.media1Caption': "Design-Phase: Ich habe eine von Gemini erstellte Stichwort-Zusammenfassung hinzugefügt, damit Nutzer:innen sehen, was das System aus ihrer Eingabe <i>verstanden</i> hat.",
     'portfolio.p3.media2Caption': "Generierungs-Phase: Die Oberfläche, nachdem das System aus der an Gemini gesendeten Sprache zwei Prototyp-Optionen erzeugt hat.",
     'portfolio.p3.targetUser': "Technische Profis (Architekt:innen, Architekturstudierende in der frühen Konzeptphase) sowie designinteressierte Amateur:innen; nicht zwingend Menschen, die mit spielähnlichen oder 3D-Steuerungen vertraut sind.",
-    'portfolio.p3.competitors': "Klassische Werkzeuge wie Rhino oder SketchUp sind präzise, verlangen aber selbst für frühe Konzeptarbeit recht genaue Eingaben, was schnelles Iterieren bremst. Der manuelle Workaround bleibt ein physisches Massenmodell aus Schaumstoff oder Karton. Bestehende VR-Design-Tools wie Gravity Sketch lösen das Problem im Raum arbeiten, setzen aber weiterhin auf Handcontroller, und führen damit genau die Hürde wieder ein, die wir für nicht-gamende Architekt:innen beseitigen wollten.",
-    'portfolio.p3.insight': "Die erste Version setzte für gängige Aktionen: Wandtyp wählen, Abmessung anpassen, Material austauschen, noch auf Menüs, das übliche VR-App-Muster. Das kämpfte gegen das Medium: Architekt:innen versuchten, in Echtzeit räumlich zu denken und zu iterieren, und jeder Ausflug ins Menü unterbrach diesen Fluss. Uns wurde klar, dass die Interaktionskosten selbst das Problem waren. Sprache, geleitet über Gemini, ließ die Nutzer:innen eine Änderung in normalen Worten beschreiben, statt sich durch eine Hierarchie zu klicken.",
+    'portfolio.p3.competitors': "Klassische Werkzeuge wie Rhino oder SketchUp sind präzise, verlangen aber selbst für frühe Konzeptarbeit recht genaue Eingaben, was schnelles Iterieren bremst. Der manuelle Workaround bleibt ein physisches Massenmodell aus Schaumstoff oder Karton. Bestehende VR-Design-Tools wie Gravity Sketch lösen das Problem, im Raum zu arbeiten, setzen aber weiterhin auf Handcontroller, und führen damit genau die Hürde wieder ein, die wir für nicht-gamende Architekt:innen beseitigen wollten.",
+    'portfolio.p3.insight': "Die erste Version setzte für gängige Aktionen (Wandtyp wählen, Abmessung anpassen, Material austauschen) noch auf Menüs, das übliche VR-App-Muster. Das kämpfte gegen das Medium: Architekt:innen versuchten, in Echtzeit räumlich zu denken und zu iterieren, und jeder Ausflug ins Menü unterbrach diesen Fluss. Uns wurde klar, dass die Interaktionskosten selbst das Problem waren. Sprache, geleitet über Gemini, ließ die Nutzer:innen eine Änderung in normalen Worten beschreiben, statt sich durch eine Hierarchie zu klicken.",
     'portfolio.p3.solution': "Wir haben ein VR-Studio gebaut, in dem die Nutzer:innen beschreiben, was sie wollen, und die Gemini API diese lockere natürliche Sprache in strukturierte 3D-Aktionen übersetzt, mit einer Stichwort-Zusammenfassung, die zeigt, was das System verstanden hat, bevor man bestätigt. Das hieß, für Mehrdeutigkeit und Absicht zu gestalten statt für präzise Eingaben. Der Großteil der eigentlichen Arbeit bestand darin, das System tolerant dafür zu machen, wie Menschen Dinge wirklich formulieren: was wir nur durch 7 Design-Iterationen mit 9 Nutzer:innen herausfanden. Genauso wichtig war, was wir bewusst nicht gebaut haben: Mehrbenutzer-Zusammenarbeit und wirklich freie Spracheingabe. Wir haben Sprache über Gemini geleitet, den Intentionsraum aber trotzdem eingegrenzt, Bandbreite gegen Zuverlässigkeit getauscht, bei den Befehlen, die wirklich zählten.",
     'portfolio.p3.feedback': "Das eindeutigste Feedback war verhaltensbasiert: Zuzusehen, wie jemand an einem Befehl scheitert, den wir für offensichtlich hielten, war aufschlussreicher als alles, was danach gesagt wurde. Der <i>offensichtliche</i> Befehl war es beim ersten Versuch fast nie.",
 
@@ -1354,35 +1354,36 @@ const translations = {
     'portfolio.p4.small': "Python, OpenCV, YOLOv9, Arduino - Top 3 % beim TIPE (landesweiter Wettbewerb), Note 20/20",
     'portfolio.p4.intro1': "2024 stand der TIPE-Wettbewerb unter dem Thema Sport. Statt wie die meisten um mich herum auf Leistungsanalyse zu setzen, habe ich mir eine andere Frage gestellt: Wer kann ein Spiel heute nicht genießen? Sehbehinderte Zuschauer:innen hören die Stimmung im Stadion, verlieren aber den Faden, wo der Ball sich tatsächlich befindet.",
     'portfolio.p4.intro2': "Also habe ich ein System gebaut, das den Ball erkennt und seine Position über das Tastgefühl vermittelt statt über das Sehen: KI-basierte Ballerkennung und Felderkennung, übersetzt in etwas, das man fühlt statt sieht.",
-    'portfolio.p4.problem': "Sehbehinderte Zuschauer:innen bekommen Klang und Atmosphäre eines Stadions mit, aber genau die eine Information, die das Spiel eigentlich erklärt (also wo sich der Ball gerade befindet) geht verloren.",
+    'portfolio.p4.problem': "Sehbehinderte Zuschauer:innen bekommen Klang und Atmosphäre eines Stadions mit, aber genau die eine Information, die das Spiel eigentlich erklärt (also wo sich der Ball gerade befindet), geht verloren.",
     'portfolio.p4.mediaCoverCaption': "Die Kernidee des Projekts",
     'portfolio.p4.mediaAlgorithmCaption': "Vollständiger Algorithmus",
     'portfolio.p4.mediaHardwareCaption': "Die tatsächliche Hardware - der sensorische Teil für die Nutzer:innen misst nur 12 cm.",
     'portfolio.p4.mediaDetectionCaption': "Ballerkennung.",
     'portfolio.p4.mediaPositionsCaption': "Lokalisierungsfehler über die getesteten Azimut-/Elevations-Kamerapositionen - minimaler Fehler 0,035 m.",
     'portfolio.p4.targetUser': "Blinde und sehbehinderte Fußballzuschauer:innen im Stadion, die Positionsinformationen schnell genug brauchen, um eine Spielszene in Echtzeit mitzuverfolgen.",
-    'portfolio.p4.competitors': "Audiokommentar gibt es in den meisten Stadien bereitss, aber das ist ein Mensch, der in Sätzen erzählt, keine kontinuierlichen Positionsdaten. Es gibt eine inhärente Verzögerung, und er kann nicht Sekunde für Sekunde vermitteln, wo genau auf dem Feld sich der Ball befindet. Der übliche Workaround heute ist eine sehende Begleitperson, die daneben sitzt und leise die Ballposition in Echtzeit durchgibt.",
+    'portfolio.p4.competitors': "Audiokommentar gibt es in den meisten Stadien bereits, aber das ist ein Mensch, der in Sätzen erzählt, keine kontinuierlichen Positionsdaten. Es gibt eine inhärente Verzögerung, und er kann nicht Sekunde für Sekunde vermitteln, wo genau auf dem Feld sich der Ball befindet. Der übliche Workaround heute ist eine sehende Begleitperson, die daneben sitzt und leise die Ballposition in Echtzeit durchgibt.",
     'portfolio.p4.insight': "Mein erster Durchlauf nutzte ein schwereres, höher auflösendes Erkennungsmodell. Ich habe zunächst der Genauigkeit hinterhergejagt, Latenz war zweitrangig. Das brach zusammen, sobald es auf dem tatsächlichen Edge-/Arduino-Pfad laufen musste: Zwei Sekunden Verzögerung reichen, um das gesamte System irreführend zu machen, weil man dann eine bereits vergangene Aktion spüren würde. Der Durchbruch war die Erkenntnis, dass Genauigkeit nur zählt, wenn sie rechtzeitig ankommt. Deshalb habe ich hohe Präzision gegen Bildrate und Latenz getauscht, was mich zu einem YOLOv9-Modell mit niedrig aufgelöstem Input geführt hat.",
     'portfolio.p4.solution': "Ich habe Latenz zur wichtigsten Einschränkung gemacht und dafür eine vertretbare Fehlermarge akzeptiert: 180 ms Inferenzzeit und etwa 6 Meter Lokalisierungsfehler, umgewandelt in eine haptische Bande, die man unter den Fingern auf einem 12-cm-Sensorboard spürt. Dieser Fehler von ±6 m reicht aus, um <i>Ball am linken Flügel, nahe dem Strafraum</i> zu vermitteln (da das physische Board ohnehin klein ist). Dieselbe Logik galt für die Hardware: Ich habe 60 Kamerapositionen getestet, um den tatsächlichen Sweet Spot zwischen Abdeckung und Genauigkeit zu finden, statt einen offensichtlich guten Winkel zu erraten. Was ich nicht gebaut habe: ein System zur Verfolgung aller Spieler:innen. Das hätte Latenz und Komplexität für Informationen hinzugefügt, die sich blinde Zuschauer:innen teils schon aus Publikumslärm und Kommentar erschließen können.",
     'portfolio.p4.impact': "Landesweit unter den besten 3 % beim TIPE-Forschungswettbewerb für Ingenieurstudierende in Frankreich platziert, mit 20/20 bewertet. An all die verschiedenen Menschen rund um den Sport zu denken (Spieler:innen, Zuschauer:innen...) hat mich zu diesem Projekt geführt. Von <i>Wer wird ausgeschlossen?</i> auszugehen, ist seitdem meine Art, Probleme auszuwählen.",
+
     'cv.h2': "Lebenslauf",
     'cv.intro': "Alles oben Genannte, zusammengefasst auf einer Seite.",
     'cv.download': "Lebenslauf herunterladen ↓",
-    'cv.arrowText': "Schreibt mir gerne!",
+    'cv.arrowText': "Schreib mir gerne!",
 
     'creative.h2': "Weitere Projekte",
-    'creative.intro': "Neben der beruflichen Seite liebe ich alles, wobei ich kreativ werden kann! Hier sind ein paar persönliche Projekte :) Klickt drauf, um sie im Vollbild zu sehen!",
+    'creative.intro': "Neben der beruflichen Seite liebe ich alles, wobei ich kreativ werden kann! Hier sind ein paar persönliche Projekte :) Klick drauf, um sie im Vollbild zu sehen!",
     'creative.thingsIMake': "Was ich gestalte",
     'creative.thingsIShoot': "Was ich aufnehme",
     'creative.thingsIDo': "Was ich sonst mache",
-    'creative.thingsIDoText': "Nach 12 Jahren klassischem Ballett habe ich vor Kurzem mit Eiskunstlauf angefangen. Außerdem liebe ich Musik - ob Klavier spielen oder RAYE und a6el hören - und schöne Kuchen backen :) ",
+    'creative.thingsIDoText': "Nach 12 Jahren klassischem Ballett habe ich vor Kurzem mit Eiskunstlauf angefangen. Außerdem liebe ich Musik - ob Klavier spielen oder RAYE und a6el hören - und schöne Kuchen backen ^3^ ",
 
     'creative.viewOnCanva': "Auf Canva ansehen ↗",
     'creative.viewOnInstagram': "Auf Instagram ansehen ↗",
     'creative.viewOnDrive': "Auf Drive ansehen ↗",
 
     'creative.alpha.title': "Plaquette Alpha",
-    'creative.alpha.desc': "Ich habe etwa ein Drittel des Magazins gestaltet, das den Campus und das Studierendenleben der Hochschule vorstellt - gedacht für Bewerber*innen aus den Vorbereitungsklassen, gedruckt in etwa 3.000 Exemplaren.",
+    'creative.alpha.desc': "Ich habe etwa ein Drittel des Magazins gestaltet, das den Campus und das Studierendenleben der Hochschule vorstellt - gedacht für Bewerber:innen aus den Vorbereitungsklassen, gedruckt in etwa 3.000 Exemplaren.",
     'creative.guide.title': "Barcelona-Reiseführer",
     'creative.guide.desc': "Im Rahmen meiner Rolle im Studierendenrat habe ich mitgeholfen, eine Reise nach Barcelona für 90 Studierende zu organisieren, und dieses Booklet gestaltet, um alle bestmöglich zu begleiten.",
     'creative.poster.title': "Eventplakate",
@@ -1393,11 +1394,11 @@ const translations = {
     'creative.barcelonaRecap.title': "Rückblick: Barcelona-Reise",
     'creative.barcelonaRecap.desc': "Mein Rückblick-Video zu unserer vom Studierendenrat organisierten Barcelona-Reise.",
     'creative.aix.title': "Sommer im Süden",
-    'creative.aix.desc': "Ein kurzes Reisetagebuch aus dem Süden, mit Freund*innen. Aufnahmen zusammen mit einem Freund gedreht.",
+    'creative.aix.desc': "Ein kurzes Reisetagebuch aus dem Süden, mit Freund:innen. Aufnahmen zusammen mit einem Freund gedreht.",
     'creative.flash.title': "Blitzlicht-Fotografie",
-    'creative.flash.desc': "Y2K-inspirierte Serie, gedreht und bearbeitet mit Freund*innen an öffentlichen Orten rund um das Plateau de Saclay.",
+    'creative.flash.desc': "Y2K-inspirierte Serie, gedreht und bearbeitet mit Freund:innen an öffentlichen Orten rund um das Plateau de Saclay.",
     'creative.wei.title': "Erstsemester-Willkommenswochenende der Télécom Paris",
-    'creative.wei.desc': "Aufnahmen meines Audiovisual-Clubs, die ich anschließend geschnitten habe.",
+    'creative.wei.desc': "Aufnahmen meines audiovisuellen Clubs, die ich anschließend geschnitten habe.",
     'creative.film.title': "Analogfotografie",
     'creative.film.desc': "Ein paar Fotos von Reisen durch Frankreich und Europa mit meiner analogen Kamera, bearbeitet mit Lightroom.",
     'creative.ski.title': "Rückblick: Ski-Wochenende",
@@ -1418,7 +1419,17 @@ const I18N_NODES = Array.from(document.querySelectorAll('[data-i18n]')).map((el)
   original: el.dataset.i18nAttr ? el.getAttribute(el.dataset.i18nAttr) : el.innerHTML,
 }));
 const NEXT_SECTION_TITLE_EN = NEXT_SECTION_TITLE.slice();
-let currentLang = localStorage.getItem('portfolioLang') || 'en';
+
+// language resolution order: ?lang= in the URL wins, then whatever was
+// picked last visit, then English. The URL param exists so a single link
+// can be sent to a German or Japanese recruiter and open in their
+// language - without it, every visitor lands on English and has to find
+// the flag menu first.
+const SUPPORTED_LANGS = ['en', 'fr', 'ja', 'de'];
+const urlLang = new URLSearchParams(window.location.search).get('lang');
+let currentLang = SUPPORTED_LANGS.includes(urlLang)
+  ? urlLang
+  : (localStorage.getItem('portfolioLang') || 'en');
 
 function applyTranslations(lang) {
   document.documentElement.lang = lang;
@@ -1469,7 +1480,7 @@ document.addEventListener('click', (e) => {
   }
 });
 
-// restore whatever language was picked last time
+// restore whatever language was resolved above (URL param, then saved choice)
 if (currentLang !== 'en') {
   const savedOption = document.querySelector(`.lang-option[data-lang="${currentLang}"]`);
   if (savedOption && translations[currentLang]) {
@@ -1477,6 +1488,16 @@ if (currentLang !== 'en') {
     savedOption.classList.add('active');
     langBtnImg.src = savedOption.dataset.flag;
     applyTranslations(currentLang);
+  }
+} else if (urlLang === 'en') {
+  // ?lang=en must override a previously saved non-English choice, and
+  // persist, or the next visit silently flips back to the old language
+  localStorage.setItem('portfolioLang', 'en');
+  const enOption = document.querySelector('.lang-option[data-lang="en"]');
+  if (enOption) {
+    document.querySelectorAll('.lang-option').forEach((o) => o.classList.remove('active'));
+    enOption.classList.add('active');
+    langBtnImg.src = enOption.dataset.flag;
   }
 }
 
