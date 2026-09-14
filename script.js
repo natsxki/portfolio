@@ -750,6 +750,7 @@ updateNextSectionButton();
    counterparts below in the same commit. */
 const translations = {
   fr: {
+    'meta.title': "Lylia Mesa - Ingénierie, Design & Stratégie",
     'social.nav': "contacts",
     'social.email': "m'envoyer un email",
     'nav.pageNav': "navigation",
@@ -921,6 +922,7 @@ const translations = {
     nextSectionTitles: ['À propos', 'Parcours', 'Ma façon de travailler', 'Portfolio', 'CV', 'Autres projets créatifs', null, null],
   },
   ja: {
+    'meta.title': "Lylia Mesa - エンジニアリング、デザイン、戦略",
     'social.nav': "ソーシャルリンク",
     'social.email': "メールを送る",
     'social.emailName': "メサ（福島）リリア<br><span class=\"email-name-sub\">Lylia Mesa</span>",
@@ -1093,6 +1095,7 @@ const translations = {
     nextSectionTitles: ['自己紹介', '経歴', '働き方', 'ポートフォリオ', '履歴書', 'その他の作品', null, null],
   },
   de: {
+    'meta.title': "Lylia Mesa - Technik, Design & Strategie",
     'social.nav': "Soziale Links",
     'social.email': "E-Mail schreiben",
     'nav.pageNav': "Seitennavigation",
@@ -1281,6 +1284,12 @@ const NEXT_SECTION_TITLE_EN = NEXT_SECTION_TITLE.slice();
 // language - without it, every visitor lands on English and has to find
 // the flag menu first.
 const SUPPORTED_LANGS = ['en', 'fr', 'ja', 'de'];
+const CV_FILES = {
+  en: 'cv/Lylia-Mesa-EN.pdf',
+  fr: 'cv/Lylia-Mesa-FR.pdf',
+  ja: 'cv/Lylia-Mesa-JP.pdf',
+  de: 'cv/Lylia-Mesa-DE.pdf',
+};
 const urlLang = new URLSearchParams(window.location.search).get('lang');
 let currentLang = SUPPORTED_LANGS.includes(urlLang)
   ? urlLang
@@ -1305,9 +1314,8 @@ function applyTranslations(lang) {
   });
   currentLang = lang;
   localStorage.setItem('portfolioLang', lang);
-  // cv card height can shift a little between languages; keep the arrow
-  // anchored to its actual edge rather than wherever it was pre-switch
-  layoutCvArrow();
+  const cvButton = document.querySelector('.cv-button');
+  if (cvButton) cvButton.href = CV_FILES[lang] || CV_FILES.en;
 }
 
 const langSwitcher = document.querySelector('.lang-switcher');
@@ -1360,14 +1368,24 @@ if (currentLang !== 'en') {
    BLINKING FAVICON - eyes open most of the time, closed for a
    quick beat, like a real blink rather than an even alternation
 ============================================================ */
-const favicon = document.getElementById('favicon');
+let favicon = document.getElementById('favicon');
 const EYES_OPEN = 'media/opened-duck.png';
 const EYES_CLOSED = 'media/closed-duck.png';
+// mutating .href on the existing <link> is silently ignored by some
+// browsers (Safari in particular never redraws the tab icon from it) -
+// swapping in a fresh <link> node each time is what actually forces a
+// redraw everywhere
+function setFavicon(href) {
+  const next = favicon.cloneNode();
+  next.href = href;
+  favicon.replaceWith(next);
+  favicon = next;
+}
 function scheduleBlink() {
   setTimeout(() => {
-    favicon.href = EYES_CLOSED;
+    setFavicon(EYES_CLOSED);
     setTimeout(() => {
-      favicon.href = EYES_OPEN;
+      setFavicon(EYES_OPEN);
       scheduleBlink();
     }, 180); // blink duration
   }, 1600 + Math.random() * 1800); // time between blinks
